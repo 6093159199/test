@@ -1,0 +1,3006 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibimint Shop ✦ Commission</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        :root {
+            --yellow: #F5C800;
+            --yellow-soft: #FFE066;
+            --yellow-pale: #FFF8CC;
+            --silver-pale: #F4F4FA;
+            --text-main: #6B5B3E;
+            --text-soft: #9B8B72;
+            --text-light: #BBA890;
+            --shadow: rgba(180, 150, 80, 0.13);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(170deg, #FEFCF5 0%, #FDF8EC 50%, #F9F5FF 100%);
+            font-family: 'Mitr', 'Sarabun', sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at 15% 15%, rgba(245, 200, 0, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 85%, rgba(184, 184, 200, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 16px 60px;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 44px 20px 28px;
+        }
+
+        .logo-circle-wrap {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .logo-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFE044, #F5C800, #FFD000);
+            box-shadow: 0 0 18px rgba(245, 200, 0, 0.35);
+        }
+
+        .logo-ring-inner {
+            position: absolute;
+            inset: 4px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .logo-img {
+            position: absolute;
+            inset: 7px;
+            border-radius: 50%;
+            object-fit: cover;
+            width: calc(100% - 14px);
+            height: calc(100% - 14px);
+        }
+
+        .logo-star {
+            position: absolute;
+            font-size: 1.1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo-star.s1 {
+            top: -4px;
+            right: 14px;
+            animation-delay: 0s;
+        }
+
+        .logo-star.s2 {
+            bottom: 8px;
+            left: -2px;
+            animation-delay: 0.8s;
+        }
+
+        .logo-star.s3 {
+            top: 20px;
+            left: -10px;
+            font-size: 0.8rem;
+            animation-delay: 1.4s;
+        }
+
+        .shop-name {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--yellow);
+            line-height: 1.1;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 0 rgba(200, 160, 0, 0.2), 0 4px 18px rgba(245, 200, 0, 0.18);
+            letter-spacing: 1px;
+        }
+
+        .shop-sub {
+            font-size: 0.86rem;
+            color: var(--text-light);
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: linear-gradient(135deg, #B8E8B0, #78CC72);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 7px 18px;
+            border-radius: 20px;
+            box-shadow: 0 3px 12px rgba(100, 190, 95, 0.28);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: white;
+            border-radius: 50%;
+            animation: blink 1.6s ease-in-out infinite;
+        }
+
+        /* CARDS */
+        .section-card {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(12px);
+            border-radius: 22px;
+            padding: 24px 24px;
+            margin-bottom: 16px;
+            border: 1.5px solid rgba(245, 200, 0, 0.18);
+            box-shadow: 0 3px 20px var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.55s ease both;
+        }
+
+        .section-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(180, 150, 80, 0.16);
+        }
+
+        .section-title {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1.5px;
+            background: linear-gradient(to right, rgba(245, 200, 0, 0.45), transparent);
+            border-radius: 2px;
+        }
+
+        /* ABOUT */
+        .about-text {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            line-height: 1.95;
+            font-weight: 300;
+        }
+
+        /* STYLE TAGS */
+        .style-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .style-tag {
+            background: linear-gradient(135deg, #FFFBEC, white);
+            border: 1.5px solid rgba(245, 200, 0, 0.35);
+            border-radius: 20px;
+            padding: 6px 15px;
+            font-size: 0.8rem;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .style-tag:hover {
+            background: var(--yellow);
+            color: white;
+            border-color: var(--yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 200, 0, 0.3);
+        }
+
+        /* PRICE */
+        .price-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .price-card {
+            border-radius: 18px;
+            padding: 22px 14px;
+            text-align: center;
+            transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card:hover {
+            transform: scale(1.03);
+        }
+
+        .price-card.gold {
+            background: linear-gradient(140deg, #FFE44A 0%, #F5C800 60%, #E8A800 100%);
+            box-shadow: 0 6px 20px rgba(245, 200, 0, 0.28);
+        }
+
+        .price-card.silver {
+            background: linear-gradient(140deg, #E8E8F4 0%, #CACADE 60%, #B0B0C8 100%);
+            box-shadow: 0 6px 20px rgba(160, 160, 200, 0.22);
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -20%;
+            width: 55%;
+            height: 55%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .price-type {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 4px;
+        }
+
+        .price-amount {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: white;
+            line-height: 1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-unit {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.78);
+            margin-top: 2px;
+        }
+
+        .bulk-note {
+            background: linear-gradient(135deg, var(--silver-pale), var(--yellow-pale));
+            border: 1.5px solid rgba(184, 184, 200, 0.35);
+            border-radius: 14px;
+            padding: 12px 16px;
+            font-size: 0.83rem;
+            color: var(--text-soft);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        /* DO/DONT */
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .do-box {
+            background: linear-gradient(135deg, #F0FAF0, #E4F5E0);
+            border: 1.5px solid #B8E6B0;
+            border-radius: 16px;
+            padding: 14px;
+        }
+
+        .dont-box {
+            background: linear-gradient(135deg, #FFF2F2, #FFE8E8);
+            border: 1.5px solid #FFBCBC;
+            border-radius: 16px;
+            padding: 14px;
+        }
+
+        .do-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #58A850;
+            margin-bottom: 8px;
+        }
+
+        .dont-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #D86060;
+            margin-bottom: 8px;
+        }
+
+        .do-box li,
+        .dont-box li {
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-left: 12px;
+        }
+
+        /* STEPS */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .step-num {
+            min-width: 32px;
+            height: 32px;
+            background: #F5C800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #7A5C00;
+            box-shadow: 0 3px 10px rgba(245, 200, 0, 0.4);
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 0.86rem;
+            color: var(--text-soft);
+            line-height: 1.75;
+            padding-top: 5px;
+        }
+
+        /* TIMELINE */
+        .timeline-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+        }
+
+        .tl-item {
+            border-radius: 14px;
+            padding: 12px 10px;
+            text-align: center;
+        }
+
+        .tl-item.fast {
+            background: linear-gradient(135deg, #E8F8E6, #D0F0CC);
+            border: 1.5px solid #B0E0AC;
+        }
+
+        .tl-item.mid {
+            background: linear-gradient(135deg, var(--yellow-pale), #FFF0AA);
+            border: 1.5px solid rgba(245, 200, 0, 0.4);
+        }
+
+        .tl-item.slow {
+            background: linear-gradient(135deg, #FFF0E0, #FFE4C0);
+            border: 1.5px solid rgba(230, 160, 40, 0.35);
+        }
+
+        .tl-day {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 3px;
+        }
+
+        .tl-item.fast .tl-day {
+            color: #58A850;
+        }
+
+        .tl-item.mid .tl-day {
+            color: var(--yellow);
+        }
+
+        .tl-item.slow .tl-day {
+            color: #D08030;
+        }
+
+        .tl-label {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* PAYMENT */
+        .payment-chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pay-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--silver-pale), var(--yellow-pale));
+            border: 1.5px solid rgba(184, 184, 200, 0.35);
+            border-radius: 12px;
+            padding: 9px 14px;
+            font-size: 0.83rem;
+            color: var(--text-main);
+        }
+
+        /* CONTACT */
+        .contact-btns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 15px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-fb {
+            background: linear-gradient(135deg, #4267B2, #5B80D8);
+            color: white;
+            box-shadow: 0 4px 16px rgba(66, 103, 178, 0.28);
+        }
+
+        .btn-line {
+            background: linear-gradient(135deg, #00B500, #30D030);
+            color: white;
+            box-shadow: 0 4px 16px rgba(0, 180, 0, 0.25);
+        }
+
+        /* ===== GROUPS BIG HEADER ===== */
+        .groups-header {
+            text-align: center;
+            padding: 36px 20px 28px;
+            position: relative;
+        }
+
+        .groups-header-deco {
+            font-size: 1rem;
+            color: var(--yellow);
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        .groups-header-title {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--yellow);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-shadow:
+                0 2px 0 rgba(200, 160, 0, 0.18),
+                0 6px 24px rgba(245, 200, 0, 0.2);
+            letter-spacing: 2px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .groups-header-sub {
+            font-size: 1.05rem;
+            color: var(--text-soft);
+            font-weight: 400;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .groups-header-deco2 {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* ===== GROUP ITEMS ===== */
+        .group-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .group-item {
+            background: linear-gradient(135deg, #FFFDF5, #FFFBEC);
+            border: 1.5px solid rgba(245, 200, 0, 0.22);
+            border-radius: 16px;
+            padding: 16px 18px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .group-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(245, 200, 0, 0.15);
+        }
+
+        .gi-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .gi-name {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .gi-price {
+            background: linear-gradient(135deg, #FFE44A, #F5C800);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(245, 200, 0, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+            align-self: flex-start;
+        }
+
+        .gi-price span {
+            font-size: 0.7rem;
+            margin-left: 1px;
+        }
+
+        .gi-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .gi-tag {
+            background: rgba(245, 200, 0, 0.1);
+            border: 1px solid rgba(245, 200, 0, 0.3);
+            border-radius: 12px;
+            padding: 3px 10px;
+            font-size: 0.75rem;
+            color: var(--text-soft);
+        }
+
+        .gi-note {
+            font-size: 0.78rem;
+            color: #D08030;
+            margin-bottom: 8px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .gi-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .gi-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(135deg, white, var(--yellow-pale));
+            border: 1.5px solid rgba(245, 200, 0, 0.4);
+            border-radius: 10px;
+            padding: 5px 12px;
+            font-size: 0.76rem;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 400;
+        }
+
+        .gi-link:hover {
+            background: var(--yellow);
+            color: white;
+            border-color: var(--yellow);
+            transform: translateY(-1px);
+        }
+
+        /* See all link */
+        .see-all-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #FFE44A, #F5C800);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(245, 200, 0, 0.3);
+            transition: all 0.25s ease;
+            margin-top: 4px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        }
+
+        .see-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(245, 200, 0, 0.4);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 26px 20px 10px;
+            font-size: 0.76rem;
+            color: var(--text-light);
+        }
+
+        .footer-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--yellow);
+            margin-bottom: 4px;
+            text-shadow: 0 1px 6px rgba(245, 200, 0, 0.2);
+        }
+
+        /* ADMIN PANEL */
+        #admin-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F5C800, #FFB347);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(245, 200, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        #admin-fab:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 6px 25px rgba(245, 200, 0, 0.7);
+        }
+
+        #login-overlay,
+        #admin-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        #login-overlay.show,
+        #admin-overlay.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #login-box {
+            background: white;
+            border-radius: 22px;
+            padding: 40px 32px;
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        #admin-panel {
+            background: white;
+            border-radius: 22px;
+            padding: 32px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .admin-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f0f0f0;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .admin-close:hover {
+            background: #ff4444;
+            color: white;
+        }
+
+        .admin-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Mitr', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--yellow);
+            color: white;
+            border-color: var(--yellow);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .admin-section {
+            background: #f9f9f9;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .admin-section h3 {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-family: 'Mitr', sans-serif;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .admin-input:focus {
+            outline: none;
+            border-color: var(--yellow);
+        }
+
+        .admin-btn-save {
+            background: var(--yellow);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: 'Mitr', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .admin-btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 200, 0, 0.4);
+        }
+
+        .admin-btn-add {
+            background: #e0e0e0;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-family: 'Mitr', sans-serif;
+            cursor: pointer;
+            margin-top: 8px;
+            font-size: 0.85rem;
+        }
+
+        .admin-btn-add:hover {
+            background: #d0d0d0;
+        }
+
+        .admin-btn-del {
+            background: #ffebee;
+            color: #f44336;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-family: 'Mitr', sans-serif;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .admin-btn-del:hover {
+            background: #ffcdd2;
+        }
+
+        .item-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .item-row .admin-input {
+            margin-bottom: 0;
+            flex: 1;
+        }
+
+        .section-type-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .type-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--yellow);
+            background: white;
+            color: var(--yellow);
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Mitr', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .type-btn.active {
+            background: var(--yellow);
+            color: white;
+        }
+
+        .auto-save-badge {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            z-index: 9998;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .auto-save-badge.show {
+            display: flex;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .gs-status {
+            font-size: 0.85rem;
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gs-ok {
+            background: #E8F5E9;
+            color: #4CAF50;
+        }
+
+        .gs-err {
+            background: #FFEBEE;
+            color: #f44336;
+        }
+
+        .gs-loading {
+            background: #E3F2FD;
+            color: #2196F3;
+        }
+
+        .loading-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .export-import-menu {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .export-import-menu button {
+            background: #f0f0f0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: 'Mitr', sans-serif;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .export-import-menu button:hover {
+            background: #e0e0e0;
+        }
+
+        .history-item {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .history-item:hover {
+            border-color: var(--yellow);
+            transform: translateX(5px);
+        }
+
+        .group-header-select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            font-family: 'Mitr', sans-serif;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.25;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .shop-name {
+                font-size: 2.2rem;
+            }
+
+            .logo-circle-wrap {
+                width: 150px;
+                height: 150px;
+            }
+
+            .do-dont-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-btns {
+                grid-template-columns: 1fr;
+            }
+
+            .section-card {
+                padding: 18px 14px;
+            }
+
+            .gi-top {
+                flex-direction: column;
+            }
+
+            .gi-price {
+                align-self: flex-start;
+            }
+
+            #admin-panel {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap" id="main-content">
+        <!-- Content will be dynamically rendered here -->
+    </div>
+
+    <!-- Admin FAB -->
+    <button id="admin-fab" title="Admin Panel"><i class="fas fa-cog"></i></button>
+
+    <!-- Auto Save Badge -->
+    <div id="auto-save-badge" class="auto-save-badge">
+        <i class="fas fa-check-circle"></i> บันทึกเรียบร้อย
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-overlay">
+        <div id="login-box">
+            <h2 style="text-align: center; color: var(--text-main); margin-bottom: 24px;">🔐 เข้าสู่ระบบ</h2>
+            <input type="text" id="login-user" class="admin-input" placeholder="Username">
+            <input type="password" id="login-pass" class="admin-input" placeholder="Password">
+            <div style="display: flex; gap: 10px;">
+                <button onclick="doLogin()" class="admin-btn-save" style="flex: 1;">เข้าสู่ระบบ</button>
+                <button onclick="closeLogin()" class="admin-btn-add" style="flex: 1;">ยกเลิก</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-overlay">
+        <div id="admin-panel">
+            <button class="admin-close" onclick="closeAdmin()"><i class="fas fa-times"></i></button>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="color: var(--text-main);"><i class="fas fa-cog"></i> จัดการร้านค้า</h2>
+                <button onclick="adminLogout()" class="admin-btn-add" style="background: #ffebee; color: #f44336;">
+                    <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
+                </button>
+            </div>
+
+            <div class="export-import-menu">
+                <button onclick="exportData()"><i class="fas fa-download"></i> Export Data</button>
+                <button onclick="document.getElementById('import-file').click()"><i class="fas fa-upload"></i> Import
+                    Data</button>
+                <button onclick="syncWithGoogleSheets()"><i class="fas fa-sync-alt"></i> Sync Sheets</button>
+                <button onclick="loadFromGoogleSheets()"><i class="fas fa-cloud-download-alt"></i> โหลดจาก
+                    Sheets</button>
+                <button onclick="showHistory()"><i class="fas fa-history"></i> History</button>
+            </div>
+            <input type="file" id="import-file" accept=".json" style="display: none;" onchange="importData(event)">
+
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="switchTab('tab-header')">🏠 ส่วนหัว</button>
+                <button class="tab-btn" onclick="switchTab('tab-sections')">📦 ส่วนต่างๆ</button>
+                <button class="tab-btn" onclick="switchTab('tab-groups-headers')">🔰 หัวข้อกลุ่ม</button>
+                <button class="tab-btn" onclick="switchTab('tab-group-sections')">📚 กลุ่มย่อย</button>
+                <button class="tab-btn" onclick="switchTab('tab-all-groups')">🎯 ดูกลุ่มทั้งหมด</button>
+                <button class="tab-btn" onclick="switchTab('tab-contact')">📞 ติดต่อ</button>
+                <button class="tab-btn" onclick="switchTab('tab-footer')">📌 ส่วนท้าย</button>
+                <button class="tab-btn" onclick="switchTab('tab-gs')">☁️ Google Sheets</button>
+            </div>
+
+            <!-- Tab: Header -->
+            <div id="tab-header" class="tab-content active">
+                <div class="admin-section">
+                    <h3><i class="fas fa-image"></i> รูปโลโก้</h3>
+                    <input type="text" id="a-logo-img" class="admin-input" placeholder="URL รูปโลโก้">
+
+                    <h3><i class="fas fa-star"></i> ดาวตกแต่ง (3 ดาว)</h3>
+                    <div class="item-row">
+                        <input type="text" id="a-star1" class="admin-input" placeholder="ดาว 1" value="⭐">
+                        <input type="text" id="a-star2" class="admin-input" placeholder="ดาว 2" value="✨">
+                        <input type="text" id="a-star3" class="admin-input" placeholder="ดาว 3" value="🌟">
+                    </div>
+
+                    <h3><i class="fas fa-store"></i> ข้อมูลร้าน</h3>
+                    <input type="text" id="a-shop-name" class="admin-input" placeholder="ชื่อร้าน">
+                    <input type="text" id="a-shop-sub" class="admin-input" placeholder="คำอธิบายใต้ชื่อ">
+                    <input type="text" id="a-status-text" class="admin-input" placeholder="สถานะ (เช่น เปิดรับคิว)">
+                </div>
+                <button onclick="saveHeader()" class="admin-btn-save">💾 บันทึกส่วนหัว</button>
+            </div>
+
+            <!-- Tab: Sections -->
+            <div id="tab-sections" class="tab-content">
+                <div id="sections-list"></div>
+                <div class="section-type-selector">
+                    <button class="type-btn" onclick="addSection('about')">➕ แบบที่ 1 (เกี่ยวกับร้าน)</button>
+                    <button class="type-btn" onclick="addSection('tags')">➕ แบบที่ 2 (แนวงาน)</button>
+                    <button class="type-btn" onclick="addSection('price')">➕ แบบที่ 3 (ราคา)</button>
+                    <button class="type-btn" onclick="addSection('dodont')">➕ แบบที่ 4 (รับ/ไม่รับ)</button>
+                    <button class="type-btn" onclick="addSection('steps')">➕ แบบที่ 5 (วิธีสั่ง)</button>
+                </div>
+            </div>
+
+            <!-- Tab: Groups Headers -->
+            <div id="tab-groups-headers" class="tab-content">
+                <div id="groups-headers-list"></div>
+                <button class="admin-btn-add" onclick="addGroupsHeader()"><i class="fas fa-plus"></i>
+                    เพิ่มหัวข้อกลุ่มใหม่</button>
+            </div>
+
+            <!-- Tab: Group Sections -->
+            <div id="tab-group-sections" class="tab-content">
+                <div id="group-sections-list"></div>
+                <button class="admin-btn-add" onclick="addGroupSection()"><i class="fas fa-plus"></i>
+                    เพิ่มกลุ่มย่อยใหม่</button>
+            </div>
+
+            <!-- Tab: All Groups -->
+            <div id="tab-all-groups" class="tab-content">
+                <div id="all-groups-list"></div>
+                <button class="admin-btn-add" onclick="addAllGroupsSection()"><i class="fas fa-plus"></i>
+                    เพิ่มปุ่มดูกลุ่มทั้งหมด</button>
+            </div>
+
+            <!-- Tab: Contact -->
+            <div id="tab-contact" class="tab-content">
+                <div class="admin-section">
+                    <h3><i class="fas fa-link"></i> ปุ่มติดต่อ</h3>
+                    <input type="text" id="a-contact-fb-link" class="admin-input" placeholder="ลิงก์ Facebook">
+                    <input type="text" id="a-contact-fb-text" class="admin-input" placeholder="ข้อความ Facebook"
+                        value="Facebook">
+                    <input type="text" id="a-contact-line-link" class="admin-input" placeholder="ลิงก์ Line">
+                    <input type="text" id="a-contact-line-text" class="admin-input" placeholder="ข้อความ Line"
+                        value="Line">
+                    <input type="text" id="a-contact-note" class="admin-input" placeholder="ข้อความท้าย">
+                </div>
+                <button onclick="saveContact()" class="admin-btn-save">💾 บันทึกส่วนติดต่อ</button>
+            </div>
+
+            <!-- Tab: Footer -->
+            <div id="tab-footer" class="tab-content">
+                <div class="admin-section">
+                    <h3><i class="fas fa-copyright"></i> ส่วนท้าย</h3>
+                    <input type="text" id="a-footer-name" class="admin-input" placeholder="ชื่อร้านท้ายสุด">
+                    <input type="text" id="a-footer-text" class="admin-input" placeholder="ข้อความท้าย">
+                </div>
+                <button onclick="saveFooter()" class="admin-btn-save">💾 บันทึกส่วนท้าย</button>
+            </div>
+
+            <!-- Tab: Google Sheets -->
+            <div id="tab-gs" class="tab-content">
+                <div class="admin-section">
+                    <h3><i class="fab fa-google"></i> ตั้งค่า Google Sheets API</h3>
+                    <p style="color: #666; font-size: 0.85rem; margin-bottom: 10px;">
+                        ต้อง Deploy Google Apps Script เป็น Web App ก่อน แล้วนำ URL มาใส่ด้านล่าง
+                    </p>
+                    <input type="text" id="gs-webapp-url" class="admin-input" placeholder="Web App URL (จาก Deploy)">
+                    <input type="text" id="gs-sheet-id" class="admin-input" placeholder="Spreadsheet ID">
+                    <input type="text" id="gs-api-key" class="admin-input" placeholder="API Key (ไม่จำเป็น)">
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button class="admin-btn-save" onclick="saveGsConfig()">บันทึกการตั้งค่า</button>
+                        <button class="admin-btn-add" onclick="testGsConnection()">ทดสอบการเชื่อมต่อ</button>
+                        <button class="admin-btn-add" onclick="loadFromGoogleSheets()">โหลดข้อมูลจาก Sheets</button>
+                    </div>
+                    <span id="gs-status" class="gs-status" style="display: none;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===================== CONFIG =====================
+        const ADMIN_CREDS_KEY = 'bibimint_admin_creds';
+        const DATA_KEY = 'bibimint_data';
+        const GS_CONFIG_KEY = 'bibimint_gs_config';
+        const HISTORY_KEY = 'bibimint_history';
+        let autoSaveTimer = null;
+        let isAdminLoggedIn = false;
+
+        // ===================== DEFAULT DATA =====================
+        function getDefaultData() {
+            return {
+                header: {
+                    logoImg: 'https://img2.pic.in.th/pic/NEXO-SHOP-2-Photoroom.png',
+                    stars: ['⭐', '✨', '🌟'],
+                    shopName: 'Bibimint Shop',
+                    shopSub: 'งานป้าย · ลายน้ำ · กราฟฟิก',
+                    statusText: 'เปิดรับคิวอยู่นะคะ~'
+                },
+                sections: [
+                    {
+                        type: 'about',
+                        title: '🐻 เกี่ยวกับร้าน',
+                        text: 'ยินดีต้อนรับเข้าสู่ Bibimint Shop นะคะ~ ✨<br>รับออกแบบป้าย ลายน้ำ และงานกราฟฟิกหลากหลายแนว มีกลุ่มป้ายให้เลือกเยอะมากเลยค่า ทำตามบรีฟที่ลูกค้าให้แต่ปรับเป็นสไตล์ของร้านนะคะ 💛'
+                    },
+                    {
+                        type: 'tags',
+                        title: '🎨 แนวงานที่รับทำ',
+                        tags: ['📢 แนว Ads / รก', '🐰 สายไหมบันนี่มิ้น', '🌸 แนวเซนเซิฟ', '💥 แนวความโกลาหล', '🃏 แนวไพ่เวทมนตร์', '👑 แนวเฮด', '✨ แนวเรียบน่ารัก']
+                    },
+                    {
+                        type: 'price',
+                        title: '💰 ราคา',
+                        priceCards: [
+                            { type: 'แนว Ads / รก', amount: '89', unit: 'บาท / ป้าย', class: 'gold' },
+                            { type: 'แนวเฮด / เรียบ', amount: '45', unit: 'บาท / ป้าย', class: 'silver' }
+                        ],
+                        bulkNote: '✨ มีราคาเหมาสำหรับ <strong>3, 5, 10 ป้าย</strong> หรือมากกว่านี้ด้วยนะคะ~ ทักถามราคาเหมาได้เลยค่า!'
+                    },
+                    {
+                        type: 'dodont',
+                        title: '📌 รับ / ไม่รับ',
+                        doList: ['ทำตามที่บรีฟ ปรับเป็นสไตล์ร้าน', 'แนวงานที่ร้านเช่ามาอย่างถูกต้อง'],
+                        dontList: ['แนวนอกจากที่ร้านมี', 'บรีฟเหมือนแนวของร้านอื่น']
+                    },
+                    {
+                        type: 'steps',
+                        title: '📋 วิธีสั่ง & เงื่อนไข',
+                        steps: [
+                            'เลือก <strong>บล็อก / ตูน / แนวหัวป้าย</strong> ที่ชอบ หรือบอกให้ร้านเลือกให้ก็ได้นะคะ~',
+                            'กรอก <strong>ฟอร์มสั่งงาน</strong> ที่ร้านเตรียมไว้ให้ค่า',
+                            '<strong>ชำระเงิน</strong> ผ่านธนาคารกสิกร หรือ TrueMoney Wallet (บวกค่าธรรมเนียม 2฿)',
+                            'รอรับงานภายใน <strong>1 – 7 วัน</strong> นะคะ~'
+                        ],
+                        timeline: {
+                            fast: { day: '1', label: 'วัน (เร็วสุด)' },
+                            mid: { day: '3–5', label: 'วัน (ปกติ)' },
+                            slow: { day: '7', label: 'วัน (สูงสุด)' }
+                        },
+                        payments: ['🏦 ธนาคารกสิกร', '💚 TrueMoney Wallet (+2฿)']
+                    }
+                ],
+                groupsHeaders: [
+                    {
+                        deco: '✦ ✦ ✦',
+                        title: 'ตัวอย่างกลุ่ม',
+                        sub: 'ที่เค้ามี สามารถเข้ากับเค้าได้เลยนะคะ~ 💛',
+                        deco2: 'เลือกกลุ่มที่ชอบแล้วทักมาได้เลยนะ 🌟'
+                    }
+                ],
+                groupSections: [
+                    {
+                        headerIndex: 0,
+                        title: '📚 กลุ่มคอร์สสอน',
+                        groups: [
+                            {
+                                name: '🍎🧘🏻‍♀️💧✿ กลุ่มสอนทำสติ๊กเกอร์ message',
+                                price: '39',
+                                tags: ['ทำสติ๊กเกอร์แชทได้ทุกแบบ', 'มีคลิปสอน+เสียงพากย์', 'อัพครบ 5 คลิป', 'มือใหม่ทำได้ ✅', 'มีพิกัด: กลุ่มลายเส้น กลุ่มตูนฟรี'],
+                                note: '⚠️ สงสัยอะไรสามารถสอบถามได้',
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/1lMtkKpfDu-fFHxIl2856HYAkbGIYjmSJ' }]
+                            },
+                            {
+                                name: '🍮 ตัวอย่างกลุ่ม Every Thing',
+                                tags: ['📖 Ep.สอนทำป้าย', '🎁 Ep.ของแถม', '🎨 Ep.สอนเถรม', '✏️ ลายน้ำ Ep.สอนทำ', '🖼️ Ep.สอนเพิ่มเติม', '🔗 สอนเกี่ยวกับบล็อก', '📋 บัตรสสมเด็จ Ep.สอนทำป้าย', '🤝 แอบพี่รวม Ep.สอนทำป้าย', '📑 ป้ายบัญชี Ep.สอนทำป้าย', '🔗 link bio Ep.สอนเพิ่มเดิม', '📘 How To อีกเพียบ!'],
+                                links: [{ text: '🔗 ดูตัวอย่างกลุ่ม Every Thing 🍮', url: 'https://drive.google.com/drive/folders/1K-flM1lX1AqK21yiy1P0uLpSZ0dSWGbv' }]
+                            },
+                            {
+                                name: '🎨 EX. FONT OF DREAMS เปลี่ยนฟอนต์ธรรมดาให้ดูแพง',
+                                price: '299',
+                                tags: ['30 คลิปสอนเทคนิคเน้นๆ', 'งานคุณเต๋า คุณเต้ย คุณวาดฝัน', 'ได้เทคนิคแต่งฟอนต์ทุกสไตล์', 'รับของตกแต่งลิขสิทธิ์เฉพาะกลุ่ม', 'จ่ายครั้งเดียว เข้าเรียนได้ตลอดชีพ'],
+                                note: '🔥 หาร 30 คลิป ตกคลิปละ 9 บาท โคตรคุ้ม!!',
+                                links: [{ text: '🔗 📩 ทักแชทจองสิทธิ์', url: 'https://shorturl.asia/7ZryJ' }]
+                            },
+                            {
+                                name: '᪤ กลุ่มไฟล์แก้ไขแนวต่างชาติ & สอนทำฟอนต์',
+                                tags: ['ไฟล์แก้ไขคล้ายบล็อก', 'ตกแต่ง เปลี่ยนสีตามสไตล์เรา', 'สอนทำฟอนต์ด้วยนะ~'],
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/14BrcJaY4YIyr1zJIOo7JoiGC7Mi51Z4T' }]
+                            },
+                            {
+                                name: '🍪 Cookies Cream กลุ่มสอนแต่งหัวป้ายลายน้ำ',
+                                price: '49',
+                                tags: ['20 แบบ มีแพลนอัพเพิ่ม', 'ของตกแต่ง ฟ้อน ตูน', 'ดึงเมลไว รีเควสงานได้', 'รีบเข้าก่อนอัพราคา 🌷'],
+                                links: [{ text: '🔗 ดูตัวอย่าง Cookies Cream', url: 'https://drive.google.com/drive/folders/1tk6aBcBflsbyJNCPX6ltUvWJwkWAlCYj' }]
+                            },
+                            {
+                                name: '🌿 Meterline กลุ่มสอนทำป้ายทุกแนว',
+                                tags: ['15 คลิป', 'สอนแนวเฮด น่ารัก มืด', 'สอนทำหัวป้าย 🌙', 'บอกพิกัดต่างๆ ✨', 'แอดมินดึงเมลไว'],
+                                links: [{ text: '🔗 ส่องตัวอย่าง ✅', url: 'https://drive.google.com/drive/folders/1zqEUE9GIamfLXINwOVZGmMIdahapSF4J' }]
+                            },
+                            {
+                                name: '💕 EX. Font Verse กลุ่มสอนแต่งหัวป้ายเฉพาะกลุ่ม',
+                                tags: ['100 คอร์สสอนหัวป้าย 🍒', 'หลายสไตล์ หลายแบบ', 'เอกลักษณ์เฉพาะจากแอดเต๋าเต้ย'],
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/1kzpPhRfEgqW_D4VPk1Ewy3d5a8JA6p0M' }]
+                            },
+                            {
+                                name: '☁️ Mochi Cookie Group กลุ่มรวมทุกอย่าง',
+                                price: '159',
+                                tags: ['บล็อก ตูน ขตต คลิปสอน', 'คลิปสอน 65/100 | บล็อกเฉพาะ 12', 'บล็อกไม่เฉพาะ 75/100', 'เข้าปุ๊บได้ใช้ของเลย'],
+                                note: '‼️ โปรเปลี่ยนแอด เน้นคลิปสอนแต่งฟอนต์จุกๆ',
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/1kfcugVrAJepP34WpeR1YdJLWYS7BGWC0?usp=sharing' }]
+                            }
+                        ]
+                    },
+                    {
+                        headerIndex: 0,
+                        title: '🎁 กลุ่มของตกแต่ง',
+                        groups: [
+                            {
+                                name: '🥚 "ผมมีไข่" กลุ่มของตกแต่ง',
+                                price: '29',
+                                tags: ['จำกัด 150 ที่เท่านั้น ‼️', 'โอนแล้วแปะสลิปกับไอดีไลน์'],
+                                note: 'ขอบคุณที่สนใจพวกผมน้า 💖',
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/1-C9ba_BBAjAAKTzvSSZrxc4vkboYi1Af' }]
+                            },
+                            {
+                                name: '🍀 Finally อุปกรณ์ตกแต่งป้ายสไตล์น่ารัก',
+                                price: '69',
+                                tags: ['อัพงานมากกว่า 30 แบบ', 'สั่งวาดเฉพาะกลุ่ม ไม่เหมือนใคร 🤍'],
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/1sSkjwIGV5jA6SBUZQMt9kYyZFgqw_u42' }]
+                            },
+                            {
+                                name: '🎨 Crayoncraya ของตกแต่งสีสันสดใส',
+                                price: '39',
+                                tags: ['ทยอยอัพ 50 set', 'ปริ้น | สกรีน | ไดคัท ได้ ✅', 'งานลงสีสดใส เฉพาะกลุ่มล้วน', 'รีบเข้าก่อนอัพราคา ‼️'],
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/1tO0Vdf7TxuT9FYRFNb3db53PwwuiTwdI' }]
+                            },
+                            {
+                                name: '🌈 Choco Rainbow ของตกแต่งเฉพาะสุดพรีเมียม',
+                                tags: ['สไตล์คุณฮาวคิ้ว', '20 เซตจุกๆ ‼️', 'เน้นโทนสีแปลก ลดปัญหาหาสีเข้าตูน', 'งานเสร็จเมื่อไรอัพให้เมื่อนั้น 🫶🏻'],
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/11WO7A8Dg4UaBzqUHETgeiMpXQP63Ypj0' }]
+                            },
+                            {
+                                name: '🤍 Mini Meiya Decoration ของตกแต่งลายเส้น',
+                                price: '129',
+                                tags: ['10 งานเฉพาะกลุ่ม + งานแถมเพิ่ม', 'ลายเส้นคุณแซนเน่สุดน่ารัก', 'รับประกันความน่ารักและคุ้มค่า'],
+                                links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/15yYhM5NRxS_6XK329d9ls_Wl6Qcra3Pd' }]
+                            }
+                        ]
+                    }
+                ],
+                allGroupsSections: [
+                    {
+                        title: '🔍 ดูกลุ่มทั้งหมด',
+                        buttonText: '📋 กดดูกลุ่มทั้งหมดที่มีได้เลยค่า~',
+                        buttonLink: 'https://www.facebook.com/share/p/1DZBqmapQT/?mibextid=wwXIfr'
+                    }
+                ],
+                contact: {
+                    fbLink: 'https://www.facebook.com/share/1CcAsKAEoG/?mibextid=wwXIfr',
+                    fbText: 'Facebook',
+                    lineLink: 'https://line.me/ti/p/jw6UMcatuR',
+                    lineText: 'Line',
+                    note: 'ทักผ่าน Facebook หรือ Line ได้เลยนะคะ~ 🌸'
+                },
+                footer: {
+                    name: 'Bibimint Shop ✦',
+                    text: 'Fb | Bibimint Lulusia<br>ขอบคุณที่แวะมานะคะ~ 💛'
+                }
+            };
+        }
+
+        // ===================== GOOGLE SHEETS API FUNCTIONS =====================
+        function getGsConfig() {
+            try {
+                return JSON.parse(localStorage.getItem(GS_CONFIG_KEY)) || {
+                    webAppUrl: '',
+                    sheetId: '',
+                    apiKey: ''
+                };
+            } catch {
+                return { webAppUrl: '', sheetId: '', apiKey: '' };
+            }
+        }
+
+        function saveGsConfig() {
+            const config = {
+                webAppUrl: document.getElementById('gs-webapp-url').value.trim(),
+                sheetId: document.getElementById('gs-sheet-id').value.trim(),
+                apiKey: document.getElementById('gs-api-key').value.trim()
+            };
+            localStorage.setItem(GS_CONFIG_KEY, JSON.stringify(config));
+            Swal.fire({
+                icon: 'success',
+                title: 'บันทึกการตั้งค่าเรียบร้อย',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+
+        async function testGsConnection() {
+            const status = document.getElementById('gs-status');
+            status.style.display = 'inline-flex';
+            status.className = 'gs-status gs-loading';
+            status.innerHTML = '<i class="fas fa-spinner loading-spin"></i> กำลังทดสอบ...';
+
+            const config = getGsConfig();
+
+            if (!config.webAppUrl) {
+                status.className = 'gs-status gs-err';
+                status.innerHTML = '<i class="fas fa-times-circle"></i> กรุณากรอก Web App URL';
+                return;
+            }
+
+            // ลบ /exec ต่อท้ายถ้ามี
+            let baseUrl = config.webAppUrl.replace(/\/$/, '');
+
+            try {
+                // ใช้ JSONP approach เพื่อเลี่ยง CORS
+                const testPromise = new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+
+                    window[callbackName] = function (data) {
+                        delete window[callbackName];
+                        document.body.removeChild(script);
+                        resolve(data);
+                    };
+
+                    script.src = baseUrl + '?action=ping&callback=' + callbackName;
+                    script.onerror = function (error) {
+                        delete window[callbackName];
+                        document.body.removeChild(script);
+                        reject(new Error('JSONP request failed'));
+                    };
+
+                    document.body.appendChild(script);
+
+                    // Timeout after 5 seconds
+                    setTimeout(() => {
+                        if (window[callbackName]) {
+                            delete window[callbackName];
+                            document.body.removeChild(script);
+                            reject(new Error('Request timeout'));
+                        }
+                    }, 5000);
+                });
+
+                await testPromise;
+
+                status.className = 'gs-status gs-ok';
+                status.innerHTML = '<i class="fas fa-check-circle"></i> เชื่อมต่อสำเร็จ';
+
+            } catch (error) {
+                console.error('Test connection error:', error);
+
+                // ถ้า JSONP ไม่สำเร็จ ให้แสดงวิธีแก้ไข
+                status.className = 'gs-status gs-err';
+                status.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ไม่สามารถเชื่อมต่อได้';
+
+                Swal.fire({
+                    icon: 'info',
+                    title: 'วิธีการแก้ไข',
+                    html: `
+                        <div style="text-align: left;">
+                            <p><strong>ขั้นตอนการ Deploy Google Apps Script ที่ถูกต้อง:</strong></p>
+                            <ol style="margin-top: 10px; padding-left: 20px;">
+                                <li>ไปที่ Google Apps Script Editor</li>
+                                <li>กดปุ่ม <strong>Deploy</strong> → <strong>New deployment</strong></li>
+                                <li>เลือก Type: <strong>Web App</strong></li>
+                                <li>ตั้งค่า:
+                                    <ul>
+                                        <li>Execute as: <strong>Me</strong></li>
+                                        <li>Who has access: <strong>Anyone</strong></li>
+                                    </ul>
+                                </li>
+                                <li>กด <strong>Deploy</strong></li>
+                                <li>กด <strong>Allow</strong> เพื่อให้สิทธิ์</li>
+                                <li>คัดลอก URL ที่ได้ (ขึ้นต้นด้วย <code>https://script.google.com/macros/s/.../exec</code>)</li>
+                            </ol>
+                            <p style="color: #f44336; margin-top: 10px;">⚠️ หลังจากแก้ไขโค้ด ต้อง Deploy ใหม่ทุกครั้ง</p>
+                        </div>
+                    `,
+                    confirmButtonColor: '#F5C800'
+                });
+            }
+        }
+
+        async function saveToGoogleSheets(data) {
+            const config = getGsConfig();
+
+            if (!config.webAppUrl) {
+                console.log('No Web App URL configured');
+                return false;
+            }
+
+            try {
+                // ใช้ fetch แบบปกติ
+                const response = await fetch(config.webAppUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', // ใช้ no-cors เพื่อเลี่ยง CORS
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'updateData',
+                        data: data
+                    })
+                });
+
+                // ถ้าใช้ no-cors จะไม่สามารถอ่าน response ได้
+                console.log('Data sent to Google Sheets (no-cors mode)');
+                return true;
+
+            } catch (error) {
+                console.error('Error saving to sheets:', error);
+
+                // ถ้าใช้ POST ไม่ได้ ให้ลองใช้ GET + URL parameter
+                try {
+                    const baseUrl = config.webAppUrl.replace(/\/$/, '');
+                    const jsonpCallback = 'callback_' + Math.round(100000 * Math.random());
+
+                    const dataStr = encodeURIComponent(JSON.stringify(data));
+                    const script = document.createElement('script');
+                    script.src = `${baseUrl}?action=updateData&data=${dataStr}&callback=${jsonpCallback}`;
+
+                    document.body.appendChild(script);
+                    setTimeout(() => {
+                        document.body.removeChild(script);
+                    }, 3000);
+
+                    console.log('Data sent to Google Sheets (JSONP mode)');
+                    return true;
+                } catch (e) {
+                    console.error('Both methods failed:', e);
+                    return false;
+                }
+            }
+        }
+
+        async function loadFromGoogleSheets() {
+            const config = getGsConfig();
+
+            if (!config.webAppUrl) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'ไม่ได้ตั้งค่า Web App',
+                    text: 'กรุณาตั้งค่า Web App URL ในแท็บ Google Sheets ก่อน',
+                    confirmButtonColor: '#F5C800'
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: 'กำลังโหลดข้อมูล...',
+                text: 'กรุณารอสักครู่',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            try {
+                const baseUrl = config.webAppUrl.replace(/\/$/, '');
+
+                // ใช้ JSONP เพื่อโหลดข้อมูล
+                const dataPromise = new Promise((resolve, reject) => {
+                    const callbackName = 'load_callback_' + Math.round(100000 * Math.random());
+
+                    window[callbackName] = function (response) {
+                        delete window[callbackName];
+                        document.body.removeChild(script);
+                        resolve(response);
+                    };
+
+                    const script = document.createElement('script');
+                    script.src = baseUrl + '?action=getData&callback=' + callbackName;
+                    script.onerror = function () {
+                        delete window[callbackName];
+                        document.body.removeChild(script);
+                        reject(new Error('Failed to load data'));
+                    };
+
+                    document.body.appendChild(script);
+
+                    setTimeout(() => {
+                        if (window[callbackName]) {
+                            delete window[callbackName];
+                            document.body.removeChild(script);
+                            reject(new Error('Request timeout'));
+                        }
+                    }, 10000);
+                });
+
+                const result = await dataPromise;
+
+                if (result.status === 'success' && result.data) {
+                    const loadedData = result.data;
+
+                    // บันทึกใน Local Storage
+                    localStorage.setItem(DATA_KEY, JSON.stringify(loadedData));
+
+                    // รีเฟรชหน้าเว็บ
+                    renderSite();
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'โหลดข้อมูลสำเร็จ',
+                        text: 'ข้อมูลถูกโหลดจาก Google Sheets เรียบร้อย',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
+                    // รีเฟรช Admin Panel ถ้าเปิดอยู่
+                    if (document.getElementById('admin-overlay').classList.contains('show')) {
+                        openAdmin();
+                    }
+                } else {
+                    throw new Error('Invalid data format');
+                }
+
+            } catch (error) {
+                console.error('Error loading from sheets:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'โหลดข้อมูลล้มเหลว',
+                    text: 'ไม่สามารถเชื่อมต่อกับ Google Sheets ได้ กรุณาตรวจสอบ URL และการ Deploy',
+                    confirmButtonColor: '#F5C800'
+                });
+            }
+        }
+
+        // ===================== DATA FUNCTIONS =====================
+        function loadData() {
+            try {
+                const raw = localStorage.getItem(DATA_KEY);
+                if (!raw) return getDefaultData();
+                const def = getDefaultData();
+                const parsed = JSON.parse(raw);
+                return { ...def, ...parsed };
+            } catch (e) {
+                console.error('Error loading data:', e);
+                return getDefaultData();
+            }
+        }
+
+        async function saveData(data, notify = true, addHistory = true) {
+            try {
+                // บันทึกใน Local Storage
+                localStorage.setItem(DATA_KEY, JSON.stringify(data));
+
+                if (addHistory) addToHistory(data);
+
+                // บันทึกไปยัง Google Sheets (แบบไม่ต้องรอ)
+                saveToGoogleSheets(data).then(success => {
+                    if (success) {
+                        console.log('Data synced to Google Sheets');
+                    }
+                });
+
+                if (notify) showAutoSaveBadge();
+                renderSite();
+                return true;
+            } catch (e) {
+                console.error('Error saving data:', e);
+                return false;
+            }
+        }
+
+        function showAutoSaveBadge() {
+            const badge = document.getElementById('auto-save-badge');
+            badge.classList.add('show');
+            setTimeout(() => badge.classList.remove('show'), 2000);
+        }
+
+        function addToHistory(data) {
+            try {
+                const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+                history.unshift({
+                    timestamp: new Date().toISOString(),
+                    data: JSON.parse(JSON.stringify(data))
+                });
+                if (history.length > 20) history.pop();
+                localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+            } catch (e) { }
+        }
+
+        function showHistory() {
+            const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+            if (history.length === 0) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'ไม่มีประวัติ',
+                    text: 'ยังไม่มีประวัติการบันทึก',
+                    background: 'white',
+                    confirmButtonColor: '#F5C800'
+                });
+                return;
+            }
+
+            let html = '<div style="max-height: 400px; overflow-y: auto;">';
+            history.forEach((item, index) => {
+                const date = new Date(item.timestamp).toLocaleString('th-TH');
+                html += `
+                    <div class="history-item" onclick="restoreHistory(${index})">
+                        <div><i class="fas fa-clock"></i> ${date}</div>
+                        <i class="fas fa-undo"></i>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            Swal.fire({
+                title: '📜 ประวัติการบันทึก',
+                html: html,
+                background: 'white',
+                confirmButtonColor: '#F5C800',
+                width: '500px'
+            });
+        }
+
+        function restoreHistory(index) {
+            const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+            if (history[index]) {
+                saveData(history[index].data, true, false);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'กู้คืนสำเร็จ',
+                    timer: 1500,
+                    showConfirmButton: false,
+                    background: 'white',
+                    confirmButtonColor: '#F5C800'
+                });
+            }
+        }
+
+        // ===================== RENDER FUNCTIONS =====================
+        function renderSite() {
+            const data = loadData();
+            const container = document.getElementById('main-content');
+            let html = '';
+
+            // Header
+            html += `
+                <div class="header">
+                    <div class="logo-circle-wrap">
+                        <div class="logo-ring"></div>
+                        <div class="logo-ring-inner"></div>
+                        <img class="logo-img" src="${data.header.logoImg}" alt="Bibimint Shop">
+                        <span class="logo-star s1">${data.header.stars[0]}</span>
+                        <span class="logo-star s2">${data.header.stars[1]}</span>
+                        <span class="logo-star s3">${data.header.stars[2]}</span>
+                    </div>
+                    <div class="shop-name">${data.header.shopName}</div>
+                    <div class="shop-sub">${data.header.shopSub}</div>
+                    <span class="status-badge"><span class="status-dot"></span>${data.header.statusText}</span>
+                </div>
+            `;
+
+            // Sections
+            data.sections.forEach(section => {
+                html += renderSection(section);
+            });
+
+            // Groups Headers and their group sections
+            data.groupsHeaders.forEach((header, headerIndex) => {
+                html += `
+                    <div class="groups-header">
+                        <div class="groups-header-deco">${header.deco}</div>
+                        <div class="groups-header-title">${header.title}</div>
+                        <div class="groups-header-sub">${header.sub}</div>
+                        <div class="groups-header-deco2">${header.deco2}</div>
+                    </div>
+                `;
+
+                // Render group sections that belong to this header
+                data.groupSections
+                    .filter(gs => gs.headerIndex === headerIndex)
+                    .forEach(groupSection => {
+                        html += `
+                            <div class="section-card group-section">
+                                <div class="section-title">${groupSection.title}</div>
+                                <div class="group-list">
+                        `;
+
+                        groupSection.groups.forEach(group => {
+                            html += renderGroupItem(group);
+                        });
+
+                        html += `
+                                </div>
+                            </div>
+                        `;
+                    });
+            });
+
+            // All Groups Sections
+            data.allGroupsSections.forEach(section => {
+                html += `
+                    <div class="section-card">
+                        <div class="section-title">${section.title}</div>
+                        <a href="${section.buttonLink}" target="_blank" class="see-all-btn">
+                            ${section.buttonText}
+                        </a>
+                    </div>
+                `;
+            });
+
+            // Contact Section
+            html += `
+                <div class="section-card">
+                    <div class="section-title">💌 ติดต่อสั่งงาน</div>
+                    <div class="contact-btns">
+                        <a href="${data.contact.fbLink}" target="_blank" class="contact-btn btn-fb">
+                            <span>📘</span> ${data.contact.fbText}
+                        </a>
+                        <a href="${data.contact.lineLink}" target="_blank" class="contact-btn btn-line">
+                            <span>💬</span> ${data.contact.lineText}
+                        </a>
+                    </div>
+                    <div style="text-align:center; margin-top:13px; font-size:0.81rem; color:var(--text-light);">
+                        ${data.contact.note}
+                    </div>
+                </div>
+            `;
+
+            // Footer
+            html += `
+                <div class="footer">
+                    <div class="footer-name">${data.footer.name}</div>
+                    ${data.footer.text}
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function renderSection(section) {
+            switch (section.type) {
+                case 'about':
+                    return `
+                        <div class="section-card">
+                            <div class="section-title">${section.title}</div>
+                            <div class="about-text">${section.text}</div>
+                        </div>
+                    `;
+
+                case 'tags':
+                    return `
+                        <div class="section-card">
+                            <div class="section-title">${section.title}</div>
+                            <div class="style-tags">
+                                ${section.tags.map(tag => `<span class="style-tag">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+
+                case 'price':
+                    return `
+                        <div class="section-card">
+                            <div class="section-title">${section.title}</div>
+                            <div class="price-grid">
+                                ${section.priceCards.map(card => `
+                                    <div class="price-card ${card.class}">
+                                        <div class="price-type">${card.type}</div>
+                                        <div class="price-amount">${card.amount}</div>
+                                        <div class="price-unit">${card.unit}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="bulk-note">${section.bulkNote}</div>
+                        </div>
+                    `;
+
+                case 'dodont':
+                    return `
+                        <div class="section-card">
+                            <div class="section-title">${section.title}</div>
+                            <div class="do-dont-grid">
+                                <div class="do-box">
+                                    <div class="do-title">✅ รับทำ</div>
+                                    <ul>
+                                        ${section.doList.map(item => `<li>${item}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div class="dont-box">
+                                    <div class="dont-title">❌ ไม่รับ</div>
+                                    <ul>
+                                        ${section.dontList.map(item => `<li>${item}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                case 'steps':
+                    return `
+                        <div class="section-card">
+                            <div class="section-title">${section.title}</div>
+                            <div class="steps-list">
+                                ${section.steps.map((step, i) => `
+                                    <div class="step-item">
+                                        <div class="step-num">${i + 1}</div>
+                                        <div class="step-text">${step}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div style="margin-top:18px;">
+                                <div style="font-size:0.76rem; color:var(--text-light); margin-bottom:10px; font-weight:500;">⏱ ระยะเวลาทำงาน</div>
+                                <div class="timeline-wrap">
+                                    <div class="tl-item fast">
+                                        <div class="tl-day">${section.timeline.fast.day}</div>
+                                        <div class="tl-label">${section.timeline.fast.label}</div>
+                                    </div>
+                                    <div class="tl-item mid">
+                                        <div class="tl-day">${section.timeline.mid.day}</div>
+                                        <div class="tl-label">${section.timeline.mid.label}</div>
+                                    </div>
+                                    <div class="tl-item slow">
+                                        <div class="tl-day">${section.timeline.slow.day}</div>
+                                        <div class="tl-label">${section.timeline.slow.label}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top:18px;">
+                                <div style="font-size:0.76rem; color:var(--text-light); margin-bottom:9px; font-weight:500;">💳 ช่องทางชำระเงิน</div>
+                                <div class="payment-chips">
+                                    ${section.payments.map(p => `<div class="pay-chip">${p}</div>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                default:
+                    return '';
+            }
+        }
+
+        function renderGroupItem(group) {
+            return `
+                <div class="group-item">
+                    <div class="gi-top">
+                        <div class="gi-name">${group.name}</div>
+                        ${group.price ? `<div class="gi-price">${group.price}<span>฿</span></div>` : ''}
+                    </div>
+                    <div class="gi-tags">
+                        ${group.tags.map(tag => `<span class="gi-tag">${tag}</span>`).join('')}
+                    </div>
+                    ${group.note ? `<div class="gi-note">${group.note}</div>` : ''}
+                    <div class="gi-links">
+                        ${group.links.map(link => `
+                            <a href="${link.url}" target="_blank" class="gi-link">${link.text}</a>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ===================== ADMIN RENDER FUNCTIONS =====================
+            function renderAdminSections() {
+                const data = loadData();
+
+                // Render sections list
+                const sectionsList = document.getElementById('sections-list');
+                sectionsList.innerHTML = '';
+                data.sections.forEach((section, index) => {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.className = 'admin-section';
+                    sectionDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3><i class="fas fa-layer-group"></i> ${section.title || ' unnamed'}</h3>
+                        <button class="admin-btn-del" onclick="deleteSection(${index})">
+                            <i class="fas fa-trash"></i> ลบ
+                        </button>
+                    </div>
+                    ${renderSectionEditForm(section, index)}
+                `;
+                    sectionsList.appendChild(sectionDiv);
+                });
+
+                // Render groups headers list
+                const groupsHeadersList = document.getElementById('groups-headers-list');
+                groupsHeadersList.innerHTML = '';
+                data.groupsHeaders.forEach((header, index) => {
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'admin-section';
+                    headerDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3><i class="fas fa-heading"></i> หัวข้อกลุ่มที่ ${index + 1}</h3>
+                        <button class="admin-btn-del" onclick="deleteGroupsHeader(${index})">
+                            <i class="fas fa-trash"></i> ลบ
+                        </button>
+                    </div>
+                    <input type="text" class="admin-input" placeholder="เครื่องหมายตกแต่ง" value="${header.deco}" onchange="updateGroupsHeader(${index}, 'deco', this.value)">
+                    <input type="text" class="admin-input" placeholder="หัวข้อ" value="${header.title}" onchange="updateGroupsHeader(${index}, 'title', this.value)">
+                    <input type="text" class="admin-input" placeholder="คำอธิบาย" value="${header.sub}" onchange="updateGroupsHeader(${index}, 'sub', this.value)">
+                    <input type="text" class="admin-input" placeholder="ข้อความท้าย" value="${header.deco2}" onchange="updateGroupsHeader(${index}, 'deco2', this.value)">
+                `;
+                    groupsHeadersList.appendChild(headerDiv);
+                });
+
+                // Render group sections list
+                const groupSectionsList = document.getElementById('group-sections-list');
+                groupSectionsList.innerHTML = '';
+                data.groupSections.forEach((groupSection, index) => {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.className = 'admin-section';
+                    sectionDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3><i class="fas fa-layer-group"></i> ${groupSection.title}</h3>
+                        <button class="admin-btn-del" onclick="deleteGroupSection(${index})">
+                            <i class="fas fa-trash"></i> ลบ
+                        </button>
+                    </div>
+                    ${renderGroupSectionEditForm(groupSection, index)}
+                `;
+                    groupSectionsList.appendChild(sectionDiv);
+                });
+
+                // Render all groups sections
+                const allGroupsList = document.getElementById('all-groups-list');
+                allGroupsList.innerHTML = '';
+                data.allGroupsSections.forEach((section, index) => {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.className = 'admin-section';
+                    sectionDiv.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h3><i class="fas fa-link"></i> ปุ่มดูกลุ่มทั้งหมด ${index + 1}</h3>
+                        <button class="admin-btn-del" onclick="deleteAllGroupsSection(${index})">
+                            <i class="fas fa-trash"></i> ลบ
+                        </button>
+                    </div>
+                    <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateAllGroupsSection(${index}, 'title', this.value)">
+                    <input type="text" class="admin-input" placeholder="ข้อความปุ่ม" value="${section.buttonText}" onchange="updateAllGroupsSection(${index}, 'buttonText', this.value)">
+                    <input type="text" class="admin-input" placeholder="ลิงก์" value="${section.buttonLink}" onchange="updateAllGroupsSection(${index}, 'buttonLink', this.value)">
+                `;
+                    allGroupsList.appendChild(sectionDiv);
+                });
+            }
+
+            function renderSectionEditForm(section, index) {
+                switch (section.type) {
+                    case 'about':
+                        return `
+                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index}, 'title', this.value)">
+                        <textarea class="admin-input" placeholder="ข้อความ" rows="4" onchange="updateSection(${index}, 'text', this.value)">${section.text}</textarea>
+                    `;
+
+                    case 'tags':
+                        return `
+                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index}, 'title', this.value)">
+                        <div id="tags-${index}">
+                            ${section.tags.map((tag, tagIndex) => `
+                                <div class="item-row">
+                                    <input type="text" class="admin-input" value="${tag}" onchange="updateTag(${index}, ${tagIndex}, this.value)">
+                                    <button class="admin-btn-del" onclick="deleteTag(${index}, ${tagIndex})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="admin-btn-add" onclick="addTag(${index})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button>
+                    `;
+
+                    case 'price':
+                        return `
+                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index}, 'title', this.value)">
+                        <div id="price-cards-${index}">
+                            ${section.priceCards.map((card, cardIndex) => `
+                                <div class="item-row">
+                                    <input type="text" class="admin-input" placeholder="ประเภท" value="${card.type}" onchange="updatePriceCard(${index}, ${cardIndex}, 'type', this.value)">
+                                    <input type="text" class="admin-input" placeholder="ราคา" value="${card.amount}" onchange="updatePriceCard(${index}, ${cardIndex}, 'amount', this.value)">
+                                    <input type="text" class="admin-input" placeholder="หน่วย" value="${card.unit}" onchange="updatePriceCard(${index}, ${cardIndex}, 'unit', this.value)">
+                                    <select class="admin-input" onchange="updatePriceCard(${index}, ${cardIndex}, 'class', this.value)" style="width: 100px;">
+                                        <option value="gold" ${card.class === 'gold' ? 'selected' : ''}>ทอง</option>
+                                        <option value="silver" ${card.class === 'silver' ? 'selected' : ''}>เงิน</option>
+                                    </select>
+                                    <button class="admin-btn-del" onclick="deletePriceCard(${index}, ${cardIndex})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="admin-btn-add" onclick="addPriceCard(${index})"><i class="fas fa-plus"></i> เพิ่มการ์ดราคา</button>
+                        <textarea class="admin-input" placeholder="หมายเหตุ" rows="2" onchange="updateSection(${index}, 'bulkNote', this.value)">${section.bulkNote}</textarea>
+                    `;
+
+                    case 'dodont':
+                        return `
+                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index}, 'title', this.value)">
+                        <h4 style="margin: 10px 0; color: #4CAF50;">✅ รับทำ</h4>
+                        <div id="do-list-${index}">
+                            ${section.doList.map((item, itemIndex) => `
+                                <div class="item-row">
+                                    <input type="text" class="admin-input" value="${item}" onchange="updateDoItem(${index}, ${itemIndex}, this.value)">
+                                    <button class="admin-btn-del" onclick="deleteDoItem(${index}, ${itemIndex})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="admin-btn-add" onclick="addDoItem(${index})"><i class="fas fa-plus"></i> เพิ่มข้อความรับทำ</button>
+                        
+                        <h4 style="margin: 10px 0; color: #f44336;">❌ ไม่รับ</h4>
+                        <div id="dont-list-${index}">
+                            ${section.dontList.map((item, itemIndex) => `
+                                <div class="item-row">
+                                    <input type="text" class="admin-input" value="${item}" onchange="updateDontItem(${index}, ${itemIndex}, this.value)">
+                                    <button class="admin-btn-del" onclick="deleteDontItem(${index}, ${itemIndex})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="admin-btn-add" onclick="addDontItem(${index})"><i class="fas fa-plus"></i> เพิ่มข้อความไม่รับ</button>
+                    `;
+
+                    case 'steps':
+                        return `
+                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index}, 'title', this.value)">
+                        <h4 style="margin: 10px 0;">📋 ขั้นตอน</h4>
+                        <div id="steps-${index}">
+                            ${section.steps.map((step, stepIndex) => `
+                                <div class="item-row">
+                                    <input type="text" class="admin-input" value="${step}" onchange="updateStep(${index}, ${stepIndex}, this.value)">
+                                    <button class="admin-btn-del" onclick="deleteStep(${index}, ${stepIndex})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="admin-btn-add" onclick="addStep(${index})"><i class="fas fa-plus"></i> เพิ่มขั้นตอน</button>
+                        
+                        <h4 style="margin: 10px 0;">⏱ ระยะเวลา</h4>
+                        <div class="item-row">
+                            <input type="text" class="admin-input" placeholder="จำนวนวันเร็วสุด" value="${section.timeline.fast.day}" onchange="updateTimeline(${index}, 'fast', 'day', this.value)">
+                            <input type="text" class="admin-input" placeholder="ป้ายกำกับเร็วสุด" value="${section.timeline.fast.label}" onchange="updateTimeline(${index}, 'fast', 'label', this.value)">
+                        </div>
+                        <div class="item-row">
+                            <input type="text" class="admin-input" placeholder="จำนวนวันปกติ" value="${section.timeline.mid.day}" onchange="updateTimeline(${index}, 'mid', 'day', this.value)">
+                            <input type="text" class="admin-input" placeholder="ป้ายกำกับปกติ" value="${section.timeline.mid.label}" onchange="updateTimeline(${index}, 'mid', 'label', this.value)">
+                        </div>
+                        <div class="item-row">
+                            <input type="text" class="admin-input" placeholder="จำนวนวันช้าสุด" value="${section.timeline.slow.day}" onchange="updateTimeline(${index}, 'slow', 'day', this.value)">
+                            <input type="text" class="admin-input" placeholder="ป้ายกำกับช้าสุด" value="${section.timeline.slow.label}" onchange="updateTimeline(${index}, 'slow', 'label', this.value)">
+                        </div>
+                        
+                        <h4 style="margin: 10px 0;">💳 ช่องทางชำระเงิน</h4>
+                        <div id="payments-${index}">
+                            ${section.payments.map((payment, payIndex) => `
+                                <div class="item-row">
+                                    <input type="text" class="admin-input" value="${payment}" onchange="updatePayment(${index}, ${payIndex}, this.value)">
+                                    <button class="admin-btn-del" onclick="deletePayment(${index}, ${payIndex})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="admin-btn-add" onclick="addPayment(${index})"><i class="fas fa-plus"></i> เพิ่มช่องทางชำระเงิน</button>
+                    `;
+
+                    default:
+                        return '';
+                }
+            }
+
+            function renderGroupSectionEditForm(groupSection, index) {
+                const data = loadData();
+                let headerOptions = '<option value="-1">ไม่มีหัวข้อ</option>';
+                data.groupsHeaders.forEach((header, i) => {
+                    headerOptions += `<option value="${i}" ${groupSection.headerIndex === i ? 'selected' : ''}>${header.title}</option>`;
+                });
+
+                let html = `
+                <select class="group-header-select" onchange="updateGroupSectionHeader(${index}, this.value)">
+                    ${headerOptions}
+                </select>
+                <input type="text" class="admin-input" placeholder="ชื่อกลุ่มย่อย" value="${groupSection.title}" onchange="updateGroupSection(${index}, 'title', this.value)">
+            `;
+
+                groupSection.groups.forEach((group, groupIndex) => {
+                    html += `
+                    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <h4>กลุ่มที่ ${groupIndex + 1}</h4>
+                            <button class="admin-btn-del" onclick="deleteGroup(${index}, ${groupIndex})"><i class="fas fa-trash"></i> ลบกลุ่ม</button>
+                        </div>
+                        <input type="text" class="admin-input" placeholder="ชื่อกลุ่ม" value="${group.name}" onchange="updateGroup(${index}, ${groupIndex}, 'name', this.value)">
+                        <input type="text" class="admin-input" placeholder="ราคา" value="${group.price || ''}" onchange="updateGroup(${index}, ${groupIndex}, 'price', this.value)">
+                        <div id="group-tags-${index}-${groupIndex}">
+                            ${group.tags.map((tag, tagIndex) => `
+                                <div class="item-row">
+                                    <input type="text" class="admin-input" value="${tag}" onchange="updateGroupTag(${index}, ${groupIndex}, ${tagIndex}, this.value)">
+                                    <button class="admin-btn-del" onclick="deleteGroupTag(${index}, ${groupIndex}, ${tagIndex})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="admin-btn-add" onclick="addGroupTag(${index}, ${groupIndex})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button>
+                        
+                        <input type="text" class="admin-input" placeholder="หมายเหตุ" value="${group.note || ''}" onchange="updateGroup(${index}, ${groupIndex}, 'note', this.value)">
+                        
+                        <div id="group-links-${index}-${groupIndex}">
+                            ${group.links.map((link, linkIndex) => `
+                                <div class="item-row">
+                                    <input type="text" class="admin-input" placeholder="ข้อความลิงก์" value="${link.text}" onchange="updateGroupLink(${index}, ${groupIndex}, ${linkIndex}, 'text', this.value)">
+                                    <input type="text" class="admin-input" placeholder="URL" value="${link.url}" onchange="updateGroupLink(${index}, ${groupIndex}, ${linkIndex}, 'url', this.value)">
+                                    <button class="admin-btn-del" onclick="deleteGroupLink(${index}, ${groupIndex}, ${linkIndex})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <button class="admin-btn-add" onclick="addGroupLink(${index}, ${groupIndex})"><i class="fas fa-plus"></i> เพิ่มลิงก์</button>
+                    </div>
+                `;
+                });
+
+                html += `<button class="admin-btn-add" onclick="addGroup(${index})"><i class="fas fa-plus"></i> เพิ่มกลุ่ม</button>`;
+
+                return html;
+            }
+
+            // ===================== ADMIN UPDATE FUNCTIONS =====================
+            function updateSection(index, field, value) {
+                const data = loadData();
+                data.sections[index][field] = value;
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateTag(sectionIndex, tagIndex, value) {
+                const data = loadData();
+                data.sections[sectionIndex].tags[tagIndex] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteTag(sectionIndex, tagIndex) {
+                const data = loadData();
+                data.sections[sectionIndex].tags.splice(tagIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addTag(sectionIndex) {
+                const data = loadData();
+                if (!data.sections[sectionIndex].tags) data.sections[sectionIndex].tags = [];
+                data.sections[sectionIndex].tags.push('แท็กใหม่');
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updatePriceCard(sectionIndex, cardIndex, field, value) {
+                const data = loadData();
+                data.sections[sectionIndex].priceCards[cardIndex][field] = value;
+                saveData(data, true, true);
+            }
+
+            function deletePriceCard(sectionIndex, cardIndex) {
+                const data = loadData();
+                data.sections[sectionIndex].priceCards.splice(cardIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addPriceCard(sectionIndex) {
+                const data = loadData();
+                if (!data.sections[sectionIndex].priceCards) data.sections[sectionIndex].priceCards = [];
+                data.sections[sectionIndex].priceCards.push({
+                    type: 'ประเภทใหม่',
+                    amount: '0',
+                    unit: 'บาท',
+                    class: 'gold'
+                });
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateDoItem(sectionIndex, itemIndex, value) {
+                const data = loadData();
+                data.sections[sectionIndex].doList[itemIndex] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteDoItem(sectionIndex, itemIndex) {
+                const data = loadData();
+                data.sections[sectionIndex].doList.splice(itemIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addDoItem(sectionIndex) {
+                const data = loadData();
+                if (!data.sections[sectionIndex].doList) data.sections[sectionIndex].doList = [];
+                data.sections[sectionIndex].doList.push('ข้อความใหม่');
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateDontItem(sectionIndex, itemIndex, value) {
+                const data = loadData();
+                data.sections[sectionIndex].dontList[itemIndex] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteDontItem(sectionIndex, itemIndex) {
+                const data = loadData();
+                data.sections[sectionIndex].dontList.splice(itemIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addDontItem(sectionIndex) {
+                const data = loadData();
+                if (!data.sections[sectionIndex].dontList) data.sections[sectionIndex].dontList = [];
+                data.sections[sectionIndex].dontList.push('ข้อความใหม่');
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateStep(sectionIndex, stepIndex, value) {
+                const data = loadData();
+                data.sections[sectionIndex].steps[stepIndex] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteStep(sectionIndex, stepIndex) {
+                const data = loadData();
+                data.sections[sectionIndex].steps.splice(stepIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addStep(sectionIndex) {
+                const data = loadData();
+                if (!data.sections[sectionIndex].steps) data.sections[sectionIndex].steps = [];
+                data.sections[sectionIndex].steps.push('ขั้นตอนใหม่');
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateTimeline(sectionIndex, type, field, value) {
+                const data = loadData();
+                data.sections[sectionIndex].timeline[type][field] = value;
+                saveData(data, true, true);
+            }
+
+            function updatePayment(sectionIndex, payIndex, value) {
+                const data = loadData();
+                data.sections[sectionIndex].payments[payIndex] = value;
+                saveData(data, true, true);
+            }
+
+            function deletePayment(sectionIndex, payIndex) {
+                const data = loadData();
+                data.sections[sectionIndex].payments.splice(payIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addPayment(sectionIndex) {
+                const data = loadData();
+                if (!data.sections[sectionIndex].payments) data.sections[sectionIndex].payments = [];
+                data.sections[sectionIndex].payments.push('ช่องทางใหม่');
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function deleteSection(index) {
+                Swal.fire({
+                    title: 'ยืนยันการลบ',
+                    text: 'คุณแน่ใจหรือไม่ที่จะลบส่วนนี้?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#f44336',
+                    cancelButtonColor: '#9e9e9e',
+                    confirmButtonText: 'ใช่, ลบเลย',
+                    cancelButtonText: 'ยกเลิก'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const data = loadData();
+                        data.sections.splice(index, 1);
+                        saveData(data, true, true);
+                        renderAdminSections();
+                        Swal.fire('ลบแล้ว!', '', 'success');
+                    }
+                });
+            }
+
+            function addSection(type) {
+                const data = loadData();
+                let newSection;
+
+                switch (type) {
+                    case 'about':
+                        newSection = {
+                            type: 'about',
+                            title: '🐻 เกี่ยวกับร้าน',
+                            text: 'ข้อความเกี่ยวกับร้าน'
+                        };
+                        break;
+                    case 'tags':
+                        newSection = {
+                            type: 'tags',
+                            title: '🎨 แนวงานที่รับทำ',
+                            tags: ['แท็กใหม่']
+                        };
+                        break;
+                    case 'price':
+                        newSection = {
+                            type: 'price',
+                            title: '💰 ราคา',
+                            priceCards: [
+                                { type: 'ประเภท 1', amount: '0', unit: 'บาท', class: 'gold' }
+                            ],
+                            bulkNote: 'หมายเหตุ'
+                        };
+                        break;
+                    case 'dodont':
+                        newSection = {
+                            type: 'dodont',
+                            title: '📌 รับ / ไม่รับ',
+                            doList: ['ข้อความรับทำ'],
+                            dontList: ['ข้อความไม่รับ']
+                        };
+                        break;
+                    case 'steps':
+                        newSection = {
+                            type: 'steps',
+                            title: '📋 วิธีสั่ง & เงื่อนไข',
+                            steps: ['ขั้นตอนที่ 1'],
+                            timeline: {
+                                fast: { day: '1', label: 'วัน (เร็วสุด)' },
+                                mid: { day: '3-5', label: 'วัน (ปกติ)' },
+                                slow: { day: '7', label: 'วัน (สูงสุด)' }
+                            },
+                            payments: ['ช่องทางชำระเงิน']
+                        };
+                        break;
+                }
+
+                data.sections.push(newSection);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateGroupsHeader(index, field, value) {
+                const data = loadData();
+                data.groupsHeaders[index][field] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteGroupsHeader(index) {
+                Swal.fire({
+                    title: 'ยืนยันการลบ',
+                    text: 'การลบหัวข้อกลุ่มจะลบกลุ่มทั้งหมดที่อยู่ใต้หัวข้อนี้ด้วย',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#f44336',
+                    cancelButtonColor: '#9e9e9e',
+                    confirmButtonText: 'ใช่, ลบเลย',
+                    cancelButtonText: 'ยกเลิก'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const data = loadData();
+                        data.groupsHeaders.splice(index, 1);
+                        data.groupSections = data.groupSections.filter(gs => gs.headerIndex !== index);
+                        // Adjust header indices for remaining group sections
+                        data.groupSections = data.groupSections.map(gs => {
+                            if (gs.headerIndex > index) {
+                                gs.headerIndex--;
+                            }
+                            return gs;
+                        });
+                        saveData(data, true, true);
+                        renderAdminSections();
+                        Swal.fire('ลบแล้ว!', '', 'success');
+                    }
+                });
+            }
+
+            function addGroupsHeader() {
+                const data = loadData();
+                data.groupsHeaders.push({
+                    deco: '✦ ✦ ✦',
+                    title: 'หัวข้อใหม่',
+                    sub: 'คำอธิบาย',
+                    deco2: 'ข้อความท้าย'
+                });
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateGroupSectionHeader(index, headerIndex) {
+                const data = loadData();
+                data.groupSections[index].headerIndex = parseInt(headerIndex);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateGroupSection(index, field, value) {
+                const data = loadData();
+                data.groupSections[index][field] = value;
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function deleteGroupSection(index) {
+                Swal.fire({
+                    title: 'ยืนยันการลบ',
+                    text: 'คุณแน่ใจหรือไม่ที่จะลบกลุ่มย่อยนี้?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#f44336',
+                    cancelButtonColor: '#9e9e9e',
+                    confirmButtonText: 'ใช่, ลบเลย',
+                    cancelButtonText: 'ยกเลิก'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const data = loadData();
+                        data.groupSections.splice(index, 1);
+                        saveData(data, true, true);
+                        renderAdminSections();
+                        Swal.fire('ลบแล้ว!', '', 'success');
+                    }
+                });
+            }
+
+            function addGroupSection() {
+                const data = loadData();
+                data.groupSections.push({
+                    headerIndex: 0,
+                    title: 'กลุ่มย่อยใหม่',
+                    groups: [
+                        {
+                            name: 'ชื่อกลุ่ม',
+                            tags: ['แท็ก'],
+                            links: [{ text: '🔗 ลิงก์', url: '#' }]
+                        }
+                    ]
+                });
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateGroup(sectionIndex, groupIndex, field, value) {
+                const data = loadData();
+                data.groupSections[sectionIndex].groups[groupIndex][field] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteGroup(sectionIndex, groupIndex) {
+                const data = loadData();
+                data.groupSections[sectionIndex].groups.splice(groupIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addGroup(sectionIndex) {
+                const data = loadData();
+                data.groupSections[sectionIndex].groups.push({
+                    name: 'ชื่อกลุ่มใหม่',
+                    tags: ['แท็กใหม่'],
+                    links: [{ text: '🔗 ลิงก์', url: '#' }]
+                });
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateGroupTag(sectionIndex, groupIndex, tagIndex, value) {
+                const data = loadData();
+                data.groupSections[sectionIndex].groups[groupIndex].tags[tagIndex] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteGroupTag(sectionIndex, groupIndex, tagIndex) {
+                const data = loadData();
+                data.groupSections[sectionIndex].groups[groupIndex].tags.splice(tagIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addGroupTag(sectionIndex, groupIndex) {
+                const data = loadData();
+                if (!data.groupSections[sectionIndex].groups[groupIndex].tags) {
+                    data.groupSections[sectionIndex].groups[groupIndex].tags = [];
+                }
+                data.groupSections[sectionIndex].groups[groupIndex].tags.push('แท็กใหม่');
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateGroupLink(sectionIndex, groupIndex, linkIndex, field, value) {
+                const data = loadData();
+                data.groupSections[sectionIndex].groups[groupIndex].links[linkIndex][field] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteGroupLink(sectionIndex, groupIndex, linkIndex) {
+                const data = loadData();
+                data.groupSections[sectionIndex].groups[groupIndex].links.splice(linkIndex, 1);
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function addGroupLink(sectionIndex, groupIndex) {
+                const data = loadData();
+                if (!data.groupSections[sectionIndex].groups[groupIndex].links) {
+                    data.groupSections[sectionIndex].groups[groupIndex].links = [];
+                }
+                data.groupSections[sectionIndex].groups[groupIndex].links.push({ text: '🔗 ลิงก์ใหม่', url: '#' });
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+            function updateAllGroupsSection(index, field, value) {
+                const data = loadData();
+                data.allGroupsSections[index][field] = value;
+                saveData(data, true, true);
+            }
+
+            function deleteAllGroupsSection(index) {
+                Swal.fire({
+                    title: 'ยืนยันการลบ',
+                    text: 'คุณแน่ใจหรือไม่ที่จะลบปุ่มนี้?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#f44336',
+                    cancelButtonColor: '#9e9e9e',
+                    confirmButtonText: 'ใช่, ลบเลย',
+                    cancelButtonText: 'ยกเลิก'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const data = loadData();
+                        data.allGroupsSections.splice(index, 1);
+                        saveData(data, true, true);
+                        renderAdminSections();
+                        Swal.fire('ลบแล้ว!', '', 'success');
+                    }
+                });
+            }
+
+            function addAllGroupsSection() {
+                const data = loadData();
+                data.allGroupsSections.push({
+                    title: '🔍 ดูกลุ่มทั้งหมด',
+                    buttonText: '📋 กดดูกลุ่มทั้งหมด',
+                    buttonLink: '#'
+                });
+                saveData(data, true, true);
+                renderAdminSections();
+            }
+
+        // ===================== SAVE FUNCTIONS =====================
+        function saveHeader() {
+            const data = loadData();
+            data.header = {
+                logoImg: document.getElementById('a-logo-img').value,
+                stars: [
+                    document.getElementById('a-star1').value,
+                    document.getElementById('a-star2').value,
+                    document.getElementById('a-star3').value
+                ],
+                shopName: document.getElementById('a-shop-name').value,
+                shopSub: document.getElementById('a-shop-sub').value,
+                statusText: document.getElementById('a-status-text').value
+            };
+            saveData(data, true, true);
+            Swal.fire({
+                icon: 'success',
+                title: 'บันทึกเรียบร้อย',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+
+        function saveContact() {
+            const data = loadData();
+            data.contact = {
+                fbLink: document.getElementById('a-contact-fb-link').value,
+                fbText: document.getElementById('a-contact-fb-text').value,
+                lineLink: document.getElementById('a-contact-line-link').value,
+                lineText: document.getElementById('a-contact-line-text').value,
+                note: document.getElementById('a-contact-note').value
+            };
+            saveData(data, true, true);
+            Swal.fire({
+                icon: 'success',
+                title: 'บันทึกเรียบร้อย',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+
+        function saveFooter() {
+            const data = loadData();
+            data.footer = {
+                name: document.getElementById('a-footer-name').value,
+                text: document.getElementById('a-footer-text').value
+            };
+            saveData(data, true, true);
+            Swal.fire({
+                icon: 'success',
+                title: 'บันทึกเรียบร้อย',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+
+        // ===================== ADMIN FUNCTIONS =====================
+        function getCreds() {
+            try {
+                return JSON.parse(localStorage.getItem(ADMIN_CREDS_KEY)) || { user: 'admin', pass: 'admin123' };
+            } catch {
+                return { user: 'admin', pass: 'admin123' };
+            }
+        }
+
+        function openAdmin() {
+            if (!isAdminLoggedIn) {
+                document.getElementById('login-overlay').classList.add('show');
+                document.getElementById('login-user').focus();
+                return;
+            }
+
+            const data = loadData();
+
+            // Fill header form
+            document.getElementById('a-logo-img').value = data.header.logoImg || '';
+            document.getElementById('a-star1').value = data.header.stars[0] || '⭐';
+            document.getElementById('a-star2').value = data.header.stars[1] || '✨';
+            document.getElementById('a-star3').value = data.header.stars[2] || '🌟';
+            document.getElementById('a-shop-name').value = data.header.shopName || '';
+            document.getElementById('a-shop-sub').value = data.header.shopSub || '';
+            document.getElementById('a-status-text').value = data.header.statusText || '';
+
+            // Fill contact form
+            document.getElementById('a-contact-fb-link').value = data.contact.fbLink || '';
+            document.getElementById('a-contact-fb-text').value = data.contact.fbText || 'Facebook';
+            document.getElementById('a-contact-line-link').value = data.contact.lineLink || '';
+            document.getElementById('a-contact-line-text').value = data.contact.lineText || 'Line';
+            document.getElementById('a-contact-note').value = data.contact.note || '';
+
+            // Fill footer form
+            document.getElementById('a-footer-name').value = data.footer.name || '';
+            document.getElementById('a-footer-text').value = data.footer.text || '';
+
+            // Fill GS config
+            const gs = getGsConfig();
+            document.getElementById('gs-webapp-url').value = gs.webAppUrl || '';
+            document.getElementById('gs-sheet-id').value = gs.sheetId || '';
+            document.getElementById('gs-api-key').value = gs.apiKey || '';
+
+            renderAdminSections();
+            document.getElementById('admin-overlay').classList.add('show');
+            startAutoSave();
+        }
+
+        function closeAdmin() {
+            document.getElementById('admin-overlay').classList.remove('show');
+            if (autoSaveTimer) {
+                clearInterval(autoSaveTimer);
+                autoSaveTimer = null;
+            }
+        }
+
+        function closeLogin() {
+            document.getElementById('login-overlay').classList.remove('show');
+            document.getElementById('login-user').value = '';
+            document.getElementById('login-pass').value = '';
+        }
+
+        function doLogin() {
+            const username = document.getElementById('login-user').value.trim();
+            const password = document.getElementById('login-pass').value.trim();
+            const creds = getCreds();
+
+            if (username === creds.user && password === creds.pass) {
+                closeLogin();
+                isAdminLoggedIn = true;
+                openAdmin();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'เข้าสู่ระบบล้มเหลว',
+                    text: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง',
+                    confirmButtonColor: '#F5C800'
+                });
+                document.getElementById('login-pass').value = '';
+            }
+        }
+
+        function adminLogout() {
+            isAdminLoggedIn = false;
+            closeAdmin();
+            Swal.fire({
+                icon: 'success',
+                title: 'ออกจากระบบสำเร็จ',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function startAutoSave() {
+            if (autoSaveTimer) clearInterval(autoSaveTimer);
+            autoSaveTimer = setInterval(() => {
+                if (document.getElementById('admin-overlay').classList.contains('show')) {
+                    saveData(loadData(), true, false);
+                }
+            }, 60000);
+        }
+
+        // ===================== EXPORT/IMPORT FUNCTIONS =====================
+        function exportData() {
+            const data = loadData();
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `bibimint-backup-${new Date().toISOString().slice(0, 10)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    saveData(data, true, true);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'นำเข้าข้อมูลสำเร็จ',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                    openAdmin();
+                } catch (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'ไฟล์ไม่ถูกต้อง',
+                        text: 'กรุณาเลือกไฟล์ JSON ที่ถูกต้อง',
+                        confirmButtonColor: '#F5C800'
+                    });
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function syncWithGoogleSheets() {
+            Swal.fire({
+                title: 'ซิงค์กับ Google Sheets',
+                text: 'เลือกทิศทางการซิงค์',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: '📤 อัปโหลดไป Sheets',
+                cancelButtonText: '📥 ดาวน์โหลดจาก Sheets',
+                confirmButtonColor: '#F5C800',
+                cancelButtonColor: '#9e9e9e'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    saveToGoogleSheets(loadData()).then(() => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'อัปโหลดสำเร็จ',
+                            timer: 1500,
+                            showConfirmButton: false
+                        });
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    loadFromGoogleSheets();
+                }
+            });
+        }
+
+        // ===================== INITIALIZATION =====================
+        document.getElementById('admin-fab').addEventListener('click', openAdmin);
+
+        document.getElementById('login-pass').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') doLogin();
+        });
+
+        document.getElementById('admin-overlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeAdmin();
+        });
+
+        document.getElementById('login-overlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeLogin();
+        });
+
+        // ตรวจสอบและโหลดข้อมูลจาก Google Sheets เมื่อเปิดหน้าเว็บครั้งแรก
+        async function initData() {
+            // ถ้าไม่มีข้อมูลใน Local Storage ให้ลองโหลดจาก Sheets
+            if (!localStorage.getItem(DATA_KEY)) {
+                const gsConfig = getGsConfig();
+                if (gsConfig.webAppUrl) {
+                    await loadFromGoogleSheets();
+                }
+            }
+        }
+
+        // Initial render
+        renderSite();
+
+        // Initialize data
+        initData();
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.55s ease both';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-card').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
