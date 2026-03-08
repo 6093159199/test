@@ -1495,12 +1495,12 @@
 
     <script>
         // ===================== CONFIG =====================
-        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzA_YBJ9B6JGy-6xCKhMtMghmXsof78gc4KJDqS8yG7YJ3nwdfkzupD4czm8Q3_uQvH/exec';
+        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxdI9iGK0PBeV0ZtJqdTG_2wzqoVif9LIawulqlzW_ut9MXNj5jtSj3z3wktBXErm8t/exec';
 
-        const ADMIN_CREDS_KEY = 'bibimint_admin_creds';
-        const DATA_KEY = 'bibimint_data';
-        const GS_CONFIG_KEY = 'bibimint_gs_config';
-        const HISTORY_KEY = 'bibimint_history';
+        const ADMIN_CREDS_KEY = 'nexo_admin_creds';
+        const DATA_KEY = 'nexo_data';
+        const GS_CONFIG_KEY = 'nexo_gs_config';
+        const HISTORY_KEY = 'nexo_history';
         let autoSaveTimer = null;
         let isAdminLoggedIn = false;
 
@@ -1528,7 +1528,7 @@
             { name: 'K2D', label: 'K2D', preview: 'สวัสดีครับ' },
         ];
 
-        let selectedFont = localStorage.getItem('bibimint_font') || 'Mitr';
+        let selectedFont = localStorage.getItem('nexo_font') || 'Mitr';
 
         function applyFont(fontName) {
             document.documentElement.style.setProperty('--font-main', `'${fontName}', 'Mitr', sans-serif`);
@@ -1556,7 +1556,7 @@
         }
 
         function saveFont() {
-            localStorage.setItem('bibimint_font', selectedFont);
+            localStorage.setItem('nexo_font', selectedFont);
             applyFont(selectedFont);
             showToast('✅ บันทึกฟอนต์เรียบร้อย');
         }
