@@ -120,6 +120,12 @@
             animation-delay: 1.4s;
         }
 
+        .logo-star.s4 {
+            bottom: 8px;
+            right: -14px;
+            animation-delay: 1.4s;
+        }
+
         .shop-name {
             font-size: 2.8rem;
             font-weight: 600;
@@ -1495,7 +1501,7 @@
 
     <script>
         // ===================== CONFIG =====================
-        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyB7ocvpZL-kTxW_uU-LdWJrsYWQEVcscLzsmYMKjLIl_cjbZiu8ie9dQezy-WgtHM/exec';
+        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbytmMYKEm8QOYl37wsZp-skdD74fY4vrCFIMYBGA2ZI5733tSjn5eJfgBZbNoMnY3OZ/exec';
 
         const ADMIN_CREDS_KEY = 'nexo_admin_creds';
         const DATA_KEY = 'nexo_data';
@@ -1772,7 +1778,7 @@
             return {
                 header: {
                     logoImg: 'https://img2.pic.in.th/pic/NEXO-SHOP-2-Photoroom.png',
-                    stars: ['⭐', '✨', '🌟'],
+                    stars: ['⭐', '✨', '🌟', '✨'],
                     shopName: 'NEXO',
                     shopSub: '###',
                     statusText: 'สถานะของร้าน'
@@ -1858,6 +1864,7 @@
                         <span class="logo-star s1">${data.header.stars[0]}</span>
                         <span class="logo-star s2">${data.header.stars[1]}</span>
                         <span class="logo-star s3">${data.header.stars[2]}</span>
+                        <span class="logo-star s4">${data.header.stars[3]}</span>
                     </div>
                     <div class="shop-name">${data.header.shopName}</div>
                     <div class="shop-sub">${data.header.shopSub}</div>
@@ -2238,7 +2245,7 @@
             const d = loadData();
             d.header = {
                 logoImg: document.getElementById('a-logo-img').value,
-                stars: [document.getElementById('a-star1').value, document.getElementById('a-star2').value, document.getElementById('a-star3').value],
+                stars: [document.getElementById('a-star1').value, document.getElementById('a-star2').value, document.getElementById('a-star3').value, document.getElementById('a-star4').value],
                 shopName: document.getElementById('a-shop-name').value,
                 shopSub: document.getElementById('a-shop-sub').value,
                 statusText: document.getElementById('a-status-text').value
@@ -2287,6 +2294,7 @@
             document.getElementById('a-star1').value = data.header.stars[0] || '⭐';
             document.getElementById('a-star2').value = data.header.stars[1] || '✨';
             document.getElementById('a-star3').value = data.header.stars[2] || '🌟';
+            document.getElementById('a-star4').value = data.header.stars[3] || '✨';
             document.getElementById('a-shop-name').value = data.header.shopName || '';
             document.getElementById('a-shop-sub').value = data.header.shopSub || '';
             document.getElementById('a-status-text').value = data.header.statusText || '';
