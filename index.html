@@ -6,22 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://img2.pic.in.th/pic/NEXO-SHOP-2-Photoroom.png" type="image/png"
         sizes="16x16">
-    <title>DEMO NEXOV2</title>
+    <title>NEXO SHOP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Sarabun:wght@300;400;500&family=Kanit:wght@300;400;500;600&family=Prompt:wght@300;400;500;600&family=Charm:wght@400;700&family=Itim&family=Kodchasan:wght@300;400;500;600&family=Krub:wght@300;400;500;600&family=Mali:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500;600&family=Pridi:wght@300;400;500;600&family=Taviraj:wght@300;400;500;600&family=Trirong:wght@300;400;500;600&family=Srisakdi:wght@400;700&family=Bai+Jamjuree:wght@300;400;500;600&family=Chonburi&family=Athiti:wght@300;400;500;600&family=Fahkwang:wght@300;400;500;600&family=K2D:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { thai: ['Mitr', 'sans-serif'] },
+                    animation: {
+                        'float': 'float 5s ease-in-out infinite',
+                        'float2': 'float 3s ease-in-out infinite',
+                        'blink': 'blink 1.6s ease-in-out infinite',
+                        'slideUp': 'slideUp 0.55s ease both',
+                        'spin-slow': 'spin 3s linear infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         :root {
-            --yellow: #F5C800;
-            --yellow-soft: #FFE066;
-            --yellow-pale: #FFF8CC;
-            --silver-pale: #F4F4FA;
-            --text-main: #6B5B3E;
-            --text-soft: #9B8B72;
-            --text-light: #BBA890;
-            --shadow: rgba(180, 150, 80, 0.13);
-            --font-main: 'Mitr', 'Sarabun', sans-serif;
+            --c-primary: #F5C800;
+            --c-primary-light: #FFE066;
+            --c-primary-pale: #FFF8CC;
+            --c-secondary: #6B5B3E;
+            --c-bg-from: #FEFCF5;
+            --c-bg-to: #F9F5FF;
+            --c-text-main: #6B5B3E;
+            --c-text-soft: #9B8B72;
+            --c-text-light: #BBA890;
+            --c-card-bg: rgba(255, 255, 255, 0.85);
+            --c-card-border: rgba(245, 200, 0, 0.2);
+            --c-btn-contact: linear-gradient(135deg, #4267B2, #5B80D8);
+            --c-do-bg: #F0FAF0;
+            --c-do-border: #B8E6B0;
+            --c-dont-bg: #FFF2F2;
+            --c-dont-border: #FFBCBC;
+            --c-status-from: #B8E8B0;
+            --c-status-to: #78CC72;
+            --font-main: 'Mitr', sans-serif;
         }
 
         * {
@@ -31,9 +59,9 @@
         }
 
         body {
-            background: linear-gradient(170deg, #FEFCF5 0%, #FDF8EC 50%, #F9F5FF 100%);
+            background: linear-gradient(170deg, var(--c-bg-from) 0%, #FDF8EC 50%, var(--c-bg-to) 100%);
             font-family: var(--font-main);
-            color: var(--text-main);
+            color: var(--c-text-main);
             overflow-x: hidden;
             min-height: 100vh;
         }
@@ -53,137 +81,31 @@
             z-index: 1;
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 16px 60px;
+            padding: 0 16px 80px;
         }
 
-        .header {
-            text-align: center;
-            padding: 44px 20px 28px;
-        }
-
-        .logo-circle-wrap {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px;
-            animation: float 5s ease-in-out infinite;
-        }
-
-        .logo-ring {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #FFE044, #F5C800, #FFD000);
-            box-shadow: 0 0 18px rgba(245, 200, 0, 0.35);
-        }
-
-        .logo-ring-inner {
-            position: absolute;
-            inset: 4px;
-            border-radius: 50%;
-            background: white;
-        }
-
-        .logo-img {
-            position: absolute;
-            inset: 7px;
-            border-radius: 50%;
-            object-fit: cover;
-            width: calc(100% - 14px);
-            height: calc(100% - 14px);
-        }
-
-        .logo-star {
-            position: absolute;
-            font-size: 1.1rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .logo-star.s1 {
-            top: -4px;
-            right: 14px;
-            animation-delay: 0s;
-        }
-
-        .logo-star.s2 {
-            bottom: 8px;
-            left: -2px;
-            animation-delay: 0.8s;
-        }
-
-        .logo-star.s3 {
-            top: 20px;
-            left: -10px;
-            font-size: 0.8rem;
-            animation-delay: 1.4s;
-        }
-
-        .logo-star.s4 {
-            bottom: 8px;
-            right: -14px;
-            animation-delay: 0.8s;
-        }
-
-        .shop-name {
-            font-size: 2.8rem;
-            font-weight: 600;
-            color: var(--yellow);
-            line-height: 1.1;
-            margin-bottom: 4px;
-            text-shadow: 0 2px 0 rgba(200, 160, 0, 0.2), 0 4px 18px rgba(245, 200, 0, 0.18);
-            letter-spacing: 1px;
-        }
-
-        .shop-sub {
-            font-size: 0.86rem;
-            color: var(--text-light);
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 14px;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            background: linear-gradient(135deg, #B8E8B0, #78CC72);
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 500;
-            padding: 7px 18px;
-            border-radius: 20px;
-            box-shadow: 0 3px 12px rgba(100, 190, 95, 0.28);
-        }
-
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            background: white;
-            border-radius: 50%;
-            animation: blink 1.6s ease-in-out infinite;
-        }
-
+        /* Cards */
         .section-card {
-            background: rgba(255, 255, 255, 0.82);
+            background: var(--c-card-bg);
             backdrop-filter: blur(12px);
             border-radius: 22px;
-            padding: 24px 24px;
+            padding: 24px;
             margin-bottom: 16px;
-            border: 1.5px solid rgba(245, 200, 0, 0.18);
-            box-shadow: 0 3px 20px var(--shadow), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+            border: 1.5px solid var(--c-card-border);
+            box-shadow: 0 3px 20px rgba(180, 150, 80, 0.13), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: slideUp 0.55s ease both;
         }
 
         .section-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(180, 150, 80, 0.16);
+            box-shadow: 0 8px 28px rgba(180, 150, 80, 0.18);
         }
 
         .section-title {
             font-size: 0.98rem;
             font-weight: 600;
-            color: var(--text-main);
+            color: var(--c-text-main);
             margin-bottom: 16px;
             display: flex;
             align-items: center;
@@ -194,21 +116,16 @@
             content: '';
             flex: 1;
             height: 1.5px;
-            background: linear-gradient(to right, rgba(245, 200, 0, 0.45), transparent);
+            background: linear-gradient(to right, var(--c-primary), transparent);
+            opacity: 0.45;
             border-radius: 2px;
         }
 
         .about-text {
             font-size: 0.9rem;
-            color: var(--text-soft);
+            color: var(--c-text-soft);
             line-height: 1.95;
             font-weight: 300;
-        }
-
-        .style-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
         }
 
         .style-tag {
@@ -217,31 +134,24 @@
             border-radius: 20px;
             padding: 6px 15px;
             font-size: 0.8rem;
-            color: var(--text-main);
-            transition: all 0.2s ease;
+            color: var(--c-text-main);
+            transition: all 0.2s;
             cursor: default;
         }
 
         .style-tag:hover {
-            background: var(--yellow);
+            background: var(--c-primary);
             color: white;
-            border-color: var(--yellow);
+            border-color: var(--c-primary);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(245, 200, 0, 0.3);
         }
 
-        .price-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
+        /* Price cards */
         .price-card {
             border-radius: 18px;
             padding: 22px 14px;
             text-align: center;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s;
             position: relative;
             overflow: hidden;
         }
@@ -272,96 +182,11 @@
             pointer-events: none;
         }
 
-        .price-type {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.88);
-            margin-bottom: 4px;
-        }
-
-        .price-amount {
-            font-size: 2.4rem;
-            font-weight: 600;
-            color: white;
-            line-height: 1;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .price-unit {
-            font-size: 0.72rem;
-            color: rgba(255, 255, 255, 0.78);
-            margin-top: 2px;
-        }
-
-        .bulk-note {
-            background: linear-gradient(135deg, var(--silver-pale), var(--yellow-pale));
-            border: 1.5px solid rgba(184, 184, 200, 0.35);
-            border-radius: 14px;
-            padding: 12px 16px;
-            font-size: 0.83rem;
-            color: var(--text-soft);
-            text-align: center;
-            line-height: 1.7;
-        }
-
-        .do-dont-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .do-box {
-            background: linear-gradient(135deg, #F0FAF0, #E4F5E0);
-            border: 1.5px solid #B8E6B0;
-            border-radius: 16px;
-            padding: 14px;
-        }
-
-        .dont-box {
-            background: linear-gradient(135deg, #FFF2F2, #FFE8E8);
-            border: 1.5px solid #FFBCBC;
-            border-radius: 16px;
-            padding: 14px;
-        }
-
-        .do-title {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #58A850;
-            margin-bottom: 8px;
-        }
-
-        .dont-title {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #D86060;
-            margin-bottom: 8px;
-        }
-
-        .do-box li,
-        .dont-box li {
-            font-size: 0.8rem;
-            color: var(--text-soft);
-            line-height: 1.8;
-            margin-left: 12px;
-        }
-
-        .steps-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .step-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
+        /* Steps */
         .step-num {
             min-width: 32px;
             height: 32px;
-            background: #F5C800;
+            background: var(--c-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -373,19 +198,7 @@
             flex-shrink: 0;
         }
 
-        .step-text {
-            font-size: 0.86rem;
-            color: var(--text-soft);
-            line-height: 1.75;
-            padding-top: 5px;
-        }
-
-        .timeline-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
-        }
-
+        /* Timeline */
         .tl-item {
             border-radius: 14px;
             padding: 12px 10px;
@@ -398,7 +211,7 @@
         }
 
         .tl-item.mid {
-            background: linear-gradient(135deg, var(--yellow-pale), #FFF0AA);
+            background: linear-gradient(135deg, var(--c-primary-pale), #FFF0AA);
             border: 1.5px solid rgba(245, 200, 0, 0.4);
         }
 
@@ -407,50 +220,7 @@
             border: 1.5px solid rgba(230, 160, 40, 0.35);
         }
 
-        .tl-day {
-            font-size: 1.3rem;
-            font-weight: 600;
-            line-height: 1;
-            margin-bottom: 3px;
-        }
-
-        .tl-item.fast .tl-day {
-            color: #58A850;
-        }
-
-        .tl-item.mid .tl-day {
-            color: var(--yellow);
-        }
-
-        .tl-item.slow .tl-day {
-            color: #D08030;
-        }
-
-        .tl-label {
-            font-size: 0.7rem;
-            color: var(--text-light);
-            font-weight: 300;
-        }
-
-        .payment-chips {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .pay-chip {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--silver-pale), var(--yellow-pale));
-            border: 1.5px solid rgba(184, 184, 200, 0.35);
-            border-radius: 12px;
-            padding: 9px 14px;
-            font-size: 0.83rem;
-            color: var(--text-main);
-        }
-
-        /* ── CONTACT BUTTONS (dynamic) ── */
+        /* Contact buttons */
         .contact-btns {
             display: grid;
             gap: 12px;
@@ -478,7 +248,7 @@
             text-decoration: none;
             font-size: 0.88rem;
             font-weight: 500;
-            transition: all 0.25s ease;
+            transition: all 0.25s;
             border: none;
             cursor: pointer;
         }
@@ -487,7 +257,6 @@
             transform: translateY(-3px);
         }
 
-        /* preset styles */
         .btn-fb {
             background: linear-gradient(135deg, #4267B2, #5B80D8);
             color: white;
@@ -537,84 +306,23 @@
         }
 
         .btn-custom {
-            background: linear-gradient(135deg, var(--yellow), #FFB347);
+            background: linear-gradient(135deg, var(--c-primary), #FFB347);
             color: white;
             box-shadow: 0 4px 16px rgba(245, 200, 0, 0.28);
         }
 
-        .groups-header {
-            text-align: center;
-            padding: 36px 20px 28px;
-            position: relative;
-        }
-
-        .groups-header-deco {
-            font-size: 1rem;
-            color: var(--yellow);
-            letter-spacing: 8px;
-            margin-bottom: 10px;
-            opacity: 0.7;
-        }
-
-        .groups-header-title {
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--yellow);
-            line-height: 1.1;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 0 rgba(200, 160, 0, 0.18), 0 6px 24px rgba(245, 200, 0, 0.2);
-            letter-spacing: 2px;
-            animation: float 5s ease-in-out infinite;
-        }
-
-        .groups-header-sub {
-            font-size: 1.05rem;
-            color: var(--text-soft);
-            font-weight: 400;
-            margin-bottom: 10px;
-            line-height: 1.7;
-        }
-
-        .groups-header-deco2 {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .group-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
+        /* Group items */
         .group-item {
             background: linear-gradient(135deg, #FFFDF5, #FFFBEC);
             border: 1.5px solid rgba(245, 200, 0, 0.22);
             border-radius: 16px;
             padding: 16px 18px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .group-item:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(245, 200, 0, 0.15);
-        }
-
-        .gi-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .gi-name {
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--text-main);
-            line-height: 1.5;
-            flex: 1;
         }
 
         .gi-price {
@@ -624,23 +332,7 @@
             font-weight: 600;
             padding: 4px 12px;
             border-radius: 20px;
-            white-space: nowrap;
             box-shadow: 0 2px 8px rgba(245, 200, 0, 0.3);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-            flex-shrink: 0;
-            align-self: flex-start;
-        }
-
-        .gi-price span {
-            font-size: 0.7rem;
-            margin-left: 1px;
-        }
-
-        .gi-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 8px;
         }
 
         .gi-tag {
@@ -649,42 +341,27 @@
             border-radius: 12px;
             padding: 3px 10px;
             font-size: 0.75rem;
-            color: var(--text-soft);
-        }
-
-        .gi-note {
-            font-size: 0.78rem;
-            color: #D08030;
-            margin-bottom: 8px;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        .gi-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            color: var(--c-text-soft);
         }
 
         .gi-link {
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            background: linear-gradient(135deg, white, var(--yellow-pale));
+            background: linear-gradient(135deg, white, var(--c-primary-pale));
             border: 1.5px solid rgba(245, 200, 0, 0.4);
             border-radius: 10px;
             padding: 5px 12px;
             font-size: 0.76rem;
-            color: var(--text-main);
+            color: var(--c-text-main);
             text-decoration: none;
-            transition: all 0.2s ease;
-            font-weight: 400;
+            transition: all 0.2s;
         }
 
         .gi-link:hover {
-            background: var(--yellow);
+            background: var(--c-primary);
             color: white;
-            border-color: var(--yellow);
+            border-color: var(--c-primary);
             transform: translateY(-1px);
         }
 
@@ -702,9 +379,8 @@
             font-size: 0.9rem;
             font-weight: 600;
             box-shadow: 0 4px 16px rgba(245, 200, 0, 0.3);
-            transition: all 0.25s ease;
+            transition: all 0.25s;
             margin-top: 4px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
         }
 
         .see-all-btn:hover {
@@ -712,47 +388,507 @@
             box-shadow: 0 8px 24px rgba(245, 200, 0, 0.4);
         }
 
-        .footer {
-            text-align: center;
-            padding: 26px 20px 10px;
-            font-size: 0.76rem;
-            color: var(--text-light);
-        }
-
-        .footer-name {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--yellow);
-            margin-bottom: 4px;
-            text-shadow: 0 1px 6px rgba(245, 200, 0, 0.2);
-        }
-
-        /* ── ADMIN ── */
-        #admin-fab {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 9999;
-            width: 56px;
-            height: 56px;
+        /* Logo */
+        .logo-ring {
+            position: absolute;
+            inset: 0;
             border-radius: 50%;
-            background: linear-gradient(135deg, #F5C800, #FFB347);
-            border: none;
+            background: linear-gradient(135deg, #FFE044, #F5C800, #FFD000);
+            box-shadow: 0 0 18px rgba(245, 200, 0, 0.35);
+        }
+
+        .logo-ring-inner {
+            position: absolute;
+            inset: 4px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .logo-img {
+            position: absolute;
+            inset: 7px;
+            border-radius: 50%;
+            object-fit: cover;
+            width: calc(100% - 14px);
+            height: calc(100% - 14px);
+        }
+
+        .logo-star {
+            position: absolute;
+            font-size: 1.1rem;
+        }
+
+        .logo-star.s1 {
+            top: -4px;
+            right: 14px;
+        }
+
+        .logo-star.s2 {
+            bottom: 8px;
+            left: -2px;
+        }
+
+        .logo-star.s3 {
+            top: 20px;
+            left: -10px;
+            font-size: 0.8rem;
+        }
+
+        .logo-star.s4 {
+            bottom: 8px;
+            right: -14px;
+        }
+
+        .groups-header-title {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--c-primary);
+            line-height: 1.1;
+            text-shadow: 0 2px 0 rgba(200, 160, 0, 0.18), 0 6px 24px rgba(245, 200, 0, 0.2);
+            letter-spacing: 2px;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .shop-name {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--c-primary);
+            line-height: 1.1;
+            text-shadow: 0 2px 0 rgba(200, 160, 0, 0.2), 0 4px 18px rgba(245, 200, 0, 0.18);
+            letter-spacing: 1px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: linear-gradient(135deg, var(--c-status-from), var(--c-status-to));
             color: white;
-            font-size: 24px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 7px 18px;
+            border-radius: 20px;
+            box-shadow: 0 3px 12px rgba(100, 190, 95, 0.28);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: white;
+            border-radius: 50%;
+            animation: blink 1.6s ease-in-out infinite;
+        }
+
+        /* Pay chips */
+        .pay-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #F4F4FA, #FFF8CC);
+            border: 1.5px solid rgba(184, 184, 200, 0.35);
+            border-radius: 12px;
+            padding: 9px 14px;
+            font-size: 0.83rem;
+            color: var(--c-text-main);
+        }
+
+        /* Admin panel */
+        .admin-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: var(--font-main);
+            font-size: 0.88rem;
+            outline: none;
+            transition: border 0.2s;
+            background: white;
+        }
+
+        .admin-input:focus {
+            border-color: var(--c-primary);
+        }
+
+        .admin-btn-save {
+            background: var(--c-primary);
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            border-radius: 30px;
+            font-family: var(--font-main);
+            font-weight: 500;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(245, 200, 0, 0.5);
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .admin-btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 200, 0, 0.4);
+        }
+
+        .admin-btn-add {
+            background: #f0f0f0;
+            color: #555;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-family: var(--font-main);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .admin-btn-add:hover {
+            background: #e0e0e0;
+        }
+
+        .admin-btn-del {
+            background: #ffebee;
+            color: #f44336;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-family: var(--font-main);
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .admin-btn-del:hover {
+            background: #ffcdd2;
+        }
+
+        .admin-section {
+            background: #f9f9f9;
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 9px 18px;
+            border: 1.5px solid #ddd;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            color: #666;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--c-primary);
+            color: white;
+            border-color: var(--c-primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .item-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .item-row .admin-input {
+            margin-bottom: 0;
+            flex: 1;
+        }
+
+        /* Color swatches */
+        .color-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .color-row label {
+            font-size: 0.82rem;
+            color: #666;
+            min-width: 140px;
+        }
+
+        .color-input-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .color-swatch {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .color-text {
+            width: 100px;
+            padding: 6px 10px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-family: monospace;
+            outline: none;
+        }
+
+        .color-text:focus {
+            border-color: var(--c-primary);
+        }
+
+        /* Style picker */
+        .style-chip {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 2px solid transparent;
+            color: white;
+            transition: all 0.15s;
+        }
+
+        .style-chip.selected {
+            border-color: #333;
+            transform: scale(1.08);
+        }
+
+        .chip-fb {
+            background: #4267B2;
+        }
+
+        .chip-line {
+            background: #00B500;
+        }
+
+        .chip-ig {
+            background: linear-gradient(135deg, #e1306c, #fcb045);
+        }
+
+        .chip-tw {
+            background: #1DA1F2;
+        }
+
+        .chip-tt {
+            background: #010101;
+        }
+
+        .chip-yt {
+            background: #FF0000;
+        }
+
+        .chip-discord {
+            background: #5865F2;
+        }
+
+        .chip-email {
+            background: #EA4335;
+        }
+
+        .chip-custom {
+            background: #F5C800;
+        }
+
+        .contact-btn-card {
+            border: 1.5px solid #e0e0e0;
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 14px;
+            background: white;
+        }
+
+        .contact-btn-preview {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        /* Font grid */
+        .font-option {
+            border: 2px solid #eee;
+            border-radius: 14px;
+            padding: 14px 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            background: white;
+        }
+
+        .font-option:hover {
+            border-color: var(--c-primary);
+        }
+
+        .font-option.selected {
+            border-color: var(--c-primary);
+            background: #FFF8CC;
+            box-shadow: 0 3px 12px rgba(245, 200, 0, 0.25);
+        }
+
+        /* Section header badge */
+        .badge-global {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .badge-assigned {
+            background: #FFF8CC;
+            color: #7A5C00;
+        }
+
+        /* History */
+        .history-item {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .history-item:hover {
+            border-color: var(--c-primary);
+            transform: translateX(5px);
+        }
+
+        /* GS status */
+        .gs-ok {
+            background: #E8F5E9;
+            color: #4CAF50;
+        }
+
+        .gs-err {
+            background: #FFEBEE;
+            color: #f44336;
+        }
+
+        .gs-loading {
+            background: #E3F2FD;
+            color: #2196F3;
+        }
+
+        /* Toast */
+        #toast {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            z-index: 9998;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #toast.show {
+            display: flex;
+            animation: slideIn 0.3s ease;
+        }
+
+        #toast.success {
+            background: #4CAF50;
+        }
+
+        #toast.error {
+            background: #f44336;
+        }
+
+        #toast.info {
+            background: #2196F3;
+        }
+
+        #toast.warning {
+            background: #FF9800;
+        }
+
+        /* Loading */
+        #loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(170deg, #FEFCF5, #FDF8EC);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        #loading-overlay.hidden {
+            display: none;
+        }
+
+        .loading-bar-wrap {
+            width: 200px;
+            height: 4px;
+            background: #f0e8cc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #F5C800, #FFD700);
+            border-radius: 4px;
+            animation: loadBar 1.5s ease-in-out infinite;
+        }
+
+        /* Admin overlay */
+        #login-overlay,
+        #admin-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        #login-overlay.show,
+        #admin-overlay.show {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
         }
 
-        #admin-fab:hover {
-            transform: scale(1.1) rotate(90deg);
-            box-shadow: 0 6px 25px rgba(245, 200, 0, 0.7);
+        #admin-panel {
+            background: white;
+            border-radius: 22px;
+            padding: 28px;
+            width: 100%;
+            max-width: 940px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
         }
 
+        /* Custom Modal */
         .cmodal-overlay {
             display: none;
             position: fixed;
@@ -780,32 +916,6 @@
             animation: slideUp 0.3s ease;
         }
 
-        .cmodal-icon {
-            font-size: 3rem;
-            margin-bottom: 14px;
-        }
-
-        .cmodal-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 8px;
-        }
-
-        .cmodal-text {
-            font-size: 0.88rem;
-            color: var(--text-soft);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .cmodal-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
         .cmodal-btn {
             padding: 11px 24px;
             border-radius: 30px;
@@ -817,14 +927,9 @@
             transition: all 0.2s;
         }
 
-        .cmodal-btn:hover {
-            transform: translateY(-2px);
-        }
-
         .cmodal-btn-confirm {
-            background: var(--yellow);
+            background: var(--c-primary);
             color: white;
-            box-shadow: 0 4px 14px rgba(245, 200, 0, 0.35);
         }
 
         .cmodal-btn-cancel {
@@ -835,604 +940,9 @@
         .cmodal-btn-danger {
             background: #f44336;
             color: white;
-            box-shadow: 0 4px 14px rgba(244, 67, 54, 0.3);
         }
 
-        #toast {
-            position: fixed;
-            bottom: 100px;
-            right: 24px;
-            background: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            z-index: 9998;
-            display: none;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        #toast.show {
-            display: flex;
-            animation: slideIn 0.3s ease;
-        }
-
-        #toast.error {
-            background: #f44336;
-        }
-
-        #toast.info {
-            background: #2196F3;
-        }
-
-        #toast.warning {
-            background: #FF9800;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        #login-overlay,
-        #admin-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            z-index: 10000;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        #login-overlay.show,
-        #admin-overlay.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #login-box {
-            background: white;
-            border-radius: 22px;
-            padding: 40px 32px;
-            width: 100%;
-            max-width: 360px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        #admin-panel {
-            background: white;
-            border-radius: 22px;
-            padding: 32px;
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .admin-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #f0f0f0;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-
-        .admin-close:hover {
-            background: #ff4444;
-            color: white;
-        }
-
-        .admin-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 24px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 16px;
-        }
-
-        .tab-btn {
-            padding: 10px 20px;
-            border: 1px solid #ddd;
-            background: white;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: var(--font-main);
-            font-size: 0.9rem;
-            color: #666;
-            transition: all 0.2s;
-        }
-
-        .tab-btn.active {
-            background: var(--yellow);
-            color: white;
-            border-color: var(--yellow);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .admin-section {
-            background: #f9f9f9;
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .admin-section h3 {
-            color: var(--text-main);
-            font-size: 1rem;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .admin-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            font-family: var(--font-main);
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-        }
-
-        .admin-input:focus {
-            outline: none;
-            border-color: var(--yellow);
-        }
-
-        .section-header-selector {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #FFFBEC, #FFF8E0);
-            border: 1.5px solid rgba(245, 200, 0, 0.35);
-            border-radius: 12px;
-            padding: 10px 14px;
-            margin-bottom: 14px;
-        }
-
-        .section-header-selector label {
-            font-size: 0.82rem;
-            color: var(--text-soft);
-            white-space: nowrap;
-            font-weight: 500;
-        }
-
-        .section-header-selector select {
-            flex: 1;
-            padding: 7px 10px;
-            border: 1px solid rgba(245, 200, 0, 0.4);
-            border-radius: 8px;
-            font-family: var(--font-main);
-            font-size: 0.85rem;
-            background: white;
-            color: var(--text-main);
-            cursor: pointer;
-        }
-
-        .section-header-selector select:focus {
-            outline: none;
-            border-color: var(--yellow);
-        }
-
-        .section-header-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-left: 8px;
-        }
-
-        .section-header-badge.global {
-            background: #E3F2FD;
-            color: #1565C0;
-        }
-
-        .section-header-badge.assigned {
-            background: linear-gradient(135deg, #FFF8CC, #FFE44A);
-            color: #7A5C00;
-        }
-
-        .admin-btn-save {
-            background: var(--yellow);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-family: var(--font-main);
-            font-weight: 500;
-            cursor: pointer;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
-
-        .admin-btn-save:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(245, 200, 0, 0.4);
-        }
-
-        .admin-btn-add {
-            background: #e0e0e0;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-family: var(--font-main);
-            cursor: pointer;
-            margin-top: 8px;
-            font-size: 0.85rem;
-        }
-
-        .admin-btn-add:hover {
-            background: #d0d0d0;
-        }
-
-        .admin-btn-del {
-            background: #ffebee;
-            color: #f44336;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-family: var(--font-main);
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-
-        .admin-btn-del:hover {
-            background: #ffcdd2;
-        }
-
-        .item-row {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-
-        .item-row .admin-input {
-            margin-bottom: 0;
-            flex: 1;
-        }
-
-        .section-type-selector {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .type-btn {
-            padding: 8px 16px;
-            border: 2px solid var(--yellow);
-            background: white;
-            color: var(--yellow);
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: var(--font-main);
-            font-size: 0.85rem;
-            transition: all 0.2s;
-        }
-
-        .type-btn.active {
-            background: var(--yellow);
-            color: white;
-        }
-
-        /* ── Contact button admin card ── */
-        .contact-btn-card {
-            border: 1.5px solid #e0e0e0;
-            border-radius: 14px;
-            padding: 16px;
-            margin-bottom: 14px;
-            background: white;
-            position: relative;
-        }
-
-        .contact-btn-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .contact-btn-card-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .contact-btn-preview {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: white;
-            margin-bottom: 12px;
-            cursor: default;
-        }
-
-        .style-picker {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
-
-        .style-chip {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            cursor: pointer;
-            border: 2px solid transparent;
-            color: white;
-            transition: all 0.15s;
-        }
-
-        .style-chip.selected {
-            border-color: #333;
-            transform: scale(1.08);
-        }
-
-        .style-chip.chip-fb {
-            background: #4267B2;
-        }
-
-        .style-chip.chip-line {
-            background: #00B500;
-        }
-
-        .style-chip.chip-ig {
-            background: linear-gradient(135deg, #e1306c, #fcb045);
-        }
-
-        .style-chip.chip-tw {
-            background: #1DA1F2;
-        }
-
-        .style-chip.chip-tt {
-            background: #010101;
-        }
-
-        .style-chip.chip-yt {
-            background: #FF0000;
-        }
-
-        .style-chip.chip-discord {
-            background: #5865F2;
-        }
-
-        .style-chip.chip-email {
-            background: #EA4335;
-        }
-
-        .style-chip.chip-custom {
-            background: #F5C800;
-        }
-
-        .gs-status {
-            font-size: 0.85rem;
-            padding: 8px 15px;
-            border-radius: 30px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .gs-ok {
-            background: #E8F5E9;
-            color: #4CAF50;
-        }
-
-        .gs-err {
-            background: #FFEBEE;
-            color: #f44336;
-        }
-
-        .gs-loading {
-            background: #E3F2FD;
-            color: #2196F3;
-        }
-
-        .loading-spin {
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .export-import-menu {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .export-import-menu button {
-            background: #f0f0f0;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-family: var(--font-main);
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .export-import-menu button:hover {
-            background: #e0e0e0;
-        }
-
-        .history-item {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 12px 15px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .history-item:hover {
-            border-color: var(--yellow);
-            transform: translateX(5px);
-        }
-
-        .group-header-select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            font-family: var(--font-main);
-        }
-
-        .font-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .font-option {
-            border: 2px solid #eee;
-            border-radius: 14px;
-            padding: 14px 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
-            background: white;
-        }
-
-        .font-option:hover {
-            border-color: var(--yellow);
-            background: var(--yellow-pale);
-        }
-
-        .font-option.selected {
-            border-color: var(--yellow);
-            background: var(--yellow-pale);
-            box-shadow: 0 3px 12px rgba(245, 200, 0, 0.25);
-        }
-
-        .font-option-name {
-            font-size: 0.78rem;
-            color: var(--text-soft);
-            margin-top: 4px;
-        }
-
-        .font-preview-text {
-            font-size: 1.1rem;
-            color: var(--text-main);
-        }
-
-        #loading-overlay {
-            position: fixed;
-            inset: 0;
-            background: linear-gradient(170deg, #FEFCF5, #FDF8EC);
-            z-index: 99999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-        }
-
-        #loading-overlay.hidden {
-            display: none;
-        }
-
-        .loading-logo {
-            font-size: 3rem;
-            animation: float 2s ease-in-out infinite;
-        }
-
-        .loading-text {
-            font-size: 1rem;
-            color: var(--text-soft);
-            font-weight: 300;
-        }
-
-        .loading-bar-wrap {
-            width: 200px;
-            height: 4px;
-            background: #f0e8cc;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .loading-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #F5C800, #FFD700);
-            border-radius: 4px;
-            animation: loadBar 1.5s ease-in-out infinite;
-        }
-
-        @keyframes loadBar {
-            0% {
-                width: 0%;
-                margin-left: 0
-            }
-
-            50% {
-                width: 60%;
-                margin-left: 20%
-            }
-
-            100% {
-                width: 0%;
-                margin-left: 100%
-            }
-        }
-
+        /* Animations */
         @keyframes float {
 
             0%,
@@ -1469,18 +979,69 @@
             }
         }
 
-        @media (max-width: 500px) {
+        @keyframes slideIn {
+            from {
+                transform: translateX(100px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1
+            }
+        }
+
+        @keyframes loadBar {
+            0% {
+                width: 0%;
+                margin-left: 0
+            }
+
+            50% {
+                width: 60%;
+                margin-left: 20%
+            }
+
+            100% {
+                width: 0%;
+                margin-left: 100%
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .loading-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        /* Color section headers */
+        .color-section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #555;
+            padding: 8px 0 6px;
+            border-bottom: 1.5px solid #f0f0f0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media(max-width:500px) {
             .shop-name {
                 font-size: 2.2rem;
             }
 
-            .logo-circle-wrap {
-                width: 150px;
-                height: 150px;
-            }
-
             .do-dont-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
             }
 
             .contact-btns.cols-2,
@@ -1492,58 +1053,59 @@
                 padding: 18px 14px;
             }
 
-            .gi-top {
-                flex-direction: column;
-            }
-
-            .gi-price {
-                align-self: flex-start;
-            }
-
             #admin-panel {
-                padding: 20px;
-            }
-
-            .font-grid {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
-
-            .section-header-selector {
-                flex-direction: column;
-                align-items: flex-start;
+                padding: 16px;
             }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- Loading -->
     <div id="loading-overlay">
-        <div class="loading-logo">✨</div>
-        <div class="loading-text">กำลังโหลดข้อมูล...</div>
+        <div style="font-size:3rem;animation:float 2s ease-in-out infinite;">✨</div>
+        <div style="font-size:1rem;color:var(--c-text-soft);font-weight:300;">กำลังโหลดข้อมูล...</div>
         <div class="loading-bar-wrap">
             <div class="loading-bar"></div>
         </div>
     </div>
 
+    <!-- Main Content -->
     <div class="page-wrap" id="main-content"></div>
 
-    <button id="admin-fab" title="Admin Panel"><i class="fas fa-cog"></i></button>
+    <!-- Admin FAB -->
+    <button id="admin-fab" title="Admin Panel"
+        style="position:fixed;bottom:24px;right:24px;z-index:9999;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#F5C800,#FFB347);border:none;color:white;font-size:22px;cursor:pointer;box-shadow:0 4px 20px rgba(245,200,0,0.5);display:flex;align-items:center;justify-content:center;transition:all 0.3s;">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <!-- Toast -->
     <div id="toast"></div>
 
+    <!-- Custom Modal -->
     <div id="cmodal" class="cmodal-overlay">
         <div class="cmodal-box">
-            <div id="cmodal-icon" class="cmodal-icon"></div>
-            <div id="cmodal-title" class="cmodal-title"></div>
-            <div id="cmodal-text" class="cmodal-text"></div>
-            <div id="cmodal-actions" class="cmodal-actions"></div>
+            <div id="cmodal-icon" style="font-size:3rem;margin-bottom:14px;"></div>
+            <div id="cmodal-title" style="font-size:1.2rem;font-weight:600;color:var(--c-text-main);margin-bottom:8px;">
+            </div>
+            <div id="cmodal-text"
+                style="font-size:0.88rem;color:var(--c-text-soft);line-height:1.7;margin-bottom:20px;"></div>
+            <div id="cmodal-actions" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;"></div>
         </div>
     </div>
 
+    <!-- Login -->
     <div id="login-overlay">
-        <div id="login-box">
-            <h2 style="text-align:center;color:var(--text-main);margin-bottom:24px;">🔐 เข้าสู่ระบบ</h2>
-            <input type="text" id="login-user" class="admin-input" placeholder="Username">
-            <input type="password" id="login-pass" class="admin-input" placeholder="Password">
+        <div
+            style="background:white;border-radius:22px;padding:40px 32px;width:100%;max-width:360px;box-shadow:0 10px 40px rgba(0,0,0,0.2);">
+            <div style="text-align:center;margin-bottom:24px;">
+                <div style="font-size:2.5rem;margin-bottom:8px;">🔐</div>
+                <h2 style="color:var(--c-text-main);font-size:1.3rem;">เข้าสู่ระบบ</h2>
+            </div>
+            <input type="text" id="login-user" class="admin-input" placeholder="Username" style="margin-bottom:12px;">
+            <input type="password" id="login-pass" class="admin-input" placeholder="Password"
+                style="margin-bottom:16px;">
             <div style="display:flex;gap:10px;">
                 <button onclick="doLogin()" class="admin-btn-save" style="flex:1;">เข้าสู่ระบบ</button>
                 <button onclick="closeLogin()" class="admin-btn-add" style="flex:1;">ยกเลิก</button>
@@ -1551,168 +1113,440 @@
         </div>
     </div>
 
+    <!-- Admin Panel -->
     <div id="admin-overlay">
         <div id="admin-panel">
-            <button class="admin-close" onclick="closeAdmin()"><i class="fas fa-times"></i></button>
+            <button onclick="closeAdmin()"
+                style="position:absolute;top:18px;right:18px;background:#f0f0f0;border:none;width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#666;transition:all 0.2s;"
+                onmouseover="this.style.background='#ff4444';this.style.color='white'"
+                onmouseout="this.style.background='#f0f0f0';this.style.color='#666'">
+                <i class="fas fa-times"></i>
+            </button>
 
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
-                <h2 style="color:var(--text-main);"><i class="fas fa-cog"></i> จัดการร้านค้า</h2>
-                <button onclick="adminLogout()" class="admin-btn-add" style="background:#ffebee;color:#f44336;">
-                    <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
-                </button>
+            <div
+                style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
+                <h2 style="color:var(--c-text-main);font-size:1.2rem;display:flex;align-items:center;gap:8px;"><i
+                        class="fas fa-sliders-h" style="color:var(--c-primary);"></i> จัดการร้านค้า</h2>
+                <button onclick="adminLogout()"
+                    style="background:#ffebee;color:#f44336;border:none;padding:8px 16px;border-radius:30px;font-family:var(--font-main);cursor:pointer;font-size:0.85rem;display:flex;align-items:center;gap:6px;"><i
+                        class="fas fa-sign-out-alt"></i> ออกจากระบบ</button>
             </div>
 
-            <div class="export-import-menu">
-                <button onclick="exportData()"><i class="fas fa-download"></i> Export Data</button>
-                <button onclick="document.getElementById('import-file').click()"><i class="fas fa-upload"></i> Import
-                    Data</button>
-                <button onclick="syncWithGoogleSheets()"><i class="fas fa-sync-alt"></i> Sync Sheets</button>
-                <button onclick="loadFromGoogleSheets(true)"><i class="fas fa-cloud-download-alt"></i> โหลดจาก
+            <!-- Export/Import -->
+            <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+                <button onclick="exportData()" class="admin-btn-add" style="display:flex;align-items:center;gap:6px;"><i
+                        class="fas fa-download"></i> Export</button>
+                <button onclick="document.getElementById('import-file').click()" class="admin-btn-add"
+                    style="display:flex;align-items:center;gap:6px;"><i class="fas fa-upload"></i> Import</button>
+                <button onclick="syncWithGoogleSheets()" class="admin-btn-add"
+                    style="display:flex;align-items:center;gap:6px;"><i class="fas fa-sync-alt"></i> Sync
                     Sheets</button>
-                <button onclick="showHistory()"><i class="fas fa-history"></i> History</button>
+                <button onclick="loadFromGoogleSheets(true)" class="admin-btn-add"
+                    style="display:flex;align-items:center;gap:6px;"><i class="fas fa-cloud-download-alt"></i> โหลดจาก
+                    Sheets</button>
+                <button onclick="showHistory()" class="admin-btn-add"
+                    style="display:flex;align-items:center;gap:6px;"><i class="fas fa-history"></i> History</button>
             </div>
             <input type="file" id="import-file" accept=".json" style="display:none;" onchange="importData(event)">
 
-            <div class="admin-tabs">
-                <button class="tab-btn active" onclick="switchTab('tab-header',event)">🏠 ส่วนหัว</button>
-                <button class="tab-btn" onclick="switchTab('tab-font',event)">🔤 ฟอนต์</button>
-                <button class="tab-btn" onclick="switchTab('tab-sections',event)">📦 ส่วนต่างๆ</button>
-                <button class="tab-btn" onclick="switchTab('tab-groups-headers',event)">🔰 หัวข้อกลุ่ม</button>
-                <button class="tab-btn" onclick="switchTab('tab-group-sections',event)">📚 กลุ่มย่อย</button>
-                <button class="tab-btn" onclick="switchTab('tab-all-groups',event)">🎯 ดูกลุ่มทั้งหมด</button>
-                <button class="tab-btn" onclick="switchTab('tab-contact',event)">📞 ติดต่อ</button>
-                <button class="tab-btn" onclick="switchTab('tab-footer',event)">📌 ส่วนท้าย</button>
-                <button class="tab-btn" onclick="switchTab('tab-gs',event)">☁️ Google Sheets</button>
+            <!-- Tabs -->
+            <div
+                style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;border-bottom:2px solid #f0f0f0;padding-bottom:14px;">
+                <button class="tab-btn active" onclick="switchTab('tab-header',event)"><i class="fas fa-home"></i>
+                    ส่วนหัว</button>
+                <button class="tab-btn" onclick="switchTab('tab-colors',event)"><i class="fas fa-palette"></i>
+                    สี</button>
+                <button class="tab-btn" onclick="switchTab('tab-font',event)"><i class="fas fa-font"></i> ฟอนต์</button>
+                <button class="tab-btn" onclick="switchTab('tab-sections',event)"><i class="fas fa-layer-group"></i>
+                    ส่วนต่างๆ</button>
+                <button class="tab-btn" onclick="switchTab('tab-groups-headers',event)"><i class="fas fa-heading"></i>
+                    หัวข้อกลุ่ม</button>
+                <button class="tab-btn" onclick="switchTab('tab-group-sections',event)"><i class="fas fa-list"></i>
+                    กลุ่มย่อย</button>
+                <button class="tab-btn" onclick="switchTab('tab-all-groups',event)"><i class="fas fa-th-large"></i>
+                    ดูกลุ่มทั้งหมด</button>
+                <button class="tab-btn" onclick="switchTab('tab-contact',event)"><i class="fas fa-phone"></i>
+                    ติดต่อ</button>
+                <button class="tab-btn" onclick="switchTab('tab-footer',event)"><i class="fas fa-bookmark"></i>
+                    ส่วนท้าย</button>
+                <button class="tab-btn" onclick="switchTab('tab-gs',event)"><i class="fab fa-google"></i> Google
+                    Sheets</button>
             </div>
 
-            <!-- Header tab -->
+            <!-- Tab: Header -->
             <div id="tab-header" class="tab-content active">
                 <div class="admin-section">
-                    <h3><i class="fas fa-image"></i> รูปโลโก้</h3>
+                    <h3 style="font-size:0.95rem;margin-bottom:14px;display:flex;align-items:center;gap:8px;"><i
+                            class="fas fa-image" style="color:var(--c-primary);"></i> รูปโลโก้</h3>
                     <input type="text" id="a-logo-img" class="admin-input" placeholder="URL รูปโลโก้">
-                    <h3><i class="fas fa-star"></i> ดาวตกแต่ง</h3>
+                </div>
+                <div class="admin-section">
+                    <h3 style="font-size:0.95rem;margin-bottom:14px;display:flex;align-items:center;gap:8px;"><i
+                            class="fas fa-star" style="color:var(--c-primary);"></i> ดาวตกแต่ง</h3>
                     <div class="item-row">
                         <input type="text" id="a-star1" class="admin-input" placeholder="ดาว 1" value="⭐">
                         <input type="text" id="a-star2" class="admin-input" placeholder="ดาว 2" value="✨">
                         <input type="text" id="a-star3" class="admin-input" placeholder="ดาว 3" value="🌟">
                         <input type="text" id="a-star4" class="admin-input" placeholder="ดาว 4" value="✨">
                     </div>
-                    <h3><i class="fas fa-store"></i> ข้อมูลร้าน</h3>
-                    <input type="text" id="a-shop-name" class="admin-input" placeholder="ชื่อร้าน">
-                    <input type="text" id="a-shop-sub" class="admin-input" placeholder="คำอธิบายใต้ชื่อ">
+                </div>
+                <div class="admin-section">
+                    <h3 style="font-size:0.95rem;margin-bottom:14px;display:flex;align-items:center;gap:8px;"><i
+                            class="fas fa-store" style="color:var(--c-primary);"></i> ข้อมูลร้าน</h3>
+                    <input type="text" id="a-shop-name" class="admin-input" placeholder="ชื่อร้าน"
+                        style="margin-bottom:10px;">
+                    <input type="text" id="a-shop-sub" class="admin-input" placeholder="คำอธิบายใต้ชื่อ"
+                        style="margin-bottom:10px;">
                     <input type="text" id="a-status-text" class="admin-input" placeholder="สถานะ">
                 </div>
-                <button onclick="saveHeader()" class="admin-btn-save">💾 บันทึกส่วนหัว</button>
+                <button onclick="saveHeader()" class="admin-btn-save"><i class="fas fa-save"></i> บันทึกส่วนหัว</button>
             </div>
 
-            <!-- Font tab -->
-            <div id="tab-font" class="tab-content">
+            <!-- Tab: Colors -->
+            <div id="tab-colors" class="tab-content">
+                <div
+                    style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:0.85rem;color:#1565C0;line-height:1.7;">
+                    <i class="fas fa-info-circle"></i> <strong>จัดการสีทั้งหมด:</strong> คลิกที่กล่องสีหรือพิมพ์ค่า HEX
+                    เพื่อเปลี่ยนสี แล้วกด <strong>บันทึกสี</strong>
+                </div>
                 <div class="admin-section">
-                    <h3><i class="fas fa-font"></i> เลือกฟอนต์ภาษาไทย</h3>
-                    <p style="font-size:0.85rem;color:#888;margin-bottom:16px;">คลิกเพื่อเลือกฟอนต์</p>
-                    <div class="font-grid" id="font-grid-container"></div>
-                    <button onclick="saveFont()" class="admin-btn-save">💾 บันทึกฟอนต์</button>
+                    <div class="color-section-title"><i class="fas fa-palette" style="color:var(--c-primary);"></i>
+                        สีหลัก</div>
+                    <div class="color-row"><label>สีหลัก (Primary)</label>
+                        <div class="color-input-wrap"><input type="color" id="color-primary" class="color-swatch"
+                                onchange="syncColorText('primary',this.value)"><input type="text"
+                                id="color-primary-text" class="color-text" placeholder="#F5C800"
+                                oninput="syncColorPicker('primary',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>สีหลัก (อ่อน)</label>
+                        <div class="color-input-wrap"><input type="color" id="color-primary-light" class="color-swatch"
+                                onchange="syncColorText('primary-light',this.value)"><input type="text"
+                                id="color-primary-light-text" class="color-text"
+                                oninput="syncColorPicker('primary-light',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>สีหลัก (จาง)</label>
+                        <div class="color-input-wrap"><input type="color" id="color-primary-pale" class="color-swatch"
+                                onchange="syncColorText('primary-pale',this.value)"><input type="text"
+                                id="color-primary-pale-text" class="color-text"
+                                oninput="syncColorPicker('primary-pale',this.value)"></div>
+                    </div>
+                </div>
+                <div class="admin-section">
+                    <div class="color-section-title"><i class="fas fa-font" style="color:#666;"></i> สีข้อความ</div>
+                    <div class="color-row"><label>ข้อความหลัก</label>
+                        <div class="color-input-wrap"><input type="color" id="color-text-main" class="color-swatch"
+                                onchange="syncColorText('text-main',this.value)"><input type="text"
+                                id="color-text-main-text" class="color-text"
+                                oninput="syncColorPicker('text-main',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>ข้อความรอง</label>
+                        <div class="color-input-wrap"><input type="color" id="color-text-soft" class="color-swatch"
+                                onchange="syncColorText('text-soft',this.value)"><input type="text"
+                                id="color-text-soft-text" class="color-text"
+                                oninput="syncColorPicker('text-soft',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>ข้อความจาง</label>
+                        <div class="color-input-wrap"><input type="color" id="color-text-light" class="color-swatch"
+                                onchange="syncColorText('text-light',this.value)"><input type="text"
+                                id="color-text-light-text" class="color-text"
+                                oninput="syncColorPicker('text-light',this.value)"></div>
+                    </div>
+                </div>
+                <div class="admin-section">
+                    <div class="color-section-title"><i class="fas fa-square" style="color:#666;"></i> พื้นหลัง & การ์ด
+                    </div>
+                    <div class="color-row"><label>พื้นหลัง (จาก)</label>
+                        <div class="color-input-wrap"><input type="color" id="color-bg-from" class="color-swatch"
+                                onchange="syncColorText('bg-from',this.value)"><input type="text"
+                                id="color-bg-from-text" class="color-text"
+                                oninput="syncColorPicker('bg-from',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>พื้นหลัง (ถึง)</label>
+                        <div class="color-input-wrap"><input type="color" id="color-bg-to" class="color-swatch"
+                                onchange="syncColorText('bg-to',this.value)"><input type="text" id="color-bg-to-text"
+                                class="color-text" oninput="syncColorPicker('bg-to',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>พื้นหลังการ์ด</label>
+                        <div class="color-input-wrap"><input type="color" id="color-card-bg" class="color-swatch"
+                                onchange="syncColorText('card-bg',this.value)"><input type="text"
+                                id="color-card-bg-text" class="color-text"
+                                oninput="syncColorPicker('card-bg',this.value)"></div>
+                    </div>
+                </div>
+                <div class="admin-section">
+                    <div class="color-section-title"><i class="fas fa-circle" style="color:#4CAF50;"></i> สถานะ &
+                        ปุ่มติดต่อ</div>
+                    <div class="color-row"><label>สถานะ (สีจาก)</label>
+                        <div class="color-input-wrap"><input type="color" id="color-status-from" class="color-swatch"
+                                onchange="syncColorText('status-from',this.value)"><input type="text"
+                                id="color-status-from-text" class="color-text"
+                                oninput="syncColorPicker('status-from',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>สถานะ (สีถึง)</label>
+                        <div class="color-input-wrap"><input type="color" id="color-status-to" class="color-swatch"
+                                onchange="syncColorText('status-to',this.value)"><input type="text"
+                                id="color-status-to-text" class="color-text"
+                                oninput="syncColorPicker('status-to',this.value)"></div>
+                    </div>
+                </div>
+                <div class="admin-section">
+                    <div class="color-section-title"><i class="fas fa-check-circle" style="color:#4CAF50;"></i>
+                        รับ/ไม่รับ</div>
+                    <div class="color-row"><label>พื้นหลัง "รับทำ"</label>
+                        <div class="color-input-wrap"><input type="color" id="color-do-bg" class="color-swatch"
+                                onchange="syncColorText('do-bg',this.value)"><input type="text" id="color-do-bg-text"
+                                class="color-text" oninput="syncColorPicker('do-bg',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>ขอบ "รับทำ"</label>
+                        <div class="color-input-wrap"><input type="color" id="color-do-border" class="color-swatch"
+                                onchange="syncColorText('do-border',this.value)"><input type="text"
+                                id="color-do-border-text" class="color-text"
+                                oninput="syncColorPicker('do-border',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>พื้นหลัง "ไม่รับ"</label>
+                        <div class="color-input-wrap"><input type="color" id="color-dont-bg" class="color-swatch"
+                                onchange="syncColorText('dont-bg',this.value)"><input type="text"
+                                id="color-dont-bg-text" class="color-text"
+                                oninput="syncColorPicker('dont-bg',this.value)"></div>
+                    </div>
+                    <div class="color-row"><label>ขอบ "ไม่รับ"</label>
+                        <div class="color-input-wrap"><input type="color" id="color-dont-border" class="color-swatch"
+                                onchange="syncColorText('dont-border',this.value)"><input type="text"
+                                id="color-dont-border-text" class="color-text"
+                                oninput="syncColorPicker('dont-border',this.value)"></div>
+                    </div>
+                </div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                    <button onclick="saveColors()" class="admin-btn-save"><i class="fas fa-save"></i> บันทึกสี</button>
+                    <button onclick="resetColors()" class="admin-btn-add"
+                        style="display:flex;align-items:center;gap:6px;"><i class="fas fa-undo"></i>
+                        รีเซ็ตสีเริ่มต้น</button>
                 </div>
             </div>
 
-            <!-- Sections tab -->
+            <!-- Tab: Font -->
+            <div id="tab-font" class="tab-content">
+                <div class="admin-section">
+                    <h3 style="font-size:0.95rem;margin-bottom:8px;"><i class="fas fa-font"
+                            style="color:var(--c-primary);"></i> เลือกฟอนต์ภาษาไทย</h3>
+                    <p style="font-size:0.82rem;color:#888;margin-bottom:14px;">คลิกเพื่อเลือก</p>
+                    <div id="font-grid-container"
+                        style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:16px;">
+                    </div>
+                    <button onclick="saveFont()" class="admin-btn-save"><i class="fas fa-save"></i> บันทึกฟอนต์</button>
+                </div>
+            </div>
+
+            <!-- Tab: Sections -->
             <div id="tab-sections" class="tab-content">
                 <div
                     style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:0.85rem;color:#1565C0;line-height:1.7;">
-                    <strong>💡 ตั้งค่าตำแหน่ง:</strong> แต่ละส่วนสามารถเลือกให้แสดงใน <strong>หัวข้อกลุ่ม</strong>
-                    ที่ต้องการได้ หรือเลือก <em>"แสดงทั่วไป (ก่อนกลุ่ม)"</em>
+                    <i class="fas fa-info-circle"></i> <strong>ตั้งค่าตำแหน่ง:</strong>
+                    แต่ละส่วนสามารถเลือกให้แสดงในหัวข้อกลุ่มที่ต้องการ หรือเลือก "แสดงทั่วไป"
                 </div>
                 <div id="sections-list"></div>
-                <div class="section-type-selector">
-                    <button class="type-btn" onclick="addSection('about')">➕ แบบที่ 1 (เกี่ยวกับร้าน)</button>
-                    <button class="type-btn" onclick="addSection('tags')">➕ แบบที่ 2 (แนวงาน)</button>
-                    <button class="type-btn" onclick="addSection('price')">➕ แบบที่ 3 (ราคา)</button>
-                    <button class="type-btn" onclick="addSection('dodont')">➕ แบบที่ 4 (รับ/ไม่รับ)</button>
-                    <button class="type-btn" onclick="addSection('steps')">➕ แบบที่ 5 (วิธีสั่ง)</button>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
+                    <button class="admin-btn-add" onclick="addSection('about')"><i class="fas fa-plus"></i>
+                        เกี่ยวกับร้าน</button>
+                    <button class="admin-btn-add" onclick="addSection('tags')"><i class="fas fa-plus"></i>
+                        แนวงาน</button>
+                    <button class="admin-btn-add" onclick="addSection('price')"><i class="fas fa-plus"></i>
+                        ราคา</button>
+                    <button class="admin-btn-add" onclick="addSection('dodont')"><i class="fas fa-plus"></i>
+                        รับ/ไม่รับ</button>
+                    <button class="admin-btn-add" onclick="addSection('steps')"><i class="fas fa-plus"></i>
+                        วิธีสั่ง</button>
                 </div>
             </div>
 
-            <!-- Groups Headers tab -->
+            <!-- Tab: Groups Headers -->
             <div id="tab-groups-headers" class="tab-content">
                 <div id="groups-headers-list"></div>
-                <button class="admin-btn-add" onclick="addGroupsHeader()"><i class="fas fa-plus"></i>
-                    เพิ่มหัวข้อกลุ่มใหม่</button>
+                <button class="admin-btn-add" onclick="addGroupsHeader()" style="margin-top:4px;"><i
+                        class="fas fa-plus"></i> เพิ่มหัวข้อกลุ่มใหม่</button>
             </div>
 
-            <!-- Group Sections tab -->
+            <!-- Tab: Group Sections -->
             <div id="tab-group-sections" class="tab-content">
                 <div id="group-sections-list"></div>
-                <button class="admin-btn-add" onclick="addGroupSection()"><i class="fas fa-plus"></i>
-                    เพิ่มกลุ่มย่อยใหม่</button>
+                <button class="admin-btn-add" onclick="addGroupSection()" style="margin-top:4px;"><i
+                        class="fas fa-plus"></i> เพิ่มกลุ่มย่อยใหม่</button>
             </div>
 
-            <!-- All Groups tab -->
+            <!-- Tab: All Groups -->
             <div id="tab-all-groups" class="tab-content">
                 <div id="all-groups-list"></div>
                 <button class="admin-btn-add" onclick="addAllGroupsSection()"><i class="fas fa-plus"></i>
                     เพิ่มปุ่มดูกลุ่มทั้งหมด</button>
             </div>
 
-            <!-- Contact tab (DYNAMIC) -->
+            <!-- Tab: Contact -->
             <div id="tab-contact" class="tab-content">
                 <div class="admin-section">
-                    <h3><i class="fas fa-link"></i> ปุ่มติดต่อ</h3>
-                    <p style="font-size:0.82rem;color:#888;margin-bottom:14px;line-height:1.6;">
-                        เพิ่ม แก้ไข หรือลบปุ่มได้ตามต้องการ · รองรับหลายปุ่ม · เรียงซ้าย-ขวาอัตโนมัติ
-                    </p>
+                    <h3 style="font-size:0.95rem;margin-bottom:10px;"><i class="fas fa-link"
+                            style="color:var(--c-primary);"></i> ปุ่มติดต่อ</h3>
+                    <p style="font-size:0.82rem;color:#888;margin-bottom:14px;">เพิ่ม แก้ไข หรือลบปุ่ม · รองรับหลายปุ่ม
+                        · เรียงอัตโนมัติ</p>
                     <div id="contact-btns-list"></div>
-                    <button class="admin-btn-add" onclick="addContactBtn()" style="margin-top:4px;">
-                        <i class="fas fa-plus"></i> เพิ่มปุ่มติดต่อ
-                    </button>
+                    <button class="admin-btn-add" onclick="addContactBtn()"><i class="fas fa-plus"></i>
+                        เพิ่มปุ่มติดต่อ</button>
                 </div>
                 <div class="admin-section">
-                    <h3><i class="fas fa-info-circle"></i> ข้อความท้าย</h3>
+                    <h3 style="font-size:0.95rem;margin-bottom:10px;"><i class="fas fa-info-circle"
+                            style="color:var(--c-primary);"></i> ข้อความท้าย</h3>
                     <input type="text" id="a-contact-note" class="admin-input" placeholder="ข้อความท้ายส่วนติดต่อ">
                 </div>
-                <button onclick="saveContact()" class="admin-btn-save">💾 บันทึกส่วนติดต่อ</button>
+                <button onclick="saveContact()" class="admin-btn-save"><i class="fas fa-save"></i>
+                    บันทึกส่วนติดต่อ</button>
             </div>
 
-            <!-- Footer tab -->
+            <!-- Tab: Footer -->
             <div id="tab-footer" class="tab-content">
                 <div class="admin-section">
-                    <h3><i class="fas fa-copyright"></i> ส่วนท้าย</h3>
-                    <input type="text" id="a-footer-name" class="admin-input" placeholder="ชื่อร้านท้ายสุด">
+                    <h3 style="font-size:0.95rem;margin-bottom:14px;"><i class="fas fa-copyright"
+                            style="color:var(--c-primary);"></i> ส่วนท้าย</h3>
+                    <input type="text" id="a-footer-name" class="admin-input" placeholder="ชื่อร้านท้ายสุด"
+                        style="margin-bottom:10px;">
                     <input type="text" id="a-footer-text" class="admin-input" placeholder="ข้อความท้าย">
                 </div>
-                <button onclick="saveFooter()" class="admin-btn-save">💾 บันทึกส่วนท้าย</button>
+                <button onclick="saveFooter()" class="admin-btn-save"><i class="fas fa-save"></i>
+                    บันทึกส่วนท้าย</button>
             </div>
 
-            <!-- Google Sheets tab -->
+            <!-- Tab: Google Sheets -->
             <div id="tab-gs" class="tab-content">
                 <div class="admin-section">
-                    <h3><i class="fab fa-google"></i> ตั้งค่า Google Sheets API</h3>
-                    <p style="color:#666;font-size:0.85rem;margin-bottom:10px;">⚠️ <strong>สำคัญ:</strong> หลังบันทึก
+                    <h3 style="font-size:0.95rem;margin-bottom:10px;"><i class="fab fa-google"
+                            style="color:var(--c-primary);"></i> ตั้งค่า Google Sheets API</h3>
+                    <p style="color:#666;font-size:0.85rem;margin-bottom:12px;">⚠️ <strong>สำคัญ:</strong> หลังบันทึก
                         Web App URL ต้องอัพเดทค่า <code>GS_WEBAPP_URL</code> ในโค้ด HTML ด้วย</p>
-                    <input type="text" id="gs-webapp-url" class="admin-input" placeholder="Web App URL (จาก Deploy)">
-                    <input type="text" id="gs-sheet-id" class="admin-input" placeholder="Spreadsheet ID">
-                    <input type="text" id="gs-api-key" class="admin-input" placeholder="API Key (ไม่จำเป็น)">
-                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                    <input type="text" id="gs-webapp-url" class="admin-input" placeholder="Web App URL (จาก Deploy)"
+                        style="margin-bottom:10px;">
+                    <input type="text" id="gs-sheet-id" class="admin-input" placeholder="Spreadsheet ID"
+                        style="margin-bottom:10px;">
+                    <input type="text" id="gs-api-key" class="admin-input" placeholder="API Key (ไม่จำเป็น)"
+                        style="margin-bottom:14px;">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
                         <button class="admin-btn-save" onclick="saveGsConfig()">บันทึกการตั้งค่า</button>
                         <button class="admin-btn-add" onclick="testGsConnection()">ทดสอบการเชื่อมต่อ</button>
-                        <button class="admin-btn-add" onclick="loadFromGoogleSheets(true)">โหลดข้อมูลจาก Sheets</button>
+                        <button class="admin-btn-add" onclick="loadFromGoogleSheets(true)">โหลดข้อมูล</button>
+                        <span id="gs-status"
+                            style="display:none;font-size:0.85rem;padding:8px 15px;border-radius:30px;display:inline-flex;align-items:center;gap:8px;"></span>
                     </div>
-                    <span id="gs-status" class="gs-status" style="display:none;"></span>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // ===================== CONFIG =====================
+        // ==================== CONFIG ====================
         const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbz40PEjZNZQWrhE7IYJ6u0r1ocrL_wRklcCK-VN_ZcI9bvp736xAuo_7695lvNVqP6j/exec';
         const ADMIN_CREDS_KEY = 'nexo_admin_creds';
         const DATA_KEY = 'nexo_data';
         const GS_CONFIG_KEY = 'nexo_gs_config';
         const HISTORY_KEY = 'nexo_history';
+        const COLOR_KEY = 'nexo_colors';
         let autoSaveTimer = null;
         let isAdminLoggedIn = false;
 
-        // ===================== CONTACT BUTTON STYLES =====================
+        // ==================== DEFAULT COLORS ====================
+        const DEFAULT_COLORS = {
+            'primary': '#F5C800',
+            'primary-light': '#FFE066',
+            'primary-pale': '#FFF8CC',
+            'bg-from': '#FEFCF5',
+            'bg-to': '#F9F5FF',
+            'text-main': '#6B5B3E',
+            'text-soft': '#9B8B72',
+            'text-light': '#BBA890',
+            'card-bg': '#FFFFFF',
+            'status-from': '#B8E8B0',
+            'status-to': '#78CC72',
+            'do-bg': '#F0FAF0',
+            'do-border': '#B8E6B0',
+            'dont-bg': '#FFF2F2',
+            'dont-border': '#FFBCBC',
+        };
+
+        function loadColors() {
+            try { return { ...DEFAULT_COLORS, ...JSON.parse(localStorage.getItem(COLOR_KEY) || '{}') }; }
+            catch { return { ...DEFAULT_COLORS }; }
+        }
+
+        function applyColors(colors) {
+            const r = document.documentElement.style;
+            r.setProperty('--c-primary', colors['primary'] || DEFAULT_COLORS['primary']);
+            r.setProperty('--c-primary-light', colors['primary-light'] || DEFAULT_COLORS['primary-light']);
+            r.setProperty('--c-primary-pale', colors['primary-pale'] || DEFAULT_COLORS['primary-pale']);
+            r.setProperty('--c-bg-from', colors['bg-from'] || DEFAULT_COLORS['bg-from']);
+            r.setProperty('--c-bg-to', colors['bg-to'] || DEFAULT_COLORS['bg-to']);
+            r.setProperty('--c-text-main', colors['text-main'] || DEFAULT_COLORS['text-main']);
+            r.setProperty('--c-text-soft', colors['text-soft'] || DEFAULT_COLORS['text-soft']);
+            r.setProperty('--c-text-light', colors['text-light'] || DEFAULT_COLORS['text-light']);
+            r.setProperty('--c-card-bg', (colors['card-bg'] || DEFAULT_COLORS['card-bg']).replace('#', '') != 'FFFFFF' ? colors['card-bg'] : 'rgba(255,255,255,0.85)');
+            r.setProperty('--c-status-from', colors['status-from'] || DEFAULT_COLORS['status-from']);
+            r.setProperty('--c-status-to', colors['status-to'] || DEFAULT_COLORS['status-to']);
+            r.setProperty('--c-do-bg', colors['do-bg'] || DEFAULT_COLORS['do-bg']);
+            r.setProperty('--c-do-border', colors['do-border'] || DEFAULT_COLORS['do-border']);
+            r.setProperty('--c-dont-bg', colors['dont-bg'] || DEFAULT_COLORS['dont-bg']);
+            r.setProperty('--c-dont-border', colors['dont-border'] || DEFAULT_COLORS['dont-border']);
+            // Apply bg gradient to body
+            document.body.style.background = `linear-gradient(170deg, ${colors['bg-from'] || '#FEFCF5'} 0%, #FDF8EC 50%, ${colors['bg-to'] || '#F9F5FF'} 100%)`;
+        }
+
+        function saveColors() {
+            const keys = Object.keys(DEFAULT_COLORS);
+            const colors = {};
+            keys.forEach(k => {
+                const el = document.getElementById('color-' + k + '-text');
+                if (el) colors[k] = el.value || DEFAULT_COLORS[k];
+            });
+            localStorage.setItem(COLOR_KEY, JSON.stringify(colors));
+            applyColors(colors);
+            showToast('🎨 บันทึกสีเรียบร้อย');
+        }
+
+        function resetColors() {
+            localStorage.removeItem(COLOR_KEY);
+            applyColors(DEFAULT_COLORS);
+            fillColorAdmin(DEFAULT_COLORS);
+            showToast('↩️ รีเซ็ตสีเรียบร้อย');
+        }
+
+        function fillColorAdmin(colors) {
+            Object.keys(DEFAULT_COLORS).forEach(k => {
+                const picker = document.getElementById('color-' + k);
+                const text = document.getElementById('color-' + k + '-text');
+                const val = colors[k] || DEFAULT_COLORS[k];
+                if (picker) picker.value = val.startsWith('#') ? val : DEFAULT_COLORS[k];
+                if (text) text.value = val;
+            });
+        }
+
+        function syncColorText(key, val) {
+            const el = document.getElementById('color-' + key + '-text');
+            if (el) el.value = val;
+            applyColorLive(key, val);
+        }
+        function syncColorPicker(key, val) {
+            if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+                const el = document.getElementById('color-' + key);
+                if (el) el.value = val;
+                applyColorLive(key, val);
+            }
+        }
+        function applyColorLive(key, val) {
+            const map = {
+                'primary': '--c-primary', 'primary-light': '--c-primary-light', 'primary-pale': '--c-primary-pale',
+                'bg-from': '--c-bg-from', 'bg-to': '--c-bg-to', 'text-main': '--c-text-main', 'text-soft': '--c-text-soft',
+                'text-light': '--c-text-light', 'card-bg': '--c-card-bg', 'status-from': '--c-status-from',
+                'status-to': '--c-status-to', 'do-bg': '--c-do-bg', 'do-border': '--c-do-border',
+                'dont-bg': '--c-dont-bg', 'dont-border': '--c-dont-border'
+            };
+            if (map[key]) document.documentElement.style.setProperty(map[key], val);
+        }
+
+        // ==================== CONTACT STYLES ====================
         const CONTACT_STYLES = [
             { id: 'fb', label: 'Facebook', icon: '📘', cssClass: 'btn-fb' },
             { id: 'line', label: 'Line', icon: '💬', cssClass: 'btn-line' },
@@ -1724,47 +1558,31 @@
             { id: 'email', label: 'Email', icon: '📧', cssClass: 'btn-email' },
             { id: 'custom', label: 'Custom', icon: '⭐', cssClass: 'btn-custom' },
         ];
-
         function getStyleById(id) { return CONTACT_STYLES.find(s => s.id === id) || CONTACT_STYLES[CONTACT_STYLES.length - 1]; }
 
-        // ===================== THAI FONTS =====================
+        // ==================== THAI FONTS ====================
         const THAI_FONTS = [
-            { name: 'Mitr', label: 'Mitr', preview: 'สวัสดีครับ' },
-            { name: 'Sarabun', label: 'Sarabun', preview: 'สวัสดีครับ' },
-            { name: 'Kanit', label: 'Kanit', preview: 'สวัสดีครับ' },
-            { name: 'Prompt', label: 'Prompt', preview: 'สวัสดีครับ' },
-            { name: 'Charm', label: 'Charm', preview: 'สวัสดีครับ' },
-            { name: 'Itim', label: 'Itim', preview: 'สวัสดีครับ' },
-            { name: 'Kodchasan', label: 'Kodchasan', preview: 'สวัสดีครับ' },
-            { name: 'Krub', label: 'Krub', preview: 'สวัสดีครับ' },
-            { name: 'Mali', label: 'Mali', preview: 'สวัสดีครับ' },
-            { name: 'Noto Sans Thai', label: 'Noto Sans Thai', preview: 'สวัสดีครับ' },
-            { name: 'Noto Serif Thai', label: 'Noto Serif Thai', preview: 'สวัสดีครับ' },
-            { name: 'Pridi', label: 'Pridi', preview: 'สวัสดีครับ' },
-            { name: 'Taviraj', label: 'Taviraj', preview: 'สวัสดีครับ' },
-            { name: 'Trirong', label: 'Trirong', preview: 'สวัสดีครับ' },
-            { name: 'Srisakdi', label: 'Srisakdi', preview: 'สวัสดีครับ' },
-            { name: 'Bai Jamjuree', label: 'Bai Jamjuree', preview: 'สวัสดีครับ' },
-            { name: 'Chonburi', label: 'Chonburi', preview: 'สวัสดีครับ' },
-            { name: 'Athiti', label: 'Athiti', preview: 'สวัสดีครับ' },
-            { name: 'Fahkwang', label: 'Fahkwang', preview: 'สวัสดีครับ' },
-            { name: 'K2D', label: 'K2D', preview: 'สวัสดีครับ' },
+            { name: 'Mitr', preview: 'สวัสดีครับ' }, { name: 'Sarabun', preview: 'สวัสดีครับ' }, { name: 'Kanit', preview: 'สวัสดีครับ' },
+            { name: 'Prompt', preview: 'สวัสดีครับ' }, { name: 'Charm', preview: 'สวัสดีครับ' }, { name: 'Itim', preview: 'สวัสดีครับ' },
+            { name: 'Kodchasan', preview: 'สวัสดีครับ' }, { name: 'Krub', preview: 'สวัสดีครับ' }, { name: 'Mali', preview: 'สวัสดีครับ' },
+            { name: 'Noto Sans Thai', preview: 'สวัสดีครับ' }, { name: 'Noto Serif Thai', preview: 'สวัสดีครับ' }, { name: 'Pridi', preview: 'สวัสดีครับ' },
+            { name: 'Taviraj', preview: 'สวัสดีครับ' }, { name: 'Trirong', preview: 'สวัสดีครับ' }, { name: 'Srisakdi', preview: 'สวัสดีครับ' },
+            { name: 'Bai Jamjuree', preview: 'สวัสดีครับ' }, { name: 'Chonburi', preview: 'สวัสดีครับ' }, { name: 'Athiti', preview: 'สวัสดีครับ' },
+            { name: 'Fahkwang', preview: 'สวัสดีครับ' }, { name: 'K2D', preview: 'สวัสดีครับ' },
         ];
-
         let selectedFont = localStorage.getItem('nexo_font') || 'Mitr';
 
-        function applyFont(fontName) {
-            document.documentElement.style.setProperty('--font-main', `'${fontName}', 'Mitr', sans-serif`);
-            document.body.style.fontFamily = `'${fontName}', 'Mitr', sans-serif`;
+        function applyFont(f) {
+            document.documentElement.style.setProperty('--font-main', `'${f}', 'Mitr', sans-serif`);
+            document.body.style.fontFamily = `'${f}', 'Mitr', sans-serif`;
         }
-
         function renderFontGrid() {
             const container = document.getElementById('font-grid-container');
             container.innerHTML = '';
             THAI_FONTS.forEach(font => {
                 const div = document.createElement('div');
                 div.className = 'font-option' + (selectedFont === font.name ? ' selected' : '');
-                div.innerHTML = `<div class="font-preview-text" style="font-family:'${font.name}',sans-serif;">${font.preview}</div><div class="font-option-name">${font.label}</div>`;
+                div.innerHTML = `<div style="font-family:'${font.name}',sans-serif;font-size:1.1rem;color:var(--c-text-main);">${font.preview}</div><div style="font-size:0.75rem;color:var(--c-text-soft);margin-top:4px;">${font.name}</div>`;
                 div.onclick = () => {
                     selectedFont = font.name;
                     document.querySelectorAll('.font-option').forEach(el => el.classList.remove('selected'));
@@ -1774,14 +1592,13 @@
                 container.appendChild(div);
             });
         }
-
         function saveFont() {
             localStorage.setItem('nexo_font', selectedFont);
             applyFont(selectedFont);
             showToast('✅ บันทึกฟอนต์เรียบร้อย');
         }
 
-        // ===================== CUSTOM MODAL =====================
+        // ==================== CUSTOM MODAL ====================
         function showModal({ icon = '', title = '', html = '', confirmText = 'ตกลง', cancelText = null, dangerConfirm = false, timer }) {
             return new Promise(resolve => {
                 const iconMap = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️', question: '❓' };
@@ -1806,7 +1623,6 @@
                 if (timer) setTimeout(() => { closeModal(); resolve({ isConfirmed: false, dismiss: 'timer' }); }, timer);
             });
         }
-
         function closeModal() { document.getElementById('cmodal').classList.remove('show'); }
         document.getElementById('cmodal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
@@ -1818,51 +1634,39 @@
             t._timer = setTimeout(() => t.classList.remove('show'), duration);
         }
 
-        // ===================== GOOGLE SHEETS =====================
+        // ==================== GOOGLE SHEETS ====================
         function getGsConfig() {
             try {
                 const saved = JSON.parse(localStorage.getItem(GS_CONFIG_KEY)) || {};
                 return { webAppUrl: GS_WEBAPP_URL || saved.webAppUrl || '', sheetId: saved.sheetId || '', apiKey: saved.apiKey || '' };
             } catch { return { webAppUrl: GS_WEBAPP_URL || '', sheetId: '', apiKey: '' }; }
         }
-
         function saveGsConfig() {
-            const config = {
-                webAppUrl: document.getElementById('gs-webapp-url').value.trim(),
-                sheetId: document.getElementById('gs-sheet-id').value.trim(),
-                apiKey: document.getElementById('gs-api-key').value.trim()
-            };
+            const config = { webAppUrl: document.getElementById('gs-webapp-url').value.trim(), sheetId: document.getElementById('gs-sheet-id').value.trim(), apiKey: document.getElementById('gs-api-key').value.trim() };
             localStorage.setItem(GS_CONFIG_KEY, JSON.stringify(config));
             showModal({ icon: 'success', title: 'บันทึกการตั้งค่าเรียบร้อย', html: '<p style="font-size:0.9rem;color:#666;">⚠️ อย่าลืมอัพเดทค่า <b>GS_WEBAPP_URL</b> ในโค้ด HTML ด้วย</p>', confirmText: 'ตกลง' });
         }
-
-        function fetchViaJsonp(url, timeoutMs) {
-            timeoutMs = timeoutMs || 10000;
+        function fetchViaJsonp(url, timeoutMs = 10000) {
             return new Promise((resolve, reject) => {
-                const callbackName = 'jsonp_cb_' + Math.round(100000 * Math.random()) + '_' + Date.now();
+                const cbName = 'jsonp_cb_' + Math.round(100000 * Math.random()) + '_' + Date.now();
                 let script = null, timer = null;
-                function cleanup() {
-                    if (timer) clearTimeout(timer);
-                    if (window[callbackName]) delete window[callbackName];
-                    if (script && script.parentNode) script.parentNode.removeChild(script);
-                }
-                window[callbackName] = function (data) { cleanup(); resolve(data); };
-                timer = setTimeout(() => { cleanup(); reject(new Error('Request timeout')); }, timeoutMs);
+                function cleanup() { if (timer) clearTimeout(timer); if (window[cbName]) delete window[cbName]; if (script && script.parentNode) script.parentNode.removeChild(script); }
+                window[cbName] = function (data) { cleanup(); resolve(data); };
+                timer = setTimeout(() => { cleanup(); reject(new Error('timeout')); }, timeoutMs);
                 script = document.createElement('script');
                 const sep = url.includes('?') ? '&' : '?';
-                script.src = url + sep + 'callback=' + callbackName;
-                script.onerror = function () { cleanup(); reject(new Error('Script load failed')); };
+                script.src = url + sep + 'callback=' + cbName;
+                script.onerror = () => { cleanup(); reject(new Error('load fail')); };
                 document.body.appendChild(script);
             });
         }
-
         async function loadFromGoogleSheets(showUI) {
             const config = getGsConfig();
             const url = config.webAppUrl;
             if (!url) { if (showUI) showModal({ icon: 'warning', title: 'ไม่ได้ตั้งค่า Web App URL', html: 'กรุณาแก้ไขค่า <b>GS_WEBAPP_URL</b>', confirmText: 'ตกลง' }); return false; }
             if (showUI) showToast('<i class="fas fa-spinner loading-spin"></i> กำลังโหลดจาก Sheets...', 'info', 10000);
             try {
-                const result = await fetchViaJsonp(url.replace(/\/$/, '') + '?action=getData', 10000);
+                const result = await fetchViaJsonp(url.replace(/\/$/, '') + `?action=getData`, 10000);
                 if (result && result.status === 'success' && result.data) {
                     localStorage.setItem(DATA_KEY, JSON.stringify(result.data));
                     if (showUI) { showToast('✅ โหลดข้อมูลสำเร็จ'); renderSite(); if (document.getElementById('admin-overlay').classList.contains('show')) openAdmin(); }
@@ -1874,92 +1678,62 @@
                 return false;
             }
         }
-
         async function saveToGoogleSheets(data) {
             const config = getGsConfig();
             if (!config.webAppUrl) return false;
-            try {
-                await fetch(config.webAppUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'updateData', data }) });
-                return true;
-            } catch { return false; }
+            try { await fetch(config.webAppUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'updateData', data }) }); return true; } catch { return false; }
         }
-
         async function testGsConnection() {
             const status = document.getElementById('gs-status');
             status.style.display = 'inline-flex';
-            status.className = 'gs-status gs-loading';
+            status.className = 'gs-loading';
             status.innerHTML = '<i class="fas fa-spinner loading-spin"></i> กำลังทดสอบ...';
             const url = document.getElementById('gs-webapp-url').value.trim();
-            if (!url) { status.className = 'gs-status gs-err'; status.innerHTML = '<i class="fas fa-times-circle"></i> กรุณากรอก URL'; return; }
+            if (!url) { status.className = 'gs-err'; status.innerHTML = '<i class="fas fa-times-circle"></i> กรุณากรอก URL'; return; }
             try {
-                await fetchViaJsonp(url.replace(/\/$/, '') + '?action=ping', 5000);
-                status.className = 'gs-status gs-ok';
-                status.innerHTML = '<i class="fas fa-check-circle"></i> เชื่อมต่อสำเร็จ';
-            } catch {
-                status.className = 'gs-status gs-err';
-                status.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ไม่สามารถเชื่อมต่อได้';
-            }
+                await fetchViaJsonp(url.replace(/\/$/, '') + `?action=ping`, 5000);
+                status.className = 'gs-ok'; status.innerHTML = '<i class="fas fa-check-circle"></i> เชื่อมต่อสำเร็จ';
+            } catch { status.className = 'gs-err'; status.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ไม่สามารถเชื่อมต่อได้'; }
         }
 
-        // ===================== DATA =====================
+        // ==================== DATA ====================
         function getDefaultData() {
             return {
-                header: {
-                    logoImg: 'https://img2.pic.in.th/pic/NEXO-SHOP-2-Photoroom.png',
-                    stars: ['⭐', '✨', '🌟', '✨'],
-                    shopName: 'NEXO',
-                    shopSub: '###',
-                    statusText: 'สถานะของร้าน'
-                },
+                header: { logoImg: 'https://img2.pic.in.th/pic/NEXO-SHOP-2-Photoroom.png', stars: ['⭐', '✨', '🌟', '✨'], shopName: 'NEXO', shopSub: '###', statusText: 'สถานะของร้าน' },
                 sections: [
                     { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ใส่ข้อความเกี่ยวกับร้านของคุณ <br>ใส่ข้อความเกี่ยวกับร้านของคุณ', headerIndex: -1 },
                     { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 แท็กใหม่'], headerIndex: -1 },
-                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ประเภท 1', amount: '10', unit: 'บาท', class: 'gold' }, { type: 'ประเภท 2', amount: '10', unit: 'บาท', class: 'silver' }], bulkNote: 'หมายเหตุ 1 <strong>หมายเหตุ 2</strong> หมายเหตุ 3' },
+                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ประเภท 1', amount: '10', unit: 'บาท', class: 'gold' }, { type: 'ประเภท 2', amount: '10', unit: 'บาท', class: 'silver' }], bulkNote: 'หมายเหตุ 1 <strong>หมายเหตุ 2</strong>', headerIndex: -1 },
                     { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['ข้อความรับทำ'], dontList: ['ข้อความไม่รับ'], headerIndex: -1 },
-                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['ขั้นตอนที่ 1 <strong>ขั้นตอนที่ 2</strong> ขั้นตอนที่ 3'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['ช่องทางชำระเงิน'], headerIndex: -1 }
+                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['ขั้นตอนที่ 1'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['ช่องทางชำระเงิน'], headerIndex: -1 }
                 ],
                 groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'หัวข้อใหม่', sub: 'คำอธิบาย', deco2: 'ข้อความท้าย' }],
                 groupSections: [{ headerIndex: 0, title: 'กลุ่มย่อยใหม่', groups: [{ name: 'ชื่อกลุ่ม', price: '10', tags: ['แท็ก'], note: 'หมายเหตุ', links: [{ text: '🔗 ลิงค์', url: '###' }] }] }],
                 allGroupsSections: [{ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: 'รายละเอียดเพิ่มเติมถ้ามี', buttonLink: '###' }],
-                contact: {
-                    // NEW: buttons array
-                    buttons: [
-                        { icon: '📘', text: 'Facebook', link: '###', style: 'fb' },
-                        { icon: '💬', text: 'Line', link: '###', style: 'line' }
-                    ],
-                    note: 'รายละเอียดเพิ่มเติมถ้ามี'
-                },
+                contact: { buttons: [{ icon: '📘', text: 'Facebook', link: '###', style: 'fb' }, { icon: '💬', text: 'Line', link: '###', style: 'line' }], note: 'รายละเอียดเพิ่มเติมถ้ามี' },
                 footer: { name: 'NEXO ✦', text: 'รายละเอียดเพิ่มเติม 1<br>รายละเอียดเพิ่มเติม 2' }
             };
         }
-
         function migrateContactData(contact) {
-            // Migrate old format (fbLink, fbText, lineLink, lineText) → new buttons array
             if (!contact) return getDefaultData().contact;
-            if (contact.buttons) return contact; // already new format
+            if (contact.buttons) return contact;
             const buttons = [];
             if (contact.fbLink || contact.fbText) buttons.push({ icon: '📘', text: contact.fbText || 'Facebook', link: contact.fbLink || '###', style: 'fb' });
             if (contact.lineLink || contact.lineText) buttons.push({ icon: '💬', text: contact.lineText || 'Line', link: contact.lineLink || '###', style: 'line' });
             return { buttons: buttons.length ? buttons : getDefaultData().contact.buttons, note: contact.note || '' };
         }
-
         function loadData() {
             try {
                 const raw = localStorage.getItem(DATA_KEY);
                 if (!raw) return getDefaultData();
                 const parsed = JSON.parse(raw);
                 const def = getDefaultData();
-                if (parsed.sections) {
-                    parsed.sections = parsed.sections.map(s => ({ ...s, headerIndex: (s.headerIndex !== undefined) ? s.headerIndex : -1 }));
-                }
+                if (parsed.sections) parsed.sections = parsed.sections.map(s => ({ ...s, headerIndex: (s.headerIndex !== undefined) ? s.headerIndex : -1 }));
                 parsed.contact = migrateContactData(parsed.contact);
                 return { ...def, ...parsed };
             } catch { return getDefaultData(); }
         }
-
-        async function saveData(data, notify, addHist) {
-            if (notify === undefined) notify = true;
-            if (addHist === undefined) addHist = true;
+        async function saveData(data, notify = true, addHist = true) {
             try {
                 localStorage.setItem(DATA_KEY, JSON.stringify(data));
                 if (addHist) addToHistory(data);
@@ -1969,7 +1743,6 @@
                 return true;
             } catch { return false; }
         }
-
         function addToHistory(data) {
             try {
                 const h = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
@@ -1978,7 +1751,6 @@
                 localStorage.setItem(HISTORY_KEY, JSON.stringify(h));
             } catch { }
         }
-
         function showHistory() {
             const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
             if (!history.length) { showModal({ icon: 'info', title: 'ไม่มีประวัติ', html: 'ยังไม่มีประวัติการบันทึก', confirmText: 'ตกลง' }); return; }
@@ -1990,48 +1762,43 @@
             html += '</div>';
             showModal({ icon: '', title: '📜 ประวัติการบันทึก', html, confirmText: 'ปิด' });
         }
-
         function restoreHistory(index) {
             const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
             if (history[index]) { saveData(history[index].data, true, false); showToast('✅ กู้คืนสำเร็จ'); }
         }
 
-        // ===================== RENDER SITE =====================
+        // ==================== RENDER SITE ====================
         function renderSite() {
             const data = loadData();
             const container = document.getElementById('main-content');
-
             let html = `
-            <div class="header">
-                <div class="logo-circle-wrap">
-                    <div class="logo-ring"></div>
-                    <div class="logo-ring-inner"></div>
-                    <img class="logo-img" src="${data.header.logoImg}" alt="${data.header.shopName}">
-                    <span class="logo-star s1">${data.header.stars[0]}</span>
-                    <span class="logo-star s2">${data.header.stars[1]}</span>
-                    <span class="logo-star s3">${data.header.stars[2]}</span>
-                    <span class="logo-star s4">${data.header.stars[3]}</span>
-                </div>
-                <div class="shop-name">${data.header.shopName}</div>
-                <div class="shop-sub">${data.header.shopSub}</div>
-                <span class="status-badge"><span class="status-dot"></span>${data.header.statusText}</span>
-            </div>
-        `;
+  <div class="header" style="text-align:center;padding:44px 20px 28px;">
+    <div style="position:relative;width:180px;height:180px;margin:0 auto 20px;animation:float 5s ease-in-out infinite;">
+      <div class="logo-ring"></div>
+      <div class="logo-ring-inner"></div>
+      <img class="logo-img" src="${data.header.logoImg}" alt="${data.header.shopName}">
+      <span class="logo-star s1" style="animation:float 3s ease-in-out infinite;">${data.header.stars[0]}</span>
+      <span class="logo-star s2" style="animation:float 3s ease-in-out 0.8s infinite;">${data.header.stars[1]}</span>
+      <span class="logo-star s3" style="animation:float 3s ease-in-out 1.4s infinite;">${data.header.stars[2]}</span>
+      <span class="logo-star s4" style="animation:float 3s ease-in-out 0.8s infinite;">${data.header.stars[3]}</span>
+    </div>
+    <div class="shop-name" style="margin-bottom:4px;">${data.header.shopName}</div>
+    <div style="font-size:0.86rem;color:var(--c-text-light);font-weight:300;letter-spacing:2px;margin-bottom:14px;">${data.header.shopSub}</div>
+    <span class="status-badge"><span class="status-dot"></span>${data.header.statusText}</span>
+  </div>`;
 
             data.sections.forEach(s => { if ((s.headerIndex !== undefined ? s.headerIndex : -1) === -1) html += renderSection(s); });
 
             data.groupsHeaders.forEach((header, hi) => {
-                html += `
-                <div class="groups-header">
-                    <div class="groups-header-deco">${header.deco}</div>
-                    <div class="groups-header-title">${header.title}</div>
-                    <div class="groups-header-sub">${header.sub}</div>
-                    <div class="groups-header-deco2">${header.deco2}</div>
-                </div>
-            `;
+                html += `<div style="text-align:center;padding:36px 20px 28px;">
+      <div style="font-size:1rem;color:var(--c-primary);letter-spacing:8px;margin-bottom:10px;opacity:0.7;">${header.deco}</div>
+      <div class="groups-header-title">${header.title}</div>
+      <div style="font-size:1.05rem;color:var(--c-text-soft);font-weight:400;margin-bottom:10px;line-height:1.7;">${header.sub}</div>
+      <div style="font-size:0.85rem;color:var(--c-text-light);font-weight:300;letter-spacing:1px;">${header.deco2}</div>
+    </div>`;
                 data.sections.forEach(s => { if (s.headerIndex === hi) html += renderSection(s); });
                 data.groupSections.filter(gs => gs.headerIndex === hi).forEach(gs => {
-                    html += `<div class="section-card"><div class="section-title">${gs.title}</div><div class="group-list">`;
+                    html += `<div class="section-card"><div class="section-title">${gs.title}</div><div style="display:flex;flex-direction:column;gap:14px;">`;
                     gs.groups.forEach(g => { html += renderGroupItem(g); });
                     html += `</div></div>`;
                 });
@@ -2041,7 +1808,6 @@
                 html += `<div class="section-card"><div class="section-title">${s.title}</div><a href="${s.buttonLink}" target="_blank" class="see-all-btn">${s.buttonText}</a></div>`;
             });
 
-            // Dynamic contact buttons
             const btns = data.contact.buttons || [];
             const colsClass = btns.length === 1 ? 'cols-1' : btns.length >= 3 ? 'cols-3' : 'cols-2';
             const btnsHtml = btns.map(btn => {
@@ -2049,24 +1815,20 @@
                 return `<a href="${btn.link}" target="_blank" class="contact-btn ${st.cssClass}">${btn.icon} ${btn.text}</a>`;
             }).join('');
 
-            html += `
-            <div class="section-card">
-                <div class="section-title">💌 ติดต่อสั่งงาน</div>
-                <div class="contact-btns ${colsClass}">${btnsHtml}</div>
-                ${data.contact.note ? `<div style="text-align:center;margin-top:13px;font-size:0.81rem;color:var(--text-light);">${data.contact.note}</div>` : ''}
-            </div>
-            <div class="footer">
-                <div class="footer-name">${data.footer.name}</div>
-                ${data.footer.text}
-            </div>
-        `;
+            html += `<div class="section-card">
+    <div class="section-title">💌 ติดต่อสั่งงาน</div>
+    <div class="contact-btns ${colsClass}">${btnsHtml}</div>
+    ${data.contact.note ? `<div style="text-align:center;margin-top:13px;font-size:0.81rem;color:var(--c-text-light);">${data.contact.note}</div>` : ''}
+  </div>
+  <div style="text-align:center;padding:26px 20px 10px;">
+    <div style="font-size:1rem;font-weight:600;color:var(--c-primary);margin-bottom:4px;text-shadow:0 1px 6px rgba(245,200,0,0.2);">${data.footer.name}</div>
+    <div style="font-size:0.76rem;color:var(--c-text-light);">${data.footer.text}</div>
+  </div>`;
 
             container.innerHTML = html;
 
             const obs = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) { entry.target.style.animation = 'slideUp 0.55s ease both'; obs.unobserve(entry.target); }
-                });
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.animation = 'slideUp 0.55s ease both'; obs.unobserve(entry.target); } });
             }, { threshold: 0.1 });
             document.querySelectorAll('.section-card').forEach(el => obs.observe(el));
         }
@@ -2076,142 +1838,90 @@
                 case 'about':
                     return `<div class="section-card"><div class="section-title">${section.title}</div><div class="about-text">${section.text}</div></div>`;
                 case 'tags':
-                    return `<div class="section-card"><div class="section-title">${section.title}</div><div class="style-tags">${section.tags.map(t => `<span class="style-tag">${t}</span>`).join('')}</div></div>`;
+                    return `<div class="section-card"><div class="section-title">${section.title}</div><div style="display:flex;flex-wrap:wrap;gap:9px;">${section.tags.map(t => `<span class="style-tag">${t}</span>`).join('')}</div></div>`;
                 case 'price':
-                    return `<div class="section-card"><div class="section-title">${section.title}</div><div class="price-grid">${section.priceCards.map(c => `<div class="price-card ${c.class}"><div class="price-type">${c.type}</div><div class="price-amount">${c.amount}</div><div class="price-unit">${c.unit}</div></div>`).join('')}</div><div class="bulk-note">${section.bulkNote}</div></div>`;
+                    return `<div class="section-card"><div class="section-title">${section.title}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">${section.priceCards.map(c => `<div class="price-card ${c.class}"><div style="font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.88);margin-bottom:4px;">${c.type}</div><div style="font-size:2.4rem;font-weight:600;color:white;line-height:1;">${c.amount}</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.78);margin-top:2px;">${c.unit}</div></div>`).join('')}</div><div style="background:linear-gradient(135deg,#F4F4FA,#FFF8CC);border:1.5px solid rgba(184,184,200,0.35);border-radius:14px;padding:12px 16px;font-size:0.83rem;color:var(--c-text-soft);text-align:center;line-height:1.7;">${section.bulkNote}</div></div>`;
                 case 'dodont':
-                    return `<div class="section-card"><div class="section-title">${section.title}</div><div class="do-dont-grid"><div class="do-box"><div class="do-title">✅ รับทำ</div><ul>${section.doList.map(i => `<li>${i}</li>`).join('')}</ul></div><div class="dont-box"><div class="dont-title">❌ ไม่รับ</div><ul>${section.dontList.map(i => `<li>${i}</li>`).join('')}</ul></div></div></div>`;
+                    return `<div class="section-card"><div class="section-title">${section.title}</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="do-dont-grid"><div style="background:var(--c-do-bg);border:1.5px solid var(--c-do-border);border-radius:16px;padding:14px;"><div style="font-size:0.8rem;font-weight:600;color:#58A850;margin-bottom:8px;">✅ รับทำ</div><ul style="list-style:disc;">${section.doList.map(i => `<li style="font-size:0.8rem;color:var(--c-text-soft);line-height:1.8;margin-left:12px;">${i}</li>`).join('')}</ul></div><div style="background:var(--c-dont-bg);border:1.5px solid var(--c-dont-border);border-radius:16px;padding:14px;"><div style="font-size:0.8rem;font-weight:600;color:#D86060;margin-bottom:8px;">❌ ไม่รับ</div><ul style="list-style:disc;">${section.dontList.map(i => `<li style="font-size:0.8rem;color:var(--c-text-soft);line-height:1.8;margin-left:12px;">${i}</li>`).join('')}</ul></div></div></div>`;
                 case 'steps':
-                    return `
-                    <div class="section-card">
-                        <div class="section-title">${section.title}</div>
-                        <div class="steps-list">${section.steps.map((s, i) => `<div class="step-item"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join('')}</div>
-                        <div style="margin-top:18px;">
-                            <div style="font-size:0.76rem;color:var(--text-light);margin-bottom:10px;font-weight:500;">⏱ ระยะเวลาทำงาน</div>
-                            <div class="timeline-wrap">
-                                <div class="tl-item fast"><div class="tl-day">${section.timeline.fast.day}</div><div class="tl-label">${section.timeline.fast.label}</div></div>
-                                <div class="tl-item mid"><div class="tl-day">${section.timeline.mid.day}</div><div class="tl-label">${section.timeline.mid.label}</div></div>
-                                <div class="tl-item slow"><div class="tl-day">${section.timeline.slow.day}</div><div class="tl-label">${section.timeline.slow.label}</div></div>
-                            </div>
-                        </div>
-                        <div style="margin-top:18px;">
-                            <div style="font-size:0.76rem;color:var(--text-light);margin-bottom:9px;font-weight:500;">💳 ช่องทางชำระเงิน</div>
-                            <div class="payment-chips">${section.payments.map(p => `<div class="pay-chip">${p}</div>`).join('')}</div>
-                        </div>
-                    </div>`;
+                    return `<div class="section-card"><div class="section-title">${section.title}</div><div style="display:flex;flex-direction:column;gap:12px;">${section.steps.map((s, i) => `<div style="display:flex;align-items:flex-start;gap:12px;"><div class="step-num">${i + 1}</div><div style="font-size:0.86rem;color:var(--c-text-soft);line-height:1.75;padding-top:5px;">${s}</div></div>`).join('')}</div><div style="margin-top:18px;"><div style="font-size:0.76rem;color:var(--c-text-light);margin-bottom:10px;font-weight:500;">⏱ ระยะเวลาทำงาน</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;"><div class="tl-item fast"><div style="font-size:1.3rem;font-weight:600;color:#58A850;">${section.timeline.fast.day}</div><div style="font-size:0.7rem;color:var(--c-text-light);">${section.timeline.fast.label}</div></div><div class="tl-item mid"><div style="font-size:1.3rem;font-weight:600;color:var(--c-primary);">${section.timeline.mid.day}</div><div style="font-size:0.7rem;color:var(--c-text-light);">${section.timeline.mid.label}</div></div><div class="tl-item slow"><div style="font-size:1.3rem;font-weight:600;color:#D08030;">${section.timeline.slow.day}</div><div style="font-size:0.7rem;color:var(--c-text-light);">${section.timeline.slow.label}</div></div></div></div><div style="margin-top:18px;"><div style="font-size:0.76rem;color:var(--c-text-light);margin-bottom:9px;font-weight:500;">💳 ช่องทางชำระเงิน</div><div style="display:flex;gap:10px;flex-wrap:wrap;">${section.payments.map(p => `<div class="pay-chip">${p}</div>`).join('')}</div></div></div>`;
                 default: return '';
             }
         }
 
         function renderGroupItem(group) {
-            return `
-            <div class="group-item">
-                <div class="gi-top">
-                    <div class="gi-name">${group.name}</div>
-                    ${group.price ? `<div class="gi-price">${group.price}<span>฿</span></div>` : ''}
-                </div>
-                <div class="gi-tags">${(group.tags || []).map(t => `<span class="gi-tag">${t}</span>`).join('')}</div>
-                ${group.note ? `<div class="gi-note">${group.note}</div>` : ''}
-                <div class="gi-links">${(group.links || []).map(l => `<a href="${l.url}" target="_blank" class="gi-link">${l.text}</a>`).join('')}</div>
-            </div>`;
+            return `<div class="group-item">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;">
+      <div style="font-size:0.88rem;font-weight:500;color:var(--c-text-main);flex:1;">${group.name}</div>
+      ${group.price ? `<div class="gi-price">${group.price}<span style="font-size:0.7rem;margin-left:1px;">฿</span></div>` : ''}
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">${(group.tags || []).map(t => `<span class="gi-tag">${t}</span>`).join('')}</div>
+    ${group.note ? `<div style="font-size:0.78rem;color:#D08030;margin-bottom:8px;">${group.note}</div>` : ''}
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">${(group.links || []).map(l => `<a href="${l.url}" target="_blank" class="gi-link">${l.text}</a>`).join('')}</div>
+  </div>`;
         }
 
-        // ===================== CONTACT ADMIN RENDER =====================
+        // ==================== CONTACT ADMIN ====================
         function renderContactAdmin() {
             const data = loadData();
             const list = document.getElementById('contact-btns-list');
             list.innerHTML = '';
-
             (data.contact.buttons || []).forEach((btn, i) => {
                 const st = getStyleById(btn.style);
                 const div = document.createElement('div');
                 div.className = 'contact-btn-card';
-
-                const stylesChips = CONTACT_STYLES.map(s =>
-                    `<span class="style-chip chip-${s.id} ${btn.style === s.id ? 'selected' : ''}"
-                    onclick="updateContactBtnStyle(${i},'${s.id}')">${s.label}</span>`
-                ).join('');
-
-                div.innerHTML = `
-                <div class="contact-btn-card-header">
-                    <span class="contact-btn-card-title">ปุ่มที่ ${i + 1}</span>
-                    <button class="admin-btn-del" onclick="deleteContactBtn(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                </div>
-                <div class="contact-btn-preview ${st.cssClass}" id="contact-preview-${i}">${btn.icon} ${btn.text}</div>
-                <p style="font-size:0.78rem;color:#999;margin-bottom:8px;">สีปุ่ม:</p>
-                <div class="style-picker">${stylesChips}</div>
-                <div class="item-row">
-                    <input type="text" class="admin-input" placeholder="ไอคอน (emoji)" value="${btn.icon}" style="max-width:80px;"
-                        oninput="updateContactBtn(${i},'icon',this.value)">
-                    <input type="text" class="admin-input" placeholder="ข้อความปุ่ม" value="${btn.text}"
-                        oninput="updateContactBtn(${i},'text',this.value)">
-                </div>
-                <input type="text" class="admin-input" placeholder="ลิงก์ (URL)" value="${btn.link}"
-                    oninput="updateContactBtn(${i},'link',this.value)">
-            `;
+                const stylesChips = CONTACT_STYLES.map(s => `<span class="style-chip chip-${s.id} ${btn.style === s.id ? 'selected' : ''}" onclick="updateContactBtnStyle(${i},'${s.id}')">${s.label}</span>`).join('');
+                div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <span style="font-size:0.9rem;font-weight:600;color:var(--c-text-main);">ปุ่มที่ ${i + 1}</span>
+      <button class="admin-btn-del" onclick="deleteContactBtn(${i})"><i class="fas fa-trash"></i> ลบ</button>
+    </div>
+    <div class="contact-btn-preview ${st.cssClass}" id="contact-preview-${i}">${btn.icon} ${btn.text}</div>
+    <p style="font-size:0.78rem;color:#999;margin-bottom:8px;">สีปุ่ม:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">${stylesChips}</div>
+    <div class="item-row">
+      <input type="text" class="admin-input" placeholder="ไอคอน" value="${btn.icon}" style="max-width:70px;" oninput="updateContactBtn(${i},'icon',this.value)">
+      <input type="text" class="admin-input" placeholder="ข้อความ" value="${btn.text}" oninput="updateContactBtn(${i},'text',this.value)">
+    </div>
+    <input type="text" class="admin-input" placeholder="ลิงก์ URL" value="${btn.link}" oninput="updateContactBtn(${i},'link',this.value)">`;
                 list.appendChild(div);
             });
-
             document.getElementById('a-contact-note').value = data.contact.note || '';
         }
-
         function updateContactBtn(i, field, value) {
             const d = loadData();
             d.contact.buttons[i][field] = value;
-            // Live preview update
             const st = getStyleById(d.contact.buttons[i].style);
             const preview = document.getElementById('contact-preview-' + i);
-            if (preview) {
-                preview.className = 'contact-btn-preview ' + st.cssClass;
-                preview.textContent = d.contact.buttons[i].icon + ' ' + d.contact.buttons[i].text;
-            }
+            if (preview) { preview.className = 'contact-btn-preview ' + st.cssClass; preview.textContent = d.contact.buttons[i].icon + ' ' + d.contact.buttons[i].text; }
             saveData(d, false, false);
         }
-
         function updateContactBtnStyle(i, styleId) {
-            const d = loadData();
-            d.contact.buttons[i].style = styleId;
-            saveData(d, false, false);
-            renderContactAdmin();
+            const d = loadData(); d.contact.buttons[i].style = styleId; saveData(d, false, false); renderContactAdmin();
         }
-
         function deleteContactBtn(i) {
-            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'ลบปุ่มนี้ออก?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => {
-                if (r.isConfirmed) {
-                    const d = loadData();
-                    d.contact.buttons.splice(i, 1);
-                    saveData(d, true, true);
-                    renderContactAdmin();
-                }
-            });
+            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'ลบปุ่มนี้ออก?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => { if (r.isConfirmed) { const d = loadData(); d.contact.buttons.splice(i, 1); saveData(d, true, true); renderContactAdmin(); } });
         }
-
         function addContactBtn() {
             const d = loadData();
             if (!d.contact.buttons) d.contact.buttons = [];
             d.contact.buttons.push({ icon: '📌', text: 'ปุ่มใหม่', link: '###', style: 'custom' });
-            saveData(d, true, true);
-            renderContactAdmin();
+            saveData(d, true, true); renderContactAdmin();
         }
-
         function saveContact() {
-            const d = loadData();
-            d.contact.note = document.getElementById('a-contact-note').value;
-            saveData(d, true, true);
-            showToast('✅ บันทึกส่วนติดต่อเรียบร้อย');
+            const d = loadData(); d.contact.note = document.getElementById('a-contact-note').value; saveData(d, true, true); showToast('✅ บันทึกส่วนติดต่อเรียบร้อย');
         }
 
-        // ===================== HELPER =====================
+        // ==================== HELPER ====================
         function buildHeaderOptions(currentHeaderIndex) {
             const data = loadData();
-            let opts = `<option value="-1" ${currentHeaderIndex === -1 ? 'selected' : ''}>📌 แสดงทั่วไป (ก่อนกลุ่ม)</option>`;
+            let opts = `<option value="-1"${currentHeaderIndex === -1 ? ' selected' : ''}>📌 แสดงทั่วไป (ก่อนกลุ่ม)</option>`;
             data.groupsHeaders.forEach((h, i) => {
-                opts += `<option value="${i}" ${currentHeaderIndex === i ? 'selected' : ''}>🔰 ${h.title || 'หัวข้อกลุ่มที่ ' + (i + 1)}</option>`;
+                opts += `<option value="${i}"${currentHeaderIndex === i ? ' selected' : ''}>🔰 ${h.title || 'หัวข้อกลุ่มที่ ' + (i + 1)}</option>`;
             });
             return opts;
         }
 
-        // ===================== ADMIN RENDER =====================
+        // ==================== ADMIN RENDER ====================
         function renderAdminSections() {
             const data = loadData();
 
@@ -2220,21 +1930,19 @@
             sl.innerHTML = '';
             data.sections.forEach((section, i) => {
                 const hi = (section.headerIndex !== undefined) ? section.headerIndex : -1;
-                const badgeClass = hi === -1 ? 'global' : 'assigned';
+                const badgeClass = hi === -1 ? 'badge-global' : 'badge-assigned';
                 const badgeLabel = hi === -1 ? '📌 ทั่วไป' : ('🔰 ' + (data.groupsHeaders[hi] ? data.groupsHeaders[hi].title : 'กลุ่ม ' + (hi + 1)));
                 const div = document.createElement('div');
                 div.className = 'admin-section';
-                div.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:8px;">
-                    <h3 style="margin-bottom:0;"><i class="fas fa-layer-group"></i> ${section.title || 'unnamed'} <span class="section-header-badge ${badgeClass}">${badgeLabel}</span></h3>
-                    <button class="admin-btn-del" onclick="deleteSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                </div>
-                <div class="section-header-selector">
-                    <label><i class="fas fa-map-marker-alt"></i> แสดงใน:</label>
-                    <select onchange="updateSectionHeader(${i}, parseInt(this.value))">${buildHeaderOptions(hi)}</select>
-                </div>
-                ${renderSectionEditForm(section, i)}
-            `;
+                div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
+      <h3 style="font-size:0.9rem;margin-bottom:0;display:flex;align-items:center;gap:6px;"><i class="fas fa-layer-group" style="color:var(--c-primary);"></i> ${section.title || 'unnamed'} <span style="padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:500;" class="${badgeClass}">${badgeLabel}</span></h3>
+      <button class="admin-btn-del" onclick="deleteSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#FFFBEC,#FFF8E0);border:1.5px solid rgba(245,200,0,0.35);border-radius:12px;padding:10px 14px;margin-bottom:14px;">
+      <label style="font-size:0.82rem;color:var(--c-text-soft);white-space:nowrap;font-weight:500;"><i class="fas fa-map-marker-alt"></i> แสดงใน:</label>
+      <select onchange="updateSectionHeader(${i},parseInt(this.value))" style="flex:1;padding:7px 10px;border:1px solid rgba(245,200,0,0.4);border-radius:8px;font-family:var(--font-main);font-size:0.85rem;background:white;">${buildHeaderOptions(hi)}</select>
+    </div>
+    ${renderSectionEditForm(section, i)}`;
                 sl.appendChild(div);
             });
 
@@ -2244,16 +1952,14 @@
             data.groupsHeaders.forEach((header, i) => {
                 const div = document.createElement('div');
                 div.className = 'admin-section';
-                div.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-                    <h3><i class="fas fa-heading"></i> หัวข้อกลุ่มที่ ${i + 1}</h3>
-                    <button class="admin-btn-del" onclick="deleteGroupsHeader(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                </div>
-                <input type="text" class="admin-input" placeholder="เครื่องหมายตกแต่ง" value="${header.deco}" onchange="updateGroupsHeader(${i},'deco',this.value)">
-                <input type="text" class="admin-input" placeholder="หัวข้อ" value="${header.title}" onchange="updateGroupsHeader(${i},'title',this.value)">
-                <input type="text" class="admin-input" placeholder="คำอธิบาย" value="${header.sub}" onchange="updateGroupsHeader(${i},'sub',this.value)">
-                <input type="text" class="admin-input" placeholder="ข้อความท้าย" value="${header.deco2}" onchange="updateGroupsHeader(${i},'deco2',this.value)">
-            `;
+                div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <h3 style="font-size:0.9rem;"><i class="fas fa-heading" style="color:var(--c-primary);"></i> หัวข้อกลุ่มที่ ${i + 1}</h3>
+      <button class="admin-btn-del" onclick="deleteGroupsHeader(${i})"><i class="fas fa-trash"></i> ลบ</button>
+    </div>
+    <input type="text" class="admin-input" placeholder="เครื่องหมายตกแต่ง" value="${header.deco}" onchange="updateGroupsHeader(${i},'deco',this.value)" style="margin-bottom:8px;">
+    <input type="text" class="admin-input" placeholder="หัวข้อ" value="${header.title}" onchange="updateGroupsHeader(${i},'title',this.value)" style="margin-bottom:8px;">
+    <input type="text" class="admin-input" placeholder="คำอธิบาย" value="${header.sub}" onchange="updateGroupsHeader(${i},'sub',this.value)" style="margin-bottom:8px;">
+    <input type="text" class="admin-input" placeholder="ข้อความท้าย" value="${header.deco2}" onchange="updateGroupsHeader(${i},'deco2',this.value)">`;
                 ghl.appendChild(div);
             });
 
@@ -2263,13 +1969,10 @@
             data.groupSections.forEach((gs, i) => {
                 const div = document.createElement('div');
                 div.className = 'admin-section';
-                div.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-                    <h3><i class="fas fa-layer-group"></i> ${gs.title}</h3>
-                    <button class="admin-btn-del" onclick="deleteGroupSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                </div>
-                ${renderGroupSectionEditForm(gs, i)}
-            `;
+                div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <h3 style="font-size:0.9rem;"><i class="fas fa-layer-group" style="color:var(--c-primary);"></i> ${gs.title}</h3>
+      <button class="admin-btn-del" onclick="deleteGroupSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
+    </div>${renderGroupSectionEditForm(gs, i)}`;
                 gsl.appendChild(div);
             });
 
@@ -2279,31 +1982,24 @@
             data.allGroupsSections.forEach((s, i) => {
                 const div = document.createElement('div');
                 div.className = 'admin-section';
-                div.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-                    <h3><i class="fas fa-link"></i> ปุ่มดูกลุ่มทั้งหมด ${i + 1}</h3>
-                    <button class="admin-btn-del" onclick="deleteAllGroupsSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                </div>
-                <input type="text" class="admin-input" placeholder="หัวข้อ" value="${s.title}" onchange="updateAllGroupsSection(${i},'title',this.value)">
-                <input type="text" class="admin-input" placeholder="ข้อความปุ่ม" value="${s.buttonText}" onchange="updateAllGroupsSection(${i},'buttonText',this.value)">
-                <input type="text" class="admin-input" placeholder="ลิงก์" value="${s.buttonLink}" onchange="updateAllGroupsSection(${i},'buttonLink',this.value)">
-            `;
+                div.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <h3 style="font-size:0.9rem;"><i class="fas fa-link" style="color:var(--c-primary);"></i> ปุ่มดูกลุ่มทั้งหมด ${i + 1}</h3>
+      <button class="admin-btn-del" onclick="deleteAllGroupsSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
+    </div>
+    <input type="text" class="admin-input" placeholder="หัวข้อ" value="${s.title}" onchange="updateAllGroupsSection(${i},'title',this.value)" style="margin-bottom:8px;">
+    <input type="text" class="admin-input" placeholder="ข้อความปุ่ม" value="${s.buttonText}" onchange="updateAllGroupsSection(${i},'buttonText',this.value)" style="margin-bottom:8px;">
+    <input type="text" class="admin-input" placeholder="ลิงก์" value="${s.buttonLink}" onchange="updateAllGroupsSection(${i},'buttonLink',this.value)">`;
                 agl.appendChild(div);
             });
         }
 
         function renderSectionEditForm(section, index) {
             switch (section.type) {
-                case 'about':
-                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><textarea class="admin-input" placeholder="ข้อความ" rows="4" onchange="updateSection(${index},'text',this.value)">${section.text}</textarea>`;
-                case 'tags':
-                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><div id="tags-${index}">${section.tags.map((tag, ti) => `<div class="item-row"><input type="text" class="admin-input" value="${tag}" onchange="updateTag(${index},${ti},this.value)"><button class="admin-btn-del" onclick="deleteTag(${index},${ti})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addTag(${index})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button>`;
-                case 'price':
-                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><div id="price-cards-${index}">${section.priceCards.map((card, ci) => `<div class="item-row"><input type="text" class="admin-input" placeholder="ประเภท" value="${card.type}" onchange="updatePriceCard(${index},${ci},'type',this.value)"><input type="text" class="admin-input" placeholder="ราคา" value="${card.amount}" onchange="updatePriceCard(${index},${ci},'amount',this.value)"><input type="text" class="admin-input" placeholder="หน่วย" value="${card.unit}" onchange="updatePriceCard(${index},${ci},'unit',this.value)"><select class="admin-input" onchange="updatePriceCard(${index},${ci},'class',this.value)" style="width:100px;"><option value="gold" ${card.class === 'gold' ? 'selected' : ''}>ทอง</option><option value="silver" ${card.class === 'silver' ? 'selected' : ''}>เงิน</option></select><button class="admin-btn-del" onclick="deletePriceCard(${index},${ci})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addPriceCard(${index})"><i class="fas fa-plus"></i> เพิ่มการ์ดราคา</button><textarea class="admin-input" placeholder="หมายเหตุ" rows="2" onchange="updateSection(${index},'bulkNote',this.value)">${section.bulkNote}</textarea>`;
-                case 'dodont':
-                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><h4 style="margin:10px 0;color:#4CAF50;">✅ รับทำ</h4><div id="do-list-${index}">${section.doList.map((item, ii) => `<div class="item-row"><input type="text" class="admin-input" value="${item}" onchange="updateDoItem(${index},${ii},this.value)"><button class="admin-btn-del" onclick="deleteDoItem(${index},${ii})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addDoItem(${index})"><i class="fas fa-plus"></i> เพิ่ม</button><h4 style="margin:10px 0;color:#f44336;">❌ ไม่รับ</h4><div id="dont-list-${index}">${section.dontList.map((item, ii) => `<div class="item-row"><input type="text" class="admin-input" value="${item}" onchange="updateDontItem(${index},${ii},this.value)"><button class="admin-btn-del" onclick="deleteDontItem(${index},${ii})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addDontItem(${index})"><i class="fas fa-plus"></i> เพิ่ม</button>`;
-                case 'steps':
-                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><h4 style="margin:10px 0;">📋 ขั้นตอน</h4><div id="steps-${index}">${section.steps.map((s, si) => `<div class="item-row"><input type="text" class="admin-input" value="${s}" onchange="updateStep(${index},${si},this.value)"><button class="admin-btn-del" onclick="deleteStep(${index},${si})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addStep(${index})"><i class="fas fa-plus"></i> เพิ่มขั้นตอน</button><h4 style="margin:10px 0;">⏱ ระยะเวลา</h4><div class="item-row"><input type="text" class="admin-input" placeholder="วันเร็วสุด" value="${section.timeline.fast.day}" onchange="updateTimeline(${index},'fast','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.fast.label}" onchange="updateTimeline(${index},'fast','label',this.value)"></div><div class="item-row"><input type="text" class="admin-input" placeholder="วันปกติ" value="${section.timeline.mid.day}" onchange="updateTimeline(${index},'mid','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.mid.label}" onchange="updateTimeline(${index},'mid','label',this.value)"></div><div class="item-row"><input type="text" class="admin-input" placeholder="วันช้าสุด" value="${section.timeline.slow.day}" onchange="updateTimeline(${index},'slow','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.slow.label}" onchange="updateTimeline(${index},'slow','label',this.value)"></div><h4 style="margin:10px 0;">💳 ช่องทางชำระเงิน</h4><div id="payments-${index}">${section.payments.map((p, pi) => `<div class="item-row"><input type="text" class="admin-input" value="${p}" onchange="updatePayment(${index},${pi},this.value)"><button class="admin-btn-del" onclick="deletePayment(${index},${pi})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addPayment(${index})"><i class="fas fa-plus"></i> เพิ่มช่องทาง</button>`;
+                case 'about': return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)" style="margin-bottom:8px;"><textarea class="admin-input" placeholder="ข้อความ" rows="4" onchange="updateSection(${index},'text',this.value)">${section.text}</textarea>`;
+                case 'tags': return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)" style="margin-bottom:8px;"><div id="tags-${index}">${section.tags.map((tag, ti) => `<div class="item-row"><input type="text" class="admin-input" value="${tag}" onchange="updateTag(${index},${ti},this.value)"><button class="admin-btn-del" onclick="deleteTag(${index},${ti})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addTag(${index})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button>`;
+                case 'price': return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)" style="margin-bottom:8px;"><div id="price-cards-${index}">${section.priceCards.map((card, ci) => `<div class="item-row"><input type="text" class="admin-input" placeholder="ประเภท" value="${card.type}" onchange="updatePriceCard(${index},${ci},'type',this.value)"><input type="text" class="admin-input" placeholder="ราคา" value="${card.amount}" onchange="updatePriceCard(${index},${ci},'amount',this.value)"><input type="text" class="admin-input" placeholder="หน่วย" value="${card.unit}" onchange="updatePriceCard(${index},${ci},'unit',this.value)"><select class="admin-input" onchange="updatePriceCard(${index},${ci},'class',this.value)" style="width:90px;"><option value="gold"${card.class === 'gold' ? ' selected' : ''}>ทอง</option><option value="silver"${card.class === 'silver' ? ' selected' : ''}>เงิน</option></select><button class="admin-btn-del" onclick="deletePriceCard(${index},${ci})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addPriceCard(${index})"><i class="fas fa-plus"></i> เพิ่มการ์ด</button><textarea class="admin-input" placeholder="หมายเหตุ" rows="2" onchange="updateSection(${index},'bulkNote',this.value)" style="margin-top:8px;">${section.bulkNote}</textarea>`;
+                case 'dodont': return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)" style="margin-bottom:8px;"><h4 style="margin:10px 0;color:#4CAF50;font-size:0.85rem;">✅ รับทำ</h4><div id="do-list-${index}">${section.doList.map((item, ii) => `<div class="item-row"><input type="text" class="admin-input" value="${item}" onchange="updateDoItem(${index},${ii},this.value)"><button class="admin-btn-del" onclick="deleteDoItem(${index},${ii})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addDoItem(${index})"><i class="fas fa-plus"></i> เพิ่ม</button><h4 style="margin:10px 0;color:#f44336;font-size:0.85rem;">❌ ไม่รับ</h4><div id="dont-list-${index}">${section.dontList.map((item, ii) => `<div class="item-row"><input type="text" class="admin-input" value="${item}" onchange="updateDontItem(${index},${ii},this.value)"><button class="admin-btn-del" onclick="deleteDontItem(${index},${ii})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addDontItem(${index})"><i class="fas fa-plus"></i> เพิ่ม</button>`;
+                case 'steps': return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)" style="margin-bottom:8px;"><h4 style="margin:10px 0;font-size:0.85rem;">📋 ขั้นตอน</h4><div id="steps-${index}">${section.steps.map((s, si) => `<div class="item-row"><input type="text" class="admin-input" value="${s}" onchange="updateStep(${index},${si},this.value)"><button class="admin-btn-del" onclick="deleteStep(${index},${si})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addStep(${index})"><i class="fas fa-plus"></i> เพิ่มขั้นตอน</button><h4 style="margin:10px 0;font-size:0.85rem;">⏱ ระยะเวลา</h4><div class="item-row"><input type="text" class="admin-input" placeholder="วันเร็วสุด" value="${section.timeline.fast.day}" onchange="updateTimeline(${index},'fast','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.fast.label}" onchange="updateTimeline(${index},'fast','label',this.value)"></div><div class="item-row"><input type="text" class="admin-input" placeholder="วันปกติ" value="${section.timeline.mid.day}" onchange="updateTimeline(${index},'mid','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.mid.label}" onchange="updateTimeline(${index},'mid','label',this.value)"></div><div class="item-row"><input type="text" class="admin-input" placeholder="วันช้าสุด" value="${section.timeline.slow.day}" onchange="updateTimeline(${index},'slow','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.slow.label}" onchange="updateTimeline(${index},'slow','label',this.value)"></div><h4 style="margin:10px 0;font-size:0.85rem;">💳 ช่องทางชำระเงิน</h4><div id="payments-${index}">${section.payments.map((p, pi) => `<div class="item-row"><input type="text" class="admin-input" value="${p}" onchange="updatePayment(${index},${pi},this.value)"><button class="admin-btn-del" onclick="deletePayment(${index},${pi})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addPayment(${index})"><i class="fas fa-plus"></i> เพิ่มช่องทาง</button>`;
                 default: return '';
             }
         }
@@ -2312,19 +2008,32 @@
             const data = loadData();
             let headerOptions = '<option value="-1">ไม่มีหัวข้อ</option>';
             data.groupsHeaders.forEach((h, i) => {
-                headerOptions += `<option value="${i}" ${groupSection.headerIndex === i ? 'selected' : ''}>${h.title}</option>`;
+                headerOptions += `<option value="${i}"${groupSection.headerIndex === i ? ' selected' : ''}>${h.title}</option>`;
             });
-            let html = `<select class="group-header-select" onchange="updateGroupSectionHeader(${index},this.value)">${headerOptions}</select><input type="text" class="admin-input" placeholder="ชื่อกลุ่มย่อย" value="${groupSection.title}" onchange="updateGroupSection(${index},'title',this.value)">`;
+            let html = `<select style="width:100%;padding:10px;border:1.5px solid #ddd;border-radius:12px;margin-bottom:10px;font-family:var(--font-main);" onchange="updateGroupSectionHeader(${index},this.value)">${headerOptions}</select>
+  <input type="text" class="admin-input" placeholder="ชื่อกลุ่มย่อย" value="${groupSection.title}" onchange="updateGroupSection(${index},'title',this.value)" style="margin-bottom:10px;">`;
             groupSection.groups.forEach((group, gi) => {
-                html += `<div style="border:1px solid #ddd;border-radius:12px;padding:15px;margin-bottom:15px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><h4>กลุ่มที่ ${gi + 1}</h4><button class="admin-btn-del" onclick="deleteGroup(${index},${gi})"><i class="fas fa-trash"></i> ลบกลุ่ม</button></div><input type="text" class="admin-input" placeholder="ชื่อกลุ่ม" value="${group.name}" onchange="updateGroup(${index},${gi},'name',this.value)"><input type="text" class="admin-input" placeholder="ราคา" value="${group.price || ''}" onchange="updateGroup(${index},${gi},'price',this.value)"><div id="group-tags-${index}-${gi}">${(group.tags || []).map((tag, ti) => `<div class="item-row"><input type="text" class="admin-input" value="${tag}" onchange="updateGroupTag(${index},${gi},${ti},this.value)"><button class="admin-btn-del" onclick="deleteGroupTag(${index},${gi},${ti})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addGroupTag(${index},${gi})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button><input type="text" class="admin-input" placeholder="หมายเหตุ" value="${group.note || ''}" onchange="updateGroup(${index},${gi},'note',this.value)"><div id="group-links-${index}-${gi}">${(group.links || []).map((link, li) => `<div class="item-row"><input type="text" class="admin-input" placeholder="ข้อความลิงก์" value="${link.text}" onchange="updateGroupLink(${index},${gi},${li},'text',this.value)"><input type="text" class="admin-input" placeholder="URL" value="${link.url}" onchange="updateGroupLink(${index},${gi},${li},'url',this.value)"><button class="admin-btn-del" onclick="deleteGroupLink(${index},${gi},${li})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addGroupLink(${index},${gi})"><i class="fas fa-plus"></i> เพิ่มลิงก์</button></div>`;
+                html += `<div style="border:1.5px solid #ddd;border-radius:12px;padding:15px;margin-bottom:12px;background:white;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h4 style="font-size:0.85rem;">กลุ่มที่ ${gi + 1}</h4>
+        <button class="admin-btn-del" onclick="deleteGroup(${index},${gi})"><i class="fas fa-trash"></i> ลบ</button>
+      </div>
+      <input type="text" class="admin-input" placeholder="ชื่อกลุ่ม" value="${group.name}" onchange="updateGroup(${index},${gi},'name',this.value)" style="margin-bottom:8px;">
+      <input type="text" class="admin-input" placeholder="ราคา" value="${group.price || ''}" onchange="updateGroup(${index},${gi},'price',this.value)" style="margin-bottom:8px;">
+      <div id="group-tags-${index}-${gi}">${(group.tags || []).map((tag, ti) => `<div class="item-row"><input type="text" class="admin-input" value="${tag}" onchange="updateGroupTag(${index},${gi},${ti},this.value)"><button class="admin-btn-del" onclick="deleteGroupTag(${index},${gi},${ti})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
+      <button class="admin-btn-add" onclick="addGroupTag(${index},${gi})" style="margin-bottom:8px;"><i class="fas fa-plus"></i> เพิ่มแท็ก</button>
+      <input type="text" class="admin-input" placeholder="หมายเหตุ" value="${group.note || ''}" onchange="updateGroup(${index},${gi},'note',this.value)" style="margin-bottom:8px;">
+      <div id="group-links-${index}-${gi}">${(group.links || []).map((link, li) => `<div class="item-row"><input type="text" class="admin-input" placeholder="ข้อความ" value="${link.text}" onchange="updateGroupLink(${index},${gi},${li},'text',this.value)"><input type="text" class="admin-input" placeholder="URL" value="${link.url}" onchange="updateGroupLink(${index},${gi},${li},'url',this.value)"><button class="admin-btn-del" onclick="deleteGroupLink(${index},${gi},${li})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
+      <button class="admin-btn-add" onclick="addGroupLink(${index},${gi})"><i class="fas fa-plus"></i> เพิ่มลิงก์</button>
+    </div>`;
             });
             html += `<button class="admin-btn-add" onclick="addGroup(${index})"><i class="fas fa-plus"></i> เพิ่มกลุ่ม</button>`;
             return html;
         }
 
-        // ===================== UPDATE FUNCTIONS =====================
-        function updateSectionHeader(sectionIndex, headerIndex) { const d = loadData(); d.sections[sectionIndex].headerIndex = headerIndex; saveData(d, true, true); renderAdminSections(); }
-        function updateSection(i, f, v) { const d = loadData(); d.sections[i][f] = v; saveData(d, true, true); renderAdminSections(); }
+        // ==================== UPDATE FUNCTIONS ====================
+        function updateSectionHeader(i, hi) { const d = loadData(); d.sections[i].headerIndex = hi; saveData(d, true, true); renderAdminSections(); }
+        function updateSection(i, f, v) { const d = loadData(); d.sections[i][f] = v; saveData(d, true, true); }
         function updateTag(si, ti, v) { const d = loadData(); d.sections[si].tags[ti] = v; saveData(d, true, true); }
         function deleteTag(si, ti) { const d = loadData(); d.sections[si].tags.splice(ti, 1); saveData(d, true, true); renderAdminSections(); }
         function addTag(si) { const d = loadData(); if (!d.sections[si].tags) d.sections[si].tags = []; d.sections[si].tags.push('แท็กใหม่'); saveData(d, true, true); renderAdminSections(); }
@@ -2346,7 +2055,7 @@
         function addPayment(si) { const d = loadData(); if (!d.sections[si].payments) d.sections[si].payments = []; d.sections[si].payments.push('ช่องทางใหม่'); saveData(d, true, true); renderAdminSections(); }
         function updateGroupsHeader(i, f, v) { const d = loadData(); d.groupsHeaders[i][f] = v; saveData(d, true, true); }
         function updateGroupSectionHeader(i, hi) { const d = loadData(); d.groupSections[i].headerIndex = parseInt(hi); saveData(d, true, true); renderAdminSections(); }
-        function updateGroupSection(i, f, v) { const d = loadData(); d.groupSections[i][f] = v; saveData(d, true, true); renderAdminSections(); }
+        function updateGroupSection(i, f, v) { const d = loadData(); d.groupSections[i][f] = v; saveData(d, true, true); }
         function updateGroup(si, gi, f, v) { const d = loadData(); d.groupSections[si].groups[gi][f] = v; saveData(d, true, true); }
         function updateGroupTag(si, gi, ti, v) { const d = loadData(); d.groupSections[si].groups[gi].tags[ti] = v; saveData(d, true, true); }
         function deleteGroupTag(si, gi, ti) { const d = loadData(); d.groupSections[si].groups[gi].tags.splice(ti, 1); saveData(d, true, true); renderAdminSections(); }
@@ -2357,11 +2066,8 @@
         function updateAllGroupsSection(i, f, v) { const d = loadData(); d.allGroupsSections[i][f] = v; saveData(d, true, true); }
 
         function deleteSection(index) {
-            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'คุณแน่ใจหรือไม่?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => {
-                if (r.isConfirmed) { const d = loadData(); d.sections.splice(index, 1); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); }
-            });
+            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'คุณแน่ใจหรือไม่?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => { if (r.isConfirmed) { const d = loadData(); d.sections.splice(index, 1); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); } });
         }
-
         function addSection(type) {
             const newSections = {
                 about: { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ข้อความเกี่ยวกับร้าน', headerIndex: -1 },
@@ -2370,62 +2076,31 @@
                 dodont: { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['ข้อความรับทำ'], dontList: ['ข้อความไม่รับ'], headerIndex: -1 },
                 steps: { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['ขั้นตอนที่ 1'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3-5', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['ช่องทางชำระเงิน'], headerIndex: -1 }
             };
-            const d = loadData();
-            d.sections.push(newSections[type]);
-            saveData(d, true, true);
-            renderAdminSections();
+            const d = loadData(); d.sections.push(newSections[type]); saveData(d, true, true); renderAdminSections();
         }
-
         function deleteGroupsHeader(index) {
-            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'จะลบกลุ่มทั้งหมดที่อยู่ใต้หัวข้อนี้ด้วย', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => {
-                if (r.isConfirmed) {
-                    const d = loadData();
-                    d.groupsHeaders.splice(index, 1);
-                    d.groupSections = d.groupSections.filter(gs => gs.headerIndex !== index).map(gs => { if (gs.headerIndex > index) gs.headerIndex--; return gs; });
-                    d.sections = d.sections.map(s => { if (s.headerIndex === index) s.headerIndex = -1; else if (s.headerIndex > index) s.headerIndex--; return s; });
-                    saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย');
-                }
-            });
+            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'จะลบกลุ่มทั้งหมดที่อยู่ใต้หัวข้อนี้ด้วย', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => { if (r.isConfirmed) { const d = loadData(); d.groupsHeaders.splice(index, 1); d.groupSections = d.groupSections.filter(gs => gs.headerIndex !== index).map(gs => { if (gs.headerIndex > index) gs.headerIndex--; return gs; }); d.sections = d.sections.map(s => { if (s.headerIndex === index) s.headerIndex = -1; else if (s.headerIndex > index) s.headerIndex--; return s; }); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); } });
         }
-
         function addGroupsHeader() { const d = loadData(); d.groupsHeaders.push({ deco: '✦ ✦ ✦', title: 'หัวข้อใหม่', sub: 'คำอธิบาย', deco2: 'ข้อความท้าย' }); saveData(d, true, true); renderAdminSections(); }
         function deleteGroupSection(index) { showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'คุณแน่ใจหรือไม่?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => { if (r.isConfirmed) { const d = loadData(); d.groupSections.splice(index, 1); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); } }); }
         function addGroupSection() { const d = loadData(); d.groupSections.push({ headerIndex: 0, title: 'กลุ่มย่อยใหม่', groups: [{ name: 'ชื่อกลุ่ม', tags: ['แท็ก'], links: [{ text: '🔗 ลิงก์', url: '#' }] }] }); saveData(d, true, true); renderAdminSections(); }
         function deleteGroup(si, gi) { const d = loadData(); d.groupSections[si].groups.splice(gi, 1); saveData(d, true, true); renderAdminSections(); }
-        function addGroup(si) { const d = loadData(); d.groupSections[si].groups.push({ name: 'ชื่อกลุ่มใหม่', tags: ['แท็กใหม่'], links: [{ text: '🔗 ลิงก์', url: '#' }] }); saveData(d, true, true); renderAdminSections(); }
+        function addGroup(si) { const d = loadData(); d.groupSections[si].groups.push({ name: 'ชื่อกลุ่มใหม่', tags: ['แท็ก'], links: [{ text: '🔗 ลิงก์', url: '#' }] }); saveData(d, true, true); renderAdminSections(); }
         function deleteAllGroupsSection(index) { showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'คุณแน่ใจหรือไม่?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => { if (r.isConfirmed) { const d = loadData(); d.allGroupsSections.splice(index, 1); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); } }); }
         function addAllGroupsSection() { const d = loadData(); d.allGroupsSections.push({ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: '📋 กดดูกลุ่มทั้งหมด', buttonLink: '#' }); saveData(d, true, true); renderAdminSections(); }
 
-        // ===================== SAVE HEADER / FOOTER =====================
+        // ==================== SAVE HEADER / FOOTER ====================
         function saveHeader() {
             const d = loadData();
-            d.header = {
-                logoImg: document.getElementById('a-logo-img').value,
-                stars: [document.getElementById('a-star1').value, document.getElementById('a-star2').value, document.getElementById('a-star3').value, document.getElementById('a-star4').value],
-                shopName: document.getElementById('a-shop-name').value,
-                shopSub: document.getElementById('a-shop-sub').value,
-                statusText: document.getElementById('a-status-text').value
-            };
-            saveData(d, true, true);
-            showToast('✅ บันทึกส่วนหัวเรียบร้อย');
+            d.header = { logoImg: document.getElementById('a-logo-img').value, stars: [document.getElementById('a-star1').value, document.getElementById('a-star2').value, document.getElementById('a-star3').value, document.getElementById('a-star4').value], shopName: document.getElementById('a-shop-name').value, shopSub: document.getElementById('a-shop-sub').value, statusText: document.getElementById('a-status-text').value };
+            saveData(d, true, true); showToast('✅ บันทึกส่วนหัวเรียบร้อย');
         }
+        function saveFooter() { const d = loadData(); d.footer = { name: document.getElementById('a-footer-name').value, text: document.getElementById('a-footer-text').value }; saveData(d, true, true); showToast('✅ บันทึกส่วนท้ายเรียบร้อย'); }
 
-        function saveFooter() {
-            const d = loadData();
-            d.footer = { name: document.getElementById('a-footer-name').value, text: document.getElementById('a-footer-text').value };
-            saveData(d, true, true);
-            showToast('✅ บันทึกส่วนท้ายเรียบร้อย');
-        }
-
-        // ===================== ADMIN OPEN/CLOSE =====================
+        // ==================== ADMIN OPEN/CLOSE ====================
         function getCreds() { try { return JSON.parse(localStorage.getItem(ADMIN_CREDS_KEY)) || { user: 'admin', pass: 'admin123' }; } catch { return { user: 'admin', pass: 'admin123' }; } }
-
         function openAdmin() {
-            if (!isAdminLoggedIn) {
-                document.getElementById('login-overlay').classList.add('show');
-                document.getElementById('login-user').focus();
-                return;
-            }
+            if (!isAdminLoggedIn) { document.getElementById('login-overlay').classList.add('show'); document.getElementById('login-user').focus(); return; }
             const data = loadData();
             document.getElementById('a-logo-img').value = data.header.logoImg || '';
             document.getElementById('a-star1').value = data.header.stars[0] || '⭐';
@@ -2441,38 +2116,23 @@
             document.getElementById('gs-webapp-url').value = gs.webAppUrl || '';
             document.getElementById('gs-sheet-id').value = gs.sheetId || '';
             document.getElementById('gs-api-key').value = gs.apiKey || '';
+            fillColorAdmin(loadColors());
             renderAdminSections();
             renderContactAdmin();
             renderFontGrid();
             document.getElementById('admin-overlay').classList.add('show');
             startAutoSave();
         }
-
-        function closeAdmin() {
-            document.getElementById('admin-overlay').classList.remove('show');
-            if (autoSaveTimer) { clearInterval(autoSaveTimer); autoSaveTimer = null; }
-        }
-
-        function closeLogin() {
-            document.getElementById('login-overlay').classList.remove('show');
-            document.getElementById('login-user').value = '';
-            document.getElementById('login-pass').value = '';
-        }
-
+        function closeAdmin() { document.getElementById('admin-overlay').classList.remove('show'); if (autoSaveTimer) { clearInterval(autoSaveTimer); autoSaveTimer = null; } }
+        function closeLogin() { document.getElementById('login-overlay').classList.remove('show'); document.getElementById('login-user').value = ''; document.getElementById('login-pass').value = ''; }
         function doLogin() {
             const username = document.getElementById('login-user').value.trim();
             const password = document.getElementById('login-pass').value.trim();
             const creds = getCreds();
-            if (username === creds.user && password === creds.pass) {
-                closeLogin(); isAdminLoggedIn = true; openAdmin();
-            } else {
-                showModal({ icon: 'error', title: 'เข้าสู่ระบบล้มเหลว', html: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง', confirmText: 'ตกลง' });
-                document.getElementById('login-pass').value = '';
-            }
+            if (username === creds.user && password === creds.pass) { closeLogin(); isAdminLoggedIn = true; openAdmin(); }
+            else { showModal({ icon: 'error', title: 'เข้าสู่ระบบล้มเหลว', html: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง', confirmText: 'ตกลง' }); document.getElementById('login-pass').value = ''; }
         }
-
         function adminLogout() { isAdminLoggedIn = false; closeAdmin(); showToast('👋 ออกจากระบบสำเร็จ'); }
-
         function switchTab(tabId, event) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -2480,16 +2140,14 @@
             if (event && event.target) event.target.classList.add('active');
             if (tabId === 'tab-font') renderFontGrid();
             if (tabId === 'tab-contact') renderContactAdmin();
+            if (tabId === 'tab-colors') fillColorAdmin(loadColors());
         }
-
         function startAutoSave() {
             if (autoSaveTimer) clearInterval(autoSaveTimer);
-            autoSaveTimer = setInterval(() => {
-                if (document.getElementById('admin-overlay').classList.contains('show')) saveData(loadData(), false, false);
-            }, 60000);
+            autoSaveTimer = setInterval(() => { if (document.getElementById('admin-overlay').classList.contains('show')) saveData(loadData(), false, false); }, 60000);
         }
 
-        // ===================== EXPORT / IMPORT =====================
+        // ==================== EXPORT / IMPORT ====================
         function exportData() {
             const data = loadData();
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -2498,44 +2156,31 @@
             a.href = url; a.download = `nexo-backup-${new Date().toISOString().slice(0, 10)}.json`;
             document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
         }
-
         function importData(event) {
-            const file = event.target.files[0];
-            if (!file) return;
+            const file = event.target.files[0]; if (!file) return;
             const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const data = JSON.parse(e.target.result);
-                    saveData(data, true, true);
-                    showToast('✅ นำเข้าข้อมูลสำเร็จ');
-                    openAdmin();
-                } catch { showModal({ icon: 'error', title: 'ไฟล์ไม่ถูกต้อง', html: 'กรุณาเลือกไฟล์ JSON ที่ถูกต้อง', confirmText: 'ตกลง' }); }
-            };
-            reader.readAsText(file);
-            event.target.value = '';
+            reader.onload = (e) => { try { const data = JSON.parse(e.target.result); saveData(data, true, true); showToast('✅ นำเข้าข้อมูลสำเร็จ'); openAdmin(); } catch { showModal({ icon: 'error', title: 'ไฟล์ไม่ถูกต้อง', html: 'กรุณาเลือกไฟล์ JSON ที่ถูกต้อง', confirmText: 'ตกลง' }); } };
+            reader.readAsText(file); event.target.value = '';
         }
-
         function syncWithGoogleSheets() {
-            showModal({ icon: 'question', title: 'ซิงค์กับ Google Sheets', html: 'เลือกทิศทางการซิงค์', confirmText: '📤 อัปโหลดไป Sheets', cancelText: '📥 ดาวน์โหลดจาก Sheets' }).then(r => {
-                if (r.isConfirmed) { saveToGoogleSheets(loadData()).then(() => showToast('✅ อัปโหลดสำเร็จ')); }
-                else if (r.dismiss === 'cancel') { loadFromGoogleSheets(true); }
-            });
+            showModal({ icon: 'question', title: 'ซิงค์กับ Google Sheets', html: 'เลือกทิศทางการซิงค์', confirmText: '📤 อัปโหลดไป Sheets', cancelText: '📥 ดาวน์โหลดจาก Sheets' }).then(r => { if (r.isConfirmed) { saveToGoogleSheets(loadData()).then(() => showToast('✅ อัปโหลดสำเร็จ')); } else if (r.dismiss === 'cancel') { loadFromGoogleSheets(true); } });
         }
 
-        // ===================== INIT =====================
+        // ==================== INIT ====================
         async function initApp() {
             applyFont(selectedFont);
-            const gsUrl = GS_WEBAPP_URL || (function () { try { return JSON.parse(localStorage.getItem(GS_CONFIG_KEY) || '{}').webAppUrl || ''; } catch { return ''; } })();
-            if (gsUrl) {
-                const success = await loadFromGoogleSheets(false);
-                if (success) console.log('✅ Loaded from Google Sheets');
-                else console.warn('⚠️ Using cached/default data');
-            }
+            applyColors(loadColors());
+
+            const gsUrl = GS_WEBAPP_URL || (() => { try { return JSON.parse(localStorage.getItem(GS_CONFIG_KEY) || '{}').webAppUrl || ''; } catch { return ''; } })();
+            if (gsUrl) { const success = await loadFromGoogleSheets(false); if (success) console.log('✅ Loaded from GS'); else console.warn('⚠️ Using cached data'); }
+
             renderSite();
             document.getElementById('loading-overlay').classList.add('hidden');
         }
 
         document.getElementById('admin-fab').addEventListener('click', openAdmin);
+        document.getElementById('admin-fab').addEventListener('mouseenter', e => e.target.style.transform = 'scale(1.1) rotate(90deg)');
+        document.getElementById('admin-fab').addEventListener('mouseleave', e => e.target.style.transform = 'scale(1) rotate(0deg)');
         document.getElementById('login-pass').addEventListener('keypress', e => { if (e.key === 'Enter') doLogin(); });
         document.getElementById('admin-overlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeAdmin(); });
         document.getElementById('login-overlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeLogin(); });
