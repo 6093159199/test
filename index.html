@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="https://img2.pic.in.th/pic/NEXO-SHOP-2-Photoroom.png" type="image/png"
         sizes="16x16">
     <title>DEMO NEXOV2</title>
-    <!-- Thai Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Sarabun:wght@300;400;500&family=Kanit:wght@300;400;500;600&family=Prompt:wght@300;400;500;600&family=Charm:wght@400;700&family=Itim&family=Kodchasan:wght@300;400;500;600&family=Krub:wght@300;400;500;600&family=Mali:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500;600&family=Pridi:wght@300;400;500;600&family=Taviraj:wght@300;400;500;600&family=Trirong:wght@300;400;500;600&family=Srisakdi:wght@400;700&family=Bai+Jamjuree:wght@300;400;500;600&family=Chonburi&family=Athiti:wght@300;400;500;600&family=Fahkwang:wght@300;400;500;600&family=K2D:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -57,7 +56,6 @@
             padding: 0 16px 60px;
         }
 
-        /* HEADER */
         .header {
             text-align: center;
             padding: 44px 20px 28px;
@@ -123,7 +121,7 @@
         .logo-star.s4 {
             bottom: 8px;
             right: -14px;
-            animation-delay: 1.4s;
+            animation-delay: 0.8s;
         }
 
         .shop-name {
@@ -165,7 +163,6 @@
             animation: blink 1.6s ease-in-out infinite;
         }
 
-        /* CARDS */
         .section-card {
             background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(12px);
@@ -490,7 +487,6 @@
             box-shadow: 0 4px 16px rgba(0, 180, 0, 0.25);
         }
 
-        /* GROUPS */
         .groups-header {
             text-align: center;
             padding: 36px 20px 28px;
@@ -702,7 +698,6 @@
             box-shadow: 0 6px 25px rgba(245, 200, 0, 0.7);
         }
 
-        /* CUSTOM MODAL (replaces SweetAlert2) */
         .cmodal-overlay {
             display: none;
             position: fixed;
@@ -788,7 +783,6 @@
             box-shadow: 0 4px 14px rgba(244, 67, 54, 0.3);
         }
 
-        /* Toast notification */
         #toast {
             position: fixed;
             bottom: 100px;
@@ -834,7 +828,6 @@
             }
         }
 
-        /* OVERLAYS */
         #login-overlay,
         #admin-overlay {
             display: none;
@@ -961,6 +954,66 @@
             outline: none;
             border-color: var(--yellow);
         }
+
+        /* ===== NEW: Header selector styling inside section edit ===== */
+        .section-header-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #FFFBEC, #FFF8E0);
+            border: 1.5px solid rgba(245, 200, 0, 0.35);
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+        }
+
+        .section-header-selector label {
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .section-header-selector select {
+            flex: 1;
+            padding: 7px 10px;
+            border: 1px solid rgba(245, 200, 0, 0.4);
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            background: white;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        .section-header-selector select:focus {
+            outline: none;
+            border-color: var(--yellow);
+        }
+
+        /* Badge showing which header a section belongs to */
+        .section-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .section-header-badge.global {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .section-header-badge.assigned {
+            background: linear-gradient(135deg, #FFF8CC, #FFE44A);
+            color: #7A5C00;
+        }
+
+        /* ===== END NEW ===== */
 
         .admin-btn-save {
             background: var(--yellow);
@@ -1136,7 +1189,6 @@
             font-family: var(--font-main);
         }
 
-        /* FONT SELECTOR */
         .font-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -1176,7 +1228,6 @@
             color: var(--text-main);
         }
 
-        /* LOADING */
         #loading-overlay {
             position: fixed;
             inset: 0;
@@ -1309,12 +1360,16 @@
             .font-grid {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             }
+
+            .section-header-selector {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Loading -->
     <div id="loading-overlay">
         <div class="loading-logo">✨</div>
         <div class="loading-text">กำลังโหลดข้อมูล...</div>
@@ -1325,13 +1380,10 @@
 
     <div class="page-wrap" id="main-content"></div>
 
-    <!-- Admin FAB -->
     <button id="admin-fab" title="Admin Panel"><i class="fas fa-cog"></i></button>
 
-    <!-- Toast -->
     <div id="toast"></div>
 
-    <!-- Custom Modal -->
     <div id="cmodal" class="cmodal-overlay">
         <div class="cmodal-box">
             <div id="cmodal-icon" class="cmodal-icon"></div>
@@ -1341,7 +1393,6 @@
         </div>
     </div>
 
-    <!-- Login Modal -->
     <div id="login-overlay">
         <div id="login-box">
             <h2 style="text-align: center; color: var(--text-main); margin-bottom: 24px;">🔐 เข้าสู่ระบบ</h2>
@@ -1354,7 +1405,6 @@
         </div>
     </div>
 
-    <!-- Admin Panel -->
     <div id="admin-overlay">
         <div id="admin-panel">
             <button class="admin-close" onclick="closeAdmin()"><i class="fas fa-times"></i></button>
@@ -1389,7 +1439,6 @@
                 <button class="tab-btn" onclick="switchTab('tab-gs', event)">☁️ Google Sheets</button>
             </div>
 
-            <!-- Tab: Header -->
             <div id="tab-header" class="tab-content active">
                 <div class="admin-section">
                     <h3><i class="fas fa-image"></i> รูปโลโก้</h3>
@@ -1409,7 +1458,6 @@
                 <button onclick="saveHeader()" class="admin-btn-save">💾 บันทึกส่วนหัว</button>
             </div>
 
-            <!-- Tab: Font -->
             <div id="tab-font" class="tab-content">
                 <div class="admin-section">
                     <h3><i class="fas fa-font"></i> เลือกฟอนต์ภาษาไทย</h3>
@@ -1420,8 +1468,12 @@
                 </div>
             </div>
 
-            <!-- Tab: Sections -->
             <div id="tab-sections" class="tab-content">
+                <div
+                    style="background: linear-gradient(135deg,#E3F2FD,#BBDEFB); border-radius:12px; padding:12px 16px; margin-bottom:16px; font-size:0.85rem; color:#1565C0; line-height:1.7;">
+                    <strong>💡 ตั้งค่าตำแหน่ง:</strong> แต่ละส่วนสามารถเลือกให้แสดงใน <strong>หัวข้อกลุ่ม</strong>
+                    ที่ต้องการได้ หรือเลือก <em>"แสดงทั่วไป (ก่อนกลุ่ม)"</em> เพื่อแสดงก่อนส่วนกลุ่ม
+                </div>
                 <div id="sections-list"></div>
                 <div class="section-type-selector">
                     <button class="type-btn" onclick="addSection('about')">➕ แบบที่ 1 (เกี่ยวกับร้าน)</button>
@@ -1432,28 +1484,24 @@
                 </div>
             </div>
 
-            <!-- Tab: Groups Headers -->
             <div id="tab-groups-headers" class="tab-content">
                 <div id="groups-headers-list"></div>
                 <button class="admin-btn-add" onclick="addGroupsHeader()"><i class="fas fa-plus"></i>
                     เพิ่มหัวข้อกลุ่มใหม่</button>
             </div>
 
-            <!-- Tab: Group Sections -->
             <div id="tab-group-sections" class="tab-content">
                 <div id="group-sections-list"></div>
                 <button class="admin-btn-add" onclick="addGroupSection()"><i class="fas fa-plus"></i>
                     เพิ่มกลุ่มย่อยใหม่</button>
             </div>
 
-            <!-- Tab: All Groups -->
             <div id="tab-all-groups" class="tab-content">
                 <div id="all-groups-list"></div>
                 <button class="admin-btn-add" onclick="addAllGroupsSection()"><i class="fas fa-plus"></i>
                     เพิ่มปุ่มดูกลุ่มทั้งหมด</button>
             </div>
 
-            <!-- Tab: Contact -->
             <div id="tab-contact" class="tab-content">
                 <div class="admin-section">
                     <h3><i class="fas fa-link"></i> ปุ่มติดต่อ</h3>
@@ -1468,7 +1516,6 @@
                 <button onclick="saveContact()" class="admin-btn-save">💾 บันทึกส่วนติดต่อ</button>
             </div>
 
-            <!-- Tab: Footer -->
             <div id="tab-footer" class="tab-content">
                 <div class="admin-section">
                     <h3><i class="fas fa-copyright"></i> ส่วนท้าย</h3>
@@ -1478,7 +1525,6 @@
                 <button onclick="saveFooter()" class="admin-btn-save">💾 บันทึกส่วนท้าย</button>
             </div>
 
-            <!-- Tab: Google Sheets -->
             <div id="tab-gs" class="tab-content">
                 <div class="admin-section">
                     <h3><i class="fab fa-google"></i> ตั้งค่า Google Sheets API</h3>
@@ -1502,7 +1548,7 @@
 
     <script>
         // ===================== CONFIG =====================
-        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbytmMYKEm8QOYl37wsZp-skdD74fY4vrCFIMYBGA2ZI5733tSjn5eJfgBZbNoMnY3OZ/exec';
+        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzCIbQ8hTnf9MHo7EzvXVlr19LTfmh6M7wkmaJCxVLD6mxAaD_rTFOxdyZRZqQhsJN3/exec';
 
         const ADMIN_CREDS_KEY = 'nexo_admin_creds';
         const DATA_KEY = 'nexo_data';
@@ -1568,10 +1614,10 @@
             showToast('✅ บันทึกฟอนต์เรียบร้อย');
         }
 
-        // ===================== CUSTOM MODAL (replaces SweetAlert2) =====================
+        // ===================== CUSTOM MODAL =====================
         let modalResolve = null;
 
-        function showModal({ icon = '', title = '', html = '', confirmText = 'ตกลง', cancelText = null, dangerConfirm = false }) {
+        function showModal({ icon = '', title = '', html = '', confirmText = 'ตกลง', cancelText = null, dangerConfirm = false, timer }) {
             return new Promise(resolve => {
                 modalResolve = resolve;
                 const iconMap = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️', question: '❓' };
@@ -1598,20 +1644,15 @@
 
                 document.getElementById('cmodal').classList.add('show');
 
-                // Auto close for timer modals
-                if (arguments[0].timer) {
-                    setTimeout(() => { closeModal(); resolve({ isConfirmed: false, dismiss: 'timer' }); }, arguments[0].timer);
+                if (timer) {
+                    setTimeout(() => { closeModal(); resolve({ isConfirmed: false, dismiss: 'timer' }); }, timer);
                 }
             });
         }
 
-        function closeModal() {
-            document.getElementById('cmodal').classList.remove('show');
-        }
+        function closeModal() { document.getElementById('cmodal').classList.remove('show'); }
 
-        document.getElementById('cmodal').addEventListener('click', e => {
-            if (e.target === e.currentTarget) closeModal();
-        });
+        document.getElementById('cmodal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
         function showToast(msg, type = 'success', duration = 2200) {
             const t = document.getElementById('toast');
@@ -1621,24 +1662,12 @@
             t._timer = setTimeout(() => t.classList.remove('show'), duration);
         }
 
-        // Helper for timed auto-dismiss modals
-        function showModalTimed(options) {
-            options.timer = options.timer || 1500;
-            return showModal(options);
-        }
-
         // ===================== GOOGLE SHEETS CONFIG =====================
         function getGsConfig() {
             try {
                 const saved = JSON.parse(localStorage.getItem(GS_CONFIG_KEY)) || {};
-                return {
-                    webAppUrl: GS_WEBAPP_URL || saved.webAppUrl || '',
-                    sheetId: saved.sheetId || '',
-                    apiKey: saved.apiKey || ''
-                };
-            } catch {
-                return { webAppUrl: GS_WEBAPP_URL || '', sheetId: '', apiKey: '' };
-            }
+                return { webAppUrl: GS_WEBAPP_URL || saved.webAppUrl || '', sheetId: saved.sheetId || '', apiKey: saved.apiKey || '' };
+            } catch { return { webAppUrl: GS_WEBAPP_URL || '', sheetId: '', apiKey: '' }; }
         }
 
         function saveGsConfig() {
@@ -1648,12 +1677,7 @@
                 apiKey: document.getElementById('gs-api-key').value.trim()
             };
             localStorage.setItem(GS_CONFIG_KEY, JSON.stringify(config));
-            showModal({
-                icon: 'success',
-                title: 'บันทึกการตั้งค่าเรียบร้อย',
-                html: '<p style="font-size:0.9rem;color:#666;">⚠️ อย่าลืมอัพเดทค่า <b>GS_WEBAPP_URL</b> ในโค้ด HTML ด้วย</p>',
-                confirmText: 'ตกลง'
-            });
+            showModal({ icon: 'success', title: 'บันทึกการตั้งค่าเรียบร้อย', html: '<p style="font-size:0.9rem;color:#666;">⚠️ อย่าลืมอัพเดทค่า <b>GS_WEBAPP_URL</b> ในโค้ด HTML ด้วย</p>', confirmText: 'ตกลง' });
         }
 
         // ===================== JSONP HELPER =====================
@@ -1686,9 +1710,7 @@
             const url = config.webAppUrl;
 
             if (!url) {
-                if (showUI) {
-                    showModal({ icon: 'warning', title: 'ไม่ได้ตั้งค่า Web App URL', html: 'กรุณาแก้ไขค่า <b>GS_WEBAPP_URL</b> ในโค้ด HTML', confirmText: 'ตกลง' });
-                }
+                if (showUI) showModal({ icon: 'warning', title: 'ไม่ได้ตั้งค่า Web App URL', html: 'กรุณาแก้ไขค่า <b>GS_WEBAPP_URL</b> ในโค้ด HTML', confirmText: 'ตกลง' });
                 return false;
             }
 
@@ -1706,9 +1728,7 @@
                         if (document.getElementById('admin-overlay').classList.contains('show')) openAdmin();
                     }
                     return true;
-                } else {
-                    throw new Error('Invalid data format from Sheets');
-                }
+                } else { throw new Error('Invalid data format from Sheets'); }
             } catch (error) {
                 console.warn('Google Sheets load failed:', error.message);
                 if (showUI) showModal({ icon: 'error', title: 'โหลดข้อมูลล้มเหลว', html: 'ไม่สามารถเชื่อมต่อกับ Google Sheets ได้ กรุณาตรวจสอบ URL และการ Deploy', confirmText: 'ตกลง' });
@@ -1716,7 +1736,6 @@
             }
         }
 
-        // ===================== SAVE TO GOOGLE SHEETS =====================
         async function saveToGoogleSheets(data) {
             const config = getGsConfig();
             if (!config.webAppUrl) return false;
@@ -1727,10 +1746,7 @@
                     body: JSON.stringify({ action: 'updateData', data: data })
                 });
                 return true;
-            } catch (error) {
-                console.error('Error saving to sheets:', error);
-                return false;
-            }
+            } catch (error) { console.error('Error saving to sheets:', error); return false; }
         }
 
         async function testGsConnection() {
@@ -1740,11 +1756,7 @@
             status.innerHTML = '<i class="fas fa-spinner loading-spin"></i> กำลังทดสอบ...';
 
             const url = document.getElementById('gs-webapp-url').value.trim();
-            if (!url) {
-                status.className = 'gs-status gs-err';
-                status.innerHTML = '<i class="fas fa-times-circle"></i> กรุณากรอก Web App URL';
-                return;
-            }
+            if (!url) { status.className = 'gs-status gs-err'; status.innerHTML = '<i class="fas fa-times-circle"></i> กรุณากรอก Web App URL'; return; }
 
             try {
                 const baseUrl = url.replace(/\/$/, '');
@@ -1754,23 +1766,7 @@
             } catch (error) {
                 status.className = 'gs-status gs-err';
                 status.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ไม่สามารถเชื่อมต่อได้';
-                showModal({
-                    icon: 'info',
-                    title: 'วิธีการแก้ไข',
-                    html: `<div style="text-align:left;font-size:0.85rem;">
-                        <p><strong>ขั้นตอน Deploy Google Apps Script:</strong></p>
-                        <ol style="margin-top:10px;padding-left:20px;line-height:2;">
-                            <li>ไปที่ Google Apps Script Editor</li>
-                            <li>กด <strong>Deploy → New deployment</strong></li>
-                            <li>Type: <strong>Web App</strong></li>
-                            <li>Execute as: <strong>Me</strong></li>
-                            <li>Who has access: <strong>Anyone</strong></li>
-                            <li>กด Deploy → Allow</li>
-                            <li>คัดลอก URL ใส่ใน <code>GS_WEBAPP_URL</code></li>
-                        </ol>
-                    </div>`,
-                    confirmText: 'ตกลง'
-                });
+                showModal({ icon: 'info', title: 'วิธีการแก้ไข', html: `<div style="text-align:left;font-size:0.85rem;"><p><strong>ขั้นตอน Deploy Google Apps Script:</strong></p><ol style="margin-top:10px;padding-left:20px;line-height:2;"><li>ไปที่ Google Apps Script Editor</li><li>กด <strong>Deploy → New deployment</strong></li><li>Type: <strong>Web App</strong></li><li>Execute as: <strong>Me</strong></li><li>Who has access: <strong>Anyone</strong></li><li>กด Deploy → Allow</li><li>คัดลอก URL ใส่ใน <code>GS_WEBAPP_URL</code></li></ol></div>`, confirmText: 'ตกลง' });
             }
         }
 
@@ -1785,11 +1781,12 @@
                     statusText: 'สถานะของร้าน'
                 },
                 sections: [
-                    { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ใส่ข้อความแนะนำร้านของคุณ <br>ใส่ข้อความแนะนำร้านของคุณ' },
-                    { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 ใส่แนวงานที่รับทำ'] },
-                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ตัวอย่างราคางาน 1', amount: '10', unit: 'บาท / ป้าย', class: 'gold' }, { type: 'ตัวอย่างราคางาน 2', amount: '10', unit: 'บาท / ป้าย', class: 'silver' }], bulkNote: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1 <strong>รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2</strong> รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 3' },
-                    { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['รายละเอียดเพิ่มเติมถ้ามี'], dontList: ['รายละเอียดเพิ่มเติมถ้ามี'] },
-                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1 <strong>รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2</strong> รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 3'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['รายละเอียดเพิ่มเติมถ้ามี', 'รายละเอียดเพิ่มเติมถ้ามี'] }
+                    // headerIndex: -1 = แสดงทั่วไป (ก่อนกลุ่ม), headerIndex: N = แสดงในหัวข้อกลุ่มที่ N
+                    { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ใส่ข้อความแนะนำร้านของคุณ <br>ใส่ข้อความแนะนำร้านของคุณ', headerIndex: -1 },
+                    { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 ใส่แนวงานที่รับทำ'], headerIndex: -1 },
+                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ตัวอย่างราคางาน 1', amount: '10', unit: 'บาท / ป้าย', class: 'gold' }, { type: 'ตัวอย่างราคางาน 2', amount: '10', unit: 'บาท / ป้าย', class: 'silver' }], bulkNote: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1 <strong>รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2</strong> รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 3', headerIndex: -1 },
+                    { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['รายละเอียดเพิ่มเติมถ้ามี'], dontList: ['รายละเอียดเพิ่มเติมถ้ามี'], headerIndex: -1 },
+                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1 <strong>รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2</strong> รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 3'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['รายละเอียดเพิ่มเติมถ้ามี', 'รายละเอียดเพิ่มเติมถ้ามี'], headerIndex: -1 }
                 ],
                 groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'รายละเอียดเพิ่มเติมถ้ามี', sub: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1', deco2: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2' }],
                 groupSections: [{ headerIndex: 0, title: 'รายละเอียดเพิ่มเติมถ้ามี', groups: [{ name: 'รายละเอียดเพิ่มเติมถ้ามี', price: '10', tags: ['รายละเอียดเพิ่มเติมถ้ามี'], note: 'รายละเอียดเพิ่มเติมถ้ามี', links: [{ text: '🔗 ดูตัวอย่าง', url: '###' }] }] }],
@@ -1803,7 +1800,16 @@
             try {
                 const raw = localStorage.getItem(DATA_KEY);
                 if (!raw) return getDefaultData();
-                return { ...getDefaultData(), ...JSON.parse(raw) };
+                const parsed = JSON.parse(raw);
+                const def = getDefaultData();
+                // Migrate old sections that don't have headerIndex yet
+                if (parsed.sections) {
+                    parsed.sections = parsed.sections.map(s => ({
+                        ...s,
+                        headerIndex: (s.headerIndex !== undefined) ? s.headerIndex : -1
+                    }));
+                }
+                return { ...def, ...parsed };
             } catch (e) { return getDefaultData(); }
         }
 
@@ -1831,10 +1837,7 @@
 
         function showHistory() {
             const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
-            if (history.length === 0) {
-                showModal({ icon: 'info', title: 'ไม่มีประวัติ', html: 'ยังไม่มีประวัติการบันทึก', confirmText: 'ตกลง' });
-                return;
-            }
+            if (history.length === 0) { showModal({ icon: 'info', title: 'ไม่มีประวัติ', html: 'ยังไม่มีประวัติการบันทึก', confirmText: 'ตกลง' }); return; }
             let html = '<div style="max-height:300px;overflow-y:auto;">';
             history.forEach((item, i) => {
                 const date = new Date(item.timestamp).toLocaleString('th-TH');
@@ -1846,16 +1849,14 @@
 
         function restoreHistory(index) {
             const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
-            if (history[index]) {
-                saveData(history[index].data, true, false);
-                showToast('✅ กู้คืนสำเร็จ');
-            }
+            if (history[index]) { saveData(history[index].data, true, false); showToast('✅ กู้คืนสำเร็จ'); }
         }
 
-        // ===================== RENDER =====================
+        // ===================== RENDER SITE =====================
         function renderSite() {
             const data = loadData();
             const container = document.getElementById('main-content');
+
             let html = `
                 <div class="header">
                     <div class="logo-circle-wrap">
@@ -1873,8 +1874,13 @@
                 </div>
             `;
 
-            data.sections.forEach(s => { html += renderSection(s); });
+            // 1) Render "global" sections (headerIndex === -1 or undefined) — shown before group headers
+            data.sections.forEach(s => {
+                const hi = (s.headerIndex !== undefined) ? s.headerIndex : -1;
+                if (hi === -1) html += renderSection(s);
+            });
 
+            // 2) For each group header: render sections assigned to it, then group sub-sections
             data.groupsHeaders.forEach((header, hi) => {
                 html += `
                     <div class="groups-header">
@@ -1884,6 +1890,13 @@
                         <div class="groups-header-deco2">${header.deco2}</div>
                     </div>
                 `;
+
+                // Sections assigned to this header
+                data.sections.forEach(s => {
+                    if (s.headerIndex === hi) html += renderSection(s);
+                });
+
+                // Group sub-sections assigned to this header
                 data.groupSections.filter(gs => gs.headerIndex === hi).forEach(gs => {
                     html += `<div class="section-card"><div class="section-title">${gs.title}</div><div class="group-list">`;
                     gs.groups.forEach(g => { html += renderGroupItem(g); });
@@ -1891,6 +1904,7 @@
                 });
             });
 
+            // 3) "See all" buttons
             data.allGroupsSections.forEach(s => {
                 html += `
                     <div class="section-card">
@@ -1900,6 +1914,7 @@
                 `;
             });
 
+            // 4) Contact & footer
             html += `
                 <div class="section-card">
                     <div class="section-title">💌 ติดต่อสั่งงาน</div>
@@ -1972,6 +1987,16 @@
             `;
         }
 
+        // ===================== HELPER: build header options for selector =====================
+        function buildHeaderOptions(currentHeaderIndex) {
+            const data = loadData();
+            let opts = `<option value="-1" ${currentHeaderIndex === -1 ? 'selected' : ''}>📌 แสดงทั่วไป (ก่อนกลุ่ม)</option>`;
+            data.groupsHeaders.forEach((h, i) => {
+                opts += `<option value="${i}" ${currentHeaderIndex === i ? 'selected' : ''}>🔰 ${h.title || 'หัวข้อกลุ่มที่ ' + (i + 1)}</option>`;
+            });
+            return opts;
+        }
+
         // ===================== ADMIN RENDER =====================
         function renderAdminSections() {
             const data = loadData();
@@ -1980,12 +2005,25 @@
             const sl = document.getElementById('sections-list');
             sl.innerHTML = '';
             data.sections.forEach((section, i) => {
+                const hi = (section.headerIndex !== undefined) ? section.headerIndex : -1;
+                const badgeClass = hi === -1 ? 'global' : 'assigned';
+                const badgeLabel = hi === -1 ? '📌 ทั่วไป' : ('🔰 ' + (data.groupsHeaders[hi] ? data.groupsHeaders[hi].title : 'กลุ่ม ' + (hi + 1)));
+
                 const div = document.createElement('div');
                 div.className = 'admin-section';
                 div.innerHTML = `
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-                        <h3><i class="fas fa-layer-group"></i> ${section.title || 'unnamed'}</h3>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:8px;">
+                        <h3 style="margin-bottom:0;">
+                            <i class="fas fa-layer-group"></i> ${section.title || 'unnamed'}
+                            <span class="section-header-badge ${badgeClass}">${badgeLabel}</span>
+                        </h3>
                         <button class="admin-btn-del" onclick="deleteSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
+                    </div>
+                    <div class="section-header-selector">
+                        <label><i class="fas fa-map-marker-alt"></i> แสดงใน:</label>
+                        <select onchange="updateSectionHeader(${i}, parseInt(this.value))">
+                            ${buildHeaderOptions(hi)}
+                        </select>
                     </div>
                     ${renderSectionEditForm(section, i)}
                 `;
@@ -2138,6 +2176,14 @@
         }
 
         // ===================== UPDATE FUNCTIONS =====================
+        // *** NEW: update which header a section belongs to ***
+        function updateSectionHeader(sectionIndex, headerIndex) {
+            const d = loadData();
+            d.sections[sectionIndex].headerIndex = headerIndex;
+            saveData(d, true, true);
+            renderAdminSections();
+        }
+
         function updateSection(i, f, v) { const d = loadData(); d.sections[i][f] = v; saveData(d, true, true); renderAdminSections(); }
         function updateTag(si, ti, v) { const d = loadData(); d.sections[si].tags[ti] = v; saveData(d, true, true); }
         function deleteTag(si, ti) { const d = loadData(); d.sections[si].tags.splice(ti, 1); saveData(d, true, true); renderAdminSections(); }
@@ -2178,11 +2224,11 @@
 
         function addSection(type) {
             const newSections = {
-                about: { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ข้อความเกี่ยวกับร้าน' },
-                tags: { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['แท็กใหม่'] },
-                price: { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ประเภท 1', amount: '0', unit: 'บาท', class: 'gold' }], bulkNote: 'หมายเหตุ' },
-                dodont: { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['ข้อความรับทำ'], dontList: ['ข้อความไม่รับ'] },
-                steps: { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['ขั้นตอนที่ 1'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3-5', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['ช่องทางชำระเงิน'] }
+                about: { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ข้อความเกี่ยวกับร้าน', headerIndex: -1 },
+                tags: { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['แท็กใหม่'], headerIndex: -1 },
+                price: { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ประเภท 1', amount: '0', unit: 'บาท', class: 'gold' }], bulkNote: 'หมายเหตุ', headerIndex: -1 },
+                dodont: { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['ข้อความรับทำ'], dontList: ['ข้อความไม่รับ'], headerIndex: -1 },
+                steps: { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['ขั้นตอนที่ 1'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3-5', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['ช่องทางชำระเงิน'], headerIndex: -1 }
             };
             const d = loadData();
             d.sections.push(newSections[type]);
@@ -2196,6 +2242,12 @@
                     const d = loadData();
                     d.groupsHeaders.splice(index, 1);
                     d.groupSections = d.groupSections.filter(gs => gs.headerIndex !== index).map(gs => { if (gs.headerIndex > index) gs.headerIndex--; return gs; });
+                    // Also reset sections assigned to this header back to global
+                    d.sections = d.sections.map(s => {
+                        if (s.headerIndex === index) s.headerIndex = -1;
+                        else if (s.headerIndex > index) s.headerIndex--;
+                        return s;
+                    });
                     saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย');
                 }
             });
@@ -2339,10 +2391,7 @@
             }
         }
 
-        function adminLogout() {
-            isAdminLoggedIn = false; closeAdmin();
-            showToast('👋 ออกจากระบบสำเร็จ');
-        }
+        function adminLogout() { isAdminLoggedIn = false; closeAdmin(); showToast('👋 ออกจากระบบสำเร็จ'); }
 
         function switchTab(tabId, event) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -2355,9 +2404,7 @@
         function startAutoSave() {
             if (autoSaveTimer) clearInterval(autoSaveTimer);
             autoSaveTimer = setInterval(() => {
-                if (document.getElementById('admin-overlay').classList.contains('show')) {
-                    saveData(loadData(), false, false);
-                }
+                if (document.getElementById('admin-overlay').classList.contains('show')) saveData(loadData(), false, false);
             }, 60000);
         }
 
@@ -2390,21 +2437,14 @@
         }
 
         function syncWithGoogleSheets() {
-            showModal({
-                icon: 'question', title: 'ซิงค์กับ Google Sheets', html: 'เลือกทิศทางการซิงค์',
-                confirmText: '📤 อัปโหลดไป Sheets', cancelText: '📥 ดาวน์โหลดจาก Sheets'
-            }).then(r => {
-                if (r.isConfirmed) {
-                    saveToGoogleSheets(loadData()).then(() => showToast('✅ อัปโหลดสำเร็จ'));
-                } else if (r.dismiss === 'cancel') {
-                    loadFromGoogleSheets(true);
-                }
+            showModal({ icon: 'question', title: 'ซิงค์กับ Google Sheets', html: 'เลือกทิศทางการซิงค์', confirmText: '📤 อัปโหลดไป Sheets', cancelText: '📥 ดาวน์โหลดจาก Sheets' }).then(r => {
+                if (r.isConfirmed) { saveToGoogleSheets(loadData()).then(() => showToast('✅ อัปโหลดสำเร็จ')); }
+                else if (r.dismiss === 'cancel') { loadFromGoogleSheets(true); }
             });
         }
 
         // ===================== INIT =====================
         async function initApp() {
-            // Apply saved font
             applyFont(selectedFont);
 
             const gsUrl = GS_WEBAPP_URL || (function () {
