@@ -1548,7 +1548,7 @@
 
     <script>
         // ===================== CONFIG =====================
-        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzCIbQ8hTnf9MHo7EzvXVlr19LTfmh6M7wkmaJCxVLD6mxAaD_rTFOxdyZRZqQhsJN3/exec';
+        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwDWz2aqoHiCDxe1mWaObntmT5GCWoCO0H1_9g74l5v92SByfotK3q1g92wVlNhtx2s/exec';
 
         const ADMIN_CREDS_KEY = 'nexo_admin_creds';
         const DATA_KEY = 'nexo_data';
@@ -1782,14 +1782,14 @@
                 },
                 sections: [
                     // headerIndex: -1 = แสดงทั่วไป (ก่อนกลุ่ม), headerIndex: N = แสดงในหัวข้อกลุ่มที่ N
-                    { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ใส่ข้อความแนะนำร้านของคุณ <br>ใส่ข้อความแนะนำร้านของคุณ', headerIndex: -1 },
-                    { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 ใส่แนวงานที่รับทำ'], headerIndex: -1 },
-                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ตัวอย่างราคางาน 1', amount: '10', unit: 'บาท / ป้าย', class: 'gold' }, { type: 'ตัวอย่างราคางาน 2', amount: '10', unit: 'บาท / ป้าย', class: 'silver' }], bulkNote: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1 <strong>รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2</strong> รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 3', headerIndex: -1 },
-                    { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['รายละเอียดเพิ่มเติมถ้ามี'], dontList: ['รายละเอียดเพิ่มเติมถ้ามี'], headerIndex: -1 },
-                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1 <strong>รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2</strong> รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 3'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['รายละเอียดเพิ่มเติมถ้ามี', 'รายละเอียดเพิ่มเติมถ้ามี'], headerIndex: -1 }
+                    { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ใส่ข้อความเกี่ยวกับร้านของคุณ <br>ใส่ข้อความเกี่ยวกับร้านของคุณ', headerIndex: -1 },
+                    { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 แท็กใหม่'], headerIndex: -1 },
+                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ประเภท 1', amount: '10', unit: 'บาท', class: 'gold' }, { type: 'ประเภท 2', amount: '10', unit: 'บาท', class: 'silver' }], bulkNote: 'หมายเหตุ 1 <strong>หมายเหตุ 2</strong> หมายเหตุ 3', headerIndex: -1 },
+                    { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['ข้อความรับทำ'], dontList: ['ข้อความไม่รับ'], headerIndex: -1 },
+                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['ขั้นตอนที่ 1 <strong>ขั้นตอนที่ 2</strong> ขั้นตอนที่ 3'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['ช่องทางชำระเงิน'], headerIndex: -1 }
                 ],
-                groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'รายละเอียดเพิ่มเติมถ้ามี', sub: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1', deco2: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2' }],
-                groupSections: [{ headerIndex: 0, title: 'รายละเอียดเพิ่มเติมถ้ามี', groups: [{ name: 'รายละเอียดเพิ่มเติมถ้ามี', price: '10', tags: ['รายละเอียดเพิ่มเติมถ้ามี'], note: 'รายละเอียดเพิ่มเติมถ้ามี', links: [{ text: '🔗 ดูตัวอย่าง', url: '###' }] }] }],
+                groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'หัวข้อใหม่', sub: 'คำอธิบาย', deco2: 'ข้อความท้าย' }],
+                groupSections: [{ headerIndex: 0, title: 'กลุ่มย่อยใหม่', groups: [{ name: 'ชื่อกลุ่ม', price: '10', tags: ['แท็ก'], note: 'หมายเหตุ', links: [{ text: '🔗 ลิงค์', url: '###' }] }] }],
                 allGroupsSections: [{ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: 'รายละเอียดเพิ่มเติมถ้ามี', buttonLink: '###' }],
                 contact: { fbLink: '###', fbText: 'Facebook', lineLink: '###', lineText: 'Line', note: 'รายละเอียดเพิ่มเติมถ้ามี' },
                 footer: { name: 'NEXO ✦', text: 'รายละเอียดเพิ่มเติม 1<br>รายละเอียดเพิ่มเติม 2' }
