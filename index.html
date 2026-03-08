@@ -450,10 +450,22 @@
             color: var(--text-main);
         }
 
+        /* ── CONTACT BUTTONS (dynamic) ── */
         .contact-btns {
             display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 12px;
+        }
+
+        .contact-btns.cols-1 {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-btns.cols-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-btns.cols-3 {
+            grid-template-columns: 1fr 1fr 1fr;
         }
 
         .contact-btn {
@@ -475,6 +487,7 @@
             transform: translateY(-3px);
         }
 
+        /* preset styles */
         .btn-fb {
             background: linear-gradient(135deg, #4267B2, #5B80D8);
             color: white;
@@ -485,6 +498,48 @@
             background: linear-gradient(135deg, #00B500, #30D030);
             color: white;
             box-shadow: 0 4px 16px rgba(0, 180, 0, 0.25);
+        }
+
+        .btn-ig {
+            background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045);
+            color: white;
+            box-shadow: 0 4px 16px rgba(225, 48, 108, 0.28);
+        }
+
+        .btn-tw {
+            background: linear-gradient(135deg, #1DA1F2, #0d8bd9);
+            color: white;
+            box-shadow: 0 4px 16px rgba(29, 161, 242, 0.28);
+        }
+
+        .btn-tt {
+            background: linear-gradient(135deg, #010101, #69C9D0);
+            color: white;
+            box-shadow: 0 4px 16px rgba(105, 201, 208, 0.28);
+        }
+
+        .btn-yt {
+            background: linear-gradient(135deg, #FF0000, #cc0000);
+            color: white;
+            box-shadow: 0 4px 16px rgba(255, 0, 0, 0.28);
+        }
+
+        .btn-discord {
+            background: linear-gradient(135deg, #5865F2, #7289da);
+            color: white;
+            box-shadow: 0 4px 16px rgba(88, 101, 242, 0.28);
+        }
+
+        .btn-email {
+            background: linear-gradient(135deg, #EA4335, #FBBC05);
+            color: white;
+            box-shadow: 0 4px 16px rgba(234, 67, 53, 0.25);
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, var(--yellow), #FFB347);
+            color: white;
+            box-shadow: 0 4px 16px rgba(245, 200, 0, 0.28);
         }
 
         .groups-header {
@@ -672,7 +727,7 @@
             text-shadow: 0 1px 6px rgba(245, 200, 0, 0.2);
         }
 
-        /* ADMIN */
+        /* ── ADMIN ── */
         #admin-fab {
             position: fixed;
             bottom: 24px;
@@ -955,7 +1010,6 @@
             border-color: var(--yellow);
         }
 
-        /* ===== NEW: Header selector styling inside section edit ===== */
         .section-header-selector {
             display: flex;
             align-items: center;
@@ -991,7 +1045,6 @@
             border-color: var(--yellow);
         }
 
-        /* Badge showing which header a section belongs to */
         .section-header-badge {
             display: inline-flex;
             align-items: center;
@@ -1012,8 +1065,6 @@
             background: linear-gradient(135deg, #FFF8CC, #FFE44A);
             color: #7A5C00;
         }
-
-        /* ===== END NEW ===== */
 
         .admin-btn-save {
             background: var(--yellow);
@@ -1098,6 +1149,101 @@
         .type-btn.active {
             background: var(--yellow);
             color: white;
+        }
+
+        /* ── Contact button admin card ── */
+        .contact-btn-card {
+            border: 1.5px solid #e0e0e0;
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 14px;
+            background: white;
+            position: relative;
+        }
+
+        .contact-btn-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .contact-btn-card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .contact-btn-preview {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 12px;
+            cursor: default;
+        }
+
+        .style-picker {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .style-chip {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 2px solid transparent;
+            color: white;
+            transition: all 0.15s;
+        }
+
+        .style-chip.selected {
+            border-color: #333;
+            transform: scale(1.08);
+        }
+
+        .style-chip.chip-fb {
+            background: #4267B2;
+        }
+
+        .style-chip.chip-line {
+            background: #00B500;
+        }
+
+        .style-chip.chip-ig {
+            background: linear-gradient(135deg, #e1306c, #fcb045);
+        }
+
+        .style-chip.chip-tw {
+            background: #1DA1F2;
+        }
+
+        .style-chip.chip-tt {
+            background: #010101;
+        }
+
+        .style-chip.chip-yt {
+            background: #FF0000;
+        }
+
+        .style-chip.chip-discord {
+            background: #5865F2;
+        }
+
+        .style-chip.chip-email {
+            background: #EA4335;
+        }
+
+        .style-chip.chip-custom {
+            background: #F5C800;
         }
 
         .gs-status {
@@ -1273,17 +1419,17 @@
         @keyframes loadBar {
             0% {
                 width: 0%;
-                margin-left: 0;
+                margin-left: 0
             }
 
             50% {
                 width: 60%;
-                margin-left: 20%;
+                margin-left: 20%
             }
 
             100% {
                 width: 0%;
-                margin-left: 100%;
+                margin-left: 100%
             }
         }
 
@@ -1291,11 +1437,11 @@
 
             0%,
             100% {
-                transform: translateY(0);
+                transform: translateY(0)
             }
 
             50% {
-                transform: translateY(-7px);
+                transform: translateY(-7px)
             }
         }
 
@@ -1303,23 +1449,23 @@
 
             0%,
             100% {
-                opacity: 1;
+                opacity: 1
             }
 
             50% {
-                opacity: 0.25;
+                opacity: 0.25
             }
         }
 
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(18px);
+                transform: translateY(18px)
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0)
             }
         }
 
@@ -1337,7 +1483,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .contact-btns {
+            .contact-btns.cols-2,
+            .contact-btns.cols-3 {
                 grid-template-columns: 1fr;
             }
 
@@ -1381,7 +1528,6 @@
     <div class="page-wrap" id="main-content"></div>
 
     <button id="admin-fab" title="Admin Panel"><i class="fas fa-cog"></i></button>
-
     <div id="toast"></div>
 
     <div id="cmodal" class="cmodal-overlay">
@@ -1395,12 +1541,12 @@
 
     <div id="login-overlay">
         <div id="login-box">
-            <h2 style="text-align: center; color: var(--text-main); margin-bottom: 24px;">🔐 เข้าสู่ระบบ</h2>
+            <h2 style="text-align:center;color:var(--text-main);margin-bottom:24px;">🔐 เข้าสู่ระบบ</h2>
             <input type="text" id="login-user" class="admin-input" placeholder="Username">
             <input type="password" id="login-pass" class="admin-input" placeholder="Password">
-            <div style="display: flex; gap: 10px;">
-                <button onclick="doLogin()" class="admin-btn-save" style="flex: 1;">เข้าสู่ระบบ</button>
-                <button onclick="closeLogin()" class="admin-btn-add" style="flex: 1;">ยกเลิก</button>
+            <div style="display:flex;gap:10px;">
+                <button onclick="doLogin()" class="admin-btn-save" style="flex:1;">เข้าสู่ระบบ</button>
+                <button onclick="closeLogin()" class="admin-btn-add" style="flex:1;">ยกเลิก</button>
             </div>
         </div>
     </div>
@@ -1409,9 +1555,9 @@
         <div id="admin-panel">
             <button class="admin-close" onclick="closeAdmin()"><i class="fas fa-times"></i></button>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2 style="color: var(--text-main);"><i class="fas fa-cog"></i> จัดการร้านค้า</h2>
-                <button onclick="adminLogout()" class="admin-btn-add" style="background: #ffebee; color: #f44336;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+                <h2 style="color:var(--text-main);"><i class="fas fa-cog"></i> จัดการร้านค้า</h2>
+                <button onclick="adminLogout()" class="admin-btn-add" style="background:#ffebee;color:#f44336;">
                     <i class="fas fa-sign-out-alt"></i> ออกจากระบบ
                 </button>
             </div>
@@ -1425,25 +1571,26 @@
                     Sheets</button>
                 <button onclick="showHistory()"><i class="fas fa-history"></i> History</button>
             </div>
-            <input type="file" id="import-file" accept=".json" style="display: none;" onchange="importData(event)">
+            <input type="file" id="import-file" accept=".json" style="display:none;" onchange="importData(event)">
 
             <div class="admin-tabs">
-                <button class="tab-btn active" onclick="switchTab('tab-header', event)">🏠 ส่วนหัว</button>
-                <button class="tab-btn" onclick="switchTab('tab-font', event)">🔤 ฟอนต์</button>
-                <button class="tab-btn" onclick="switchTab('tab-sections', event)">📦 ส่วนต่างๆ</button>
-                <button class="tab-btn" onclick="switchTab('tab-groups-headers', event)">🔰 หัวข้อกลุ่ม</button>
-                <button class="tab-btn" onclick="switchTab('tab-group-sections', event)">📚 กลุ่มย่อย</button>
-                <button class="tab-btn" onclick="switchTab('tab-all-groups', event)">🎯 ดูกลุ่มทั้งหมด</button>
-                <button class="tab-btn" onclick="switchTab('tab-contact', event)">📞 ติดต่อ</button>
-                <button class="tab-btn" onclick="switchTab('tab-footer', event)">📌 ส่วนท้าย</button>
-                <button class="tab-btn" onclick="switchTab('tab-gs', event)">☁️ Google Sheets</button>
+                <button class="tab-btn active" onclick="switchTab('tab-header',event)">🏠 ส่วนหัว</button>
+                <button class="tab-btn" onclick="switchTab('tab-font',event)">🔤 ฟอนต์</button>
+                <button class="tab-btn" onclick="switchTab('tab-sections',event)">📦 ส่วนต่างๆ</button>
+                <button class="tab-btn" onclick="switchTab('tab-groups-headers',event)">🔰 หัวข้อกลุ่ม</button>
+                <button class="tab-btn" onclick="switchTab('tab-group-sections',event)">📚 กลุ่มย่อย</button>
+                <button class="tab-btn" onclick="switchTab('tab-all-groups',event)">🎯 ดูกลุ่มทั้งหมด</button>
+                <button class="tab-btn" onclick="switchTab('tab-contact',event)">📞 ติดต่อ</button>
+                <button class="tab-btn" onclick="switchTab('tab-footer',event)">📌 ส่วนท้าย</button>
+                <button class="tab-btn" onclick="switchTab('tab-gs',event)">☁️ Google Sheets</button>
             </div>
 
+            <!-- Header tab -->
             <div id="tab-header" class="tab-content active">
                 <div class="admin-section">
                     <h3><i class="fas fa-image"></i> รูปโลโก้</h3>
                     <input type="text" id="a-logo-img" class="admin-input" placeholder="URL รูปโลโก้">
-                    <h3><i class="fas fa-star"></i> ดาวตกแต่ง (3 ดาว)</h3>
+                    <h3><i class="fas fa-star"></i> ดาวตกแต่ง</h3>
                     <div class="item-row">
                         <input type="text" id="a-star1" class="admin-input" placeholder="ดาว 1" value="⭐">
                         <input type="text" id="a-star2" class="admin-input" placeholder="ดาว 2" value="✨">
@@ -1453,26 +1600,27 @@
                     <h3><i class="fas fa-store"></i> ข้อมูลร้าน</h3>
                     <input type="text" id="a-shop-name" class="admin-input" placeholder="ชื่อร้าน">
                     <input type="text" id="a-shop-sub" class="admin-input" placeholder="คำอธิบายใต้ชื่อ">
-                    <input type="text" id="a-status-text" class="admin-input" placeholder="สถานะ (เช่น เปิดรับคิว)">
+                    <input type="text" id="a-status-text" class="admin-input" placeholder="สถานะ">
                 </div>
                 <button onclick="saveHeader()" class="admin-btn-save">💾 บันทึกส่วนหัว</button>
             </div>
 
+            <!-- Font tab -->
             <div id="tab-font" class="tab-content">
                 <div class="admin-section">
                     <h3><i class="fas fa-font"></i> เลือกฟอนต์ภาษาไทย</h3>
-                    <p style="font-size:0.85rem;color:#888;margin-bottom:16px;">
-                        คลิกเพื่อเลือกฟอนต์ที่ต้องการใช้กับทั้งหน้าเว็บ</p>
+                    <p style="font-size:0.85rem;color:#888;margin-bottom:16px;">คลิกเพื่อเลือกฟอนต์</p>
                     <div class="font-grid" id="font-grid-container"></div>
                     <button onclick="saveFont()" class="admin-btn-save">💾 บันทึกฟอนต์</button>
                 </div>
             </div>
 
+            <!-- Sections tab -->
             <div id="tab-sections" class="tab-content">
                 <div
-                    style="background: linear-gradient(135deg,#E3F2FD,#BBDEFB); border-radius:12px; padding:12px 16px; margin-bottom:16px; font-size:0.85rem; color:#1565C0; line-height:1.7;">
+                    style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:0.85rem;color:#1565C0;line-height:1.7;">
                     <strong>💡 ตั้งค่าตำแหน่ง:</strong> แต่ละส่วนสามารถเลือกให้แสดงใน <strong>หัวข้อกลุ่ม</strong>
-                    ที่ต้องการได้ หรือเลือก <em>"แสดงทั่วไป (ก่อนกลุ่ม)"</em> เพื่อแสดงก่อนส่วนกลุ่ม
+                    ที่ต้องการได้ หรือเลือก <em>"แสดงทั่วไป (ก่อนกลุ่ม)"</em>
                 </div>
                 <div id="sections-list"></div>
                 <div class="section-type-selector">
@@ -1484,38 +1632,47 @@
                 </div>
             </div>
 
+            <!-- Groups Headers tab -->
             <div id="tab-groups-headers" class="tab-content">
                 <div id="groups-headers-list"></div>
                 <button class="admin-btn-add" onclick="addGroupsHeader()"><i class="fas fa-plus"></i>
                     เพิ่มหัวข้อกลุ่มใหม่</button>
             </div>
 
+            <!-- Group Sections tab -->
             <div id="tab-group-sections" class="tab-content">
                 <div id="group-sections-list"></div>
                 <button class="admin-btn-add" onclick="addGroupSection()"><i class="fas fa-plus"></i>
                     เพิ่มกลุ่มย่อยใหม่</button>
             </div>
 
+            <!-- All Groups tab -->
             <div id="tab-all-groups" class="tab-content">
                 <div id="all-groups-list"></div>
                 <button class="admin-btn-add" onclick="addAllGroupsSection()"><i class="fas fa-plus"></i>
                     เพิ่มปุ่มดูกลุ่มทั้งหมด</button>
             </div>
 
+            <!-- Contact tab (DYNAMIC) -->
             <div id="tab-contact" class="tab-content">
                 <div class="admin-section">
                     <h3><i class="fas fa-link"></i> ปุ่มติดต่อ</h3>
-                    <input type="text" id="a-contact-fb-link" class="admin-input" placeholder="ลิงก์ Facebook">
-                    <input type="text" id="a-contact-fb-text" class="admin-input" placeholder="ข้อความ Facebook"
-                        value="Facebook">
-                    <input type="text" id="a-contact-line-link" class="admin-input" placeholder="ลิงก์ Line">
-                    <input type="text" id="a-contact-line-text" class="admin-input" placeholder="ข้อความ Line"
-                        value="Line">
-                    <input type="text" id="a-contact-note" class="admin-input" placeholder="ข้อความท้าย">
+                    <p style="font-size:0.82rem;color:#888;margin-bottom:14px;line-height:1.6;">
+                        เพิ่ม แก้ไข หรือลบปุ่มได้ตามต้องการ · รองรับหลายปุ่ม · เรียงซ้าย-ขวาอัตโนมัติ
+                    </p>
+                    <div id="contact-btns-list"></div>
+                    <button class="admin-btn-add" onclick="addContactBtn()" style="margin-top:4px;">
+                        <i class="fas fa-plus"></i> เพิ่มปุ่มติดต่อ
+                    </button>
+                </div>
+                <div class="admin-section">
+                    <h3><i class="fas fa-info-circle"></i> ข้อความท้าย</h3>
+                    <input type="text" id="a-contact-note" class="admin-input" placeholder="ข้อความท้ายส่วนติดต่อ">
                 </div>
                 <button onclick="saveContact()" class="admin-btn-save">💾 บันทึกส่วนติดต่อ</button>
             </div>
 
+            <!-- Footer tab -->
             <div id="tab-footer" class="tab-content">
                 <div class="admin-section">
                     <h3><i class="fas fa-copyright"></i> ส่วนท้าย</h3>
@@ -1525,22 +1682,21 @@
                 <button onclick="saveFooter()" class="admin-btn-save">💾 บันทึกส่วนท้าย</button>
             </div>
 
+            <!-- Google Sheets tab -->
             <div id="tab-gs" class="tab-content">
                 <div class="admin-section">
                     <h3><i class="fab fa-google"></i> ตั้งค่า Google Sheets API</h3>
-                    <p style="color: #666; font-size: 0.85rem; margin-bottom: 10px;">
-                        ⚠️ <strong>สำคัญ:</strong> หลังจากบันทึก Web App URL แล้ว ต้องแก้ไขโค้ดใน HTML ด้วย
-                        โดยเปลี่ยนค่า <code>GS_WEBAPP_URL</code> ที่บรรทัดแรกของ Script ให้ตรงกัน
-                    </p>
+                    <p style="color:#666;font-size:0.85rem;margin-bottom:10px;">⚠️ <strong>สำคัญ:</strong> หลังบันทึก
+                        Web App URL ต้องอัพเดทค่า <code>GS_WEBAPP_URL</code> ในโค้ด HTML ด้วย</p>
                     <input type="text" id="gs-webapp-url" class="admin-input" placeholder="Web App URL (จาก Deploy)">
                     <input type="text" id="gs-sheet-id" class="admin-input" placeholder="Spreadsheet ID">
                     <input type="text" id="gs-api-key" class="admin-input" placeholder="API Key (ไม่จำเป็น)">
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
                         <button class="admin-btn-save" onclick="saveGsConfig()">บันทึกการตั้งค่า</button>
                         <button class="admin-btn-add" onclick="testGsConnection()">ทดสอบการเชื่อมต่อ</button>
                         <button class="admin-btn-add" onclick="loadFromGoogleSheets(true)">โหลดข้อมูลจาก Sheets</button>
                     </div>
-                    <span id="gs-status" class="gs-status" style="display: none;"></span>
+                    <span id="gs-status" class="gs-status" style="display:none;"></span>
                 </div>
             </div>
         </div>
@@ -1549,13 +1705,27 @@
     <script>
         // ===================== CONFIG =====================
         const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbz40PEjZNZQWrhE7IYJ6u0r1ocrL_wRklcCK-VN_ZcI9bvp736xAuo_7695lvNVqP6j/exec';
-
         const ADMIN_CREDS_KEY = 'nexo_admin_creds';
         const DATA_KEY = 'nexo_data';
         const GS_CONFIG_KEY = 'nexo_gs_config';
         const HISTORY_KEY = 'nexo_history';
         let autoSaveTimer = null;
         let isAdminLoggedIn = false;
+
+        // ===================== CONTACT BUTTON STYLES =====================
+        const CONTACT_STYLES = [
+            { id: 'fb', label: 'Facebook', icon: '📘', cssClass: 'btn-fb' },
+            { id: 'line', label: 'Line', icon: '💬', cssClass: 'btn-line' },
+            { id: 'ig', label: 'Instagram', icon: '📸', cssClass: 'btn-ig' },
+            { id: 'tw', label: 'Twitter/X', icon: '🐦', cssClass: 'btn-tw' },
+            { id: 'tt', label: 'TikTok', icon: '🎵', cssClass: 'btn-tt' },
+            { id: 'yt', label: 'YouTube', icon: '▶️', cssClass: 'btn-yt' },
+            { id: 'discord', label: 'Discord', icon: '🎮', cssClass: 'btn-discord' },
+            { id: 'email', label: 'Email', icon: '📧', cssClass: 'btn-email' },
+            { id: 'custom', label: 'Custom', icon: '⭐', cssClass: 'btn-custom' },
+        ];
+
+        function getStyleById(id) { return CONTACT_STYLES.find(s => s.id === id) || CONTACT_STYLES[CONTACT_STYLES.length - 1]; }
 
         // ===================== THAI FONTS =====================
         const THAI_FONTS = [
@@ -1594,10 +1764,7 @@
             THAI_FONTS.forEach(font => {
                 const div = document.createElement('div');
                 div.className = 'font-option' + (selectedFont === font.name ? ' selected' : '');
-                div.innerHTML = `
-                    <div class="font-preview-text" style="font-family:'${font.name}',sans-serif;">${font.preview}</div>
-                    <div class="font-option-name">${font.label}</div>
-                `;
+                div.innerHTML = `<div class="font-preview-text" style="font-family:'${font.name}',sans-serif;">${font.preview}</div><div class="font-option-name">${font.label}</div>`;
                 div.onclick = () => {
                     selectedFont = font.name;
                     document.querySelectorAll('.font-option').forEach(el => el.classList.remove('selected'));
@@ -1615,25 +1782,19 @@
         }
 
         // ===================== CUSTOM MODAL =====================
-        let modalResolve = null;
-
         function showModal({ icon = '', title = '', html = '', confirmText = 'ตกลง', cancelText = null, dangerConfirm = false, timer }) {
             return new Promise(resolve => {
-                modalResolve = resolve;
                 const iconMap = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️', question: '❓' };
                 document.getElementById('cmodal-icon').textContent = iconMap[icon] || icon;
                 document.getElementById('cmodal-title').textContent = title;
                 document.getElementById('cmodal-text').innerHTML = html;
-
                 const actions = document.getElementById('cmodal-actions');
                 actions.innerHTML = '';
-
                 const confirmBtn = document.createElement('button');
                 confirmBtn.className = 'cmodal-btn ' + (dangerConfirm ? 'cmodal-btn-danger' : 'cmodal-btn-confirm');
                 confirmBtn.textContent = confirmText;
                 confirmBtn.onclick = () => { closeModal(); resolve({ isConfirmed: true }); };
                 actions.appendChild(confirmBtn);
-
                 if (cancelText) {
                     const cancelBtn = document.createElement('button');
                     cancelBtn.className = 'cmodal-btn cmodal-btn-cancel';
@@ -1641,17 +1802,12 @@
                     cancelBtn.onclick = () => { closeModal(); resolve({ isConfirmed: false, dismiss: 'cancel' }); };
                     actions.appendChild(cancelBtn);
                 }
-
                 document.getElementById('cmodal').classList.add('show');
-
-                if (timer) {
-                    setTimeout(() => { closeModal(); resolve({ isConfirmed: false, dismiss: 'timer' }); }, timer);
-                }
+                if (timer) setTimeout(() => { closeModal(); resolve({ isConfirmed: false, dismiss: 'timer' }); }, timer);
             });
         }
 
         function closeModal() { document.getElementById('cmodal').classList.remove('show'); }
-
         document.getElementById('cmodal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
         function showToast(msg, type = 'success', duration = 2200) {
@@ -1662,7 +1818,7 @@
             t._timer = setTimeout(() => t.classList.remove('show'), duration);
         }
 
-        // ===================== GOOGLE SHEETS CONFIG =====================
+        // ===================== GOOGLE SHEETS =====================
         function getGsConfig() {
             try {
                 const saved = JSON.parse(localStorage.getItem(GS_CONFIG_KEY)) || {};
@@ -1680,22 +1836,18 @@
             showModal({ icon: 'success', title: 'บันทึกการตั้งค่าเรียบร้อย', html: '<p style="font-size:0.9rem;color:#666;">⚠️ อย่าลืมอัพเดทค่า <b>GS_WEBAPP_URL</b> ในโค้ด HTML ด้วย</p>', confirmText: 'ตกลง' });
         }
 
-        // ===================== JSONP HELPER =====================
         function fetchViaJsonp(url, timeoutMs) {
             timeoutMs = timeoutMs || 10000;
             return new Promise((resolve, reject) => {
                 const callbackName = 'jsonp_cb_' + Math.round(100000 * Math.random()) + '_' + Date.now();
                 let script = null, timer = null;
-
                 function cleanup() {
                     if (timer) clearTimeout(timer);
                     if (window[callbackName]) delete window[callbackName];
                     if (script && script.parentNode) script.parentNode.removeChild(script);
                 }
-
                 window[callbackName] = function (data) { cleanup(); resolve(data); };
                 timer = setTimeout(() => { cleanup(); reject(new Error('Request timeout')); }, timeoutMs);
-
                 script = document.createElement('script');
                 const sep = url.includes('?') ? '&' : '?';
                 script.src = url + sep + 'callback=' + callbackName;
@@ -1704,34 +1856,21 @@
             });
         }
 
-        // ===================== LOAD FROM GOOGLE SHEETS =====================
         async function loadFromGoogleSheets(showUI) {
             const config = getGsConfig();
             const url = config.webAppUrl;
-
-            if (!url) {
-                if (showUI) showModal({ icon: 'warning', title: 'ไม่ได้ตั้งค่า Web App URL', html: 'กรุณาแก้ไขค่า <b>GS_WEBAPP_URL</b> ในโค้ด HTML', confirmText: 'ตกลง' });
-                return false;
-            }
-
+            if (!url) { if (showUI) showModal({ icon: 'warning', title: 'ไม่ได้ตั้งค่า Web App URL', html: 'กรุณาแก้ไขค่า <b>GS_WEBAPP_URL</b>', confirmText: 'ตกลง' }); return false; }
             if (showUI) showToast('<i class="fas fa-spinner loading-spin"></i> กำลังโหลดจาก Sheets...', 'info', 10000);
-
             try {
-                const baseUrl = url.replace(/\/$/, '');
-                const result = await fetchViaJsonp(baseUrl + '?action=getData', 10000);
-
+                const result = await fetchViaJsonp(url.replace(/\/$/, '') + '?action=getData', 10000);
                 if (result && result.status === 'success' && result.data) {
                     localStorage.setItem(DATA_KEY, JSON.stringify(result.data));
-                    if (showUI) {
-                        showToast('✅ โหลดข้อมูลสำเร็จ');
-                        renderSite();
-                        if (document.getElementById('admin-overlay').classList.contains('show')) openAdmin();
-                    }
+                    if (showUI) { showToast('✅ โหลดข้อมูลสำเร็จ'); renderSite(); if (document.getElementById('admin-overlay').classList.contains('show')) openAdmin(); }
                     return true;
-                } else { throw new Error('Invalid data format from Sheets'); }
+                } else throw new Error('Invalid data');
             } catch (error) {
-                console.warn('Google Sheets load failed:', error.message);
-                if (showUI) showModal({ icon: 'error', title: 'โหลดข้อมูลล้มเหลว', html: 'ไม่สามารถเชื่อมต่อกับ Google Sheets ได้ กรุณาตรวจสอบ URL และการ Deploy', confirmText: 'ตกลง' });
+                console.warn('GS load failed:', error.message);
+                if (showUI) showModal({ icon: 'error', title: 'โหลดข้อมูลล้มเหลว', html: 'ไม่สามารถเชื่อมต่อ Google Sheets ได้', confirmText: 'ตกลง' });
                 return false;
             }
         }
@@ -1740,13 +1879,9 @@
             const config = getGsConfig();
             if (!config.webAppUrl) return false;
             try {
-                await fetch(config.webAppUrl, {
-                    method: 'POST', mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'updateData', data: data })
-                });
+                await fetch(config.webAppUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'updateData', data }) });
                 return true;
-            } catch (error) { console.error('Error saving to sheets:', error); return false; }
+            } catch { return false; }
         }
 
         async function testGsConnection() {
@@ -1754,23 +1889,19 @@
             status.style.display = 'inline-flex';
             status.className = 'gs-status gs-loading';
             status.innerHTML = '<i class="fas fa-spinner loading-spin"></i> กำลังทดสอบ...';
-
             const url = document.getElementById('gs-webapp-url').value.trim();
-            if (!url) { status.className = 'gs-status gs-err'; status.innerHTML = '<i class="fas fa-times-circle"></i> กรุณากรอก Web App URL'; return; }
-
+            if (!url) { status.className = 'gs-status gs-err'; status.innerHTML = '<i class="fas fa-times-circle"></i> กรุณากรอก URL'; return; }
             try {
-                const baseUrl = url.replace(/\/$/, '');
-                await fetchViaJsonp(baseUrl + '?action=ping', 5000);
+                await fetchViaJsonp(url.replace(/\/$/, '') + '?action=ping', 5000);
                 status.className = 'gs-status gs-ok';
                 status.innerHTML = '<i class="fas fa-check-circle"></i> เชื่อมต่อสำเร็จ';
-            } catch (error) {
+            } catch {
                 status.className = 'gs-status gs-err';
                 status.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ไม่สามารถเชื่อมต่อได้';
-                showModal({ icon: 'info', title: 'วิธีการแก้ไข', html: `<div style="text-align:left;font-size:0.85rem;"><p><strong>ขั้นตอน Deploy Google Apps Script:</strong></p><ol style="margin-top:10px;padding-left:20px;line-height:2;"><li>ไปที่ Google Apps Script Editor</li><li>กด <strong>Deploy → New deployment</strong></li><li>Type: <strong>Web App</strong></li><li>Execute as: <strong>Me</strong></li><li>Who has access: <strong>Anyone</strong></li><li>กด Deploy → Allow</li><li>คัดลอก URL ใส่ใน <code>GS_WEBAPP_URL</code></li></ol></div>`, confirmText: 'ตกลง' });
             }
         }
 
-        // ===================== DATA FUNCTIONS =====================
+        // ===================== DATA =====================
         function getDefaultData() {
             return {
                 header: {
@@ -1781,7 +1912,6 @@
                     statusText: 'สถานะของร้าน'
                 },
                 sections: [
-                    // headerIndex: -1 = แสดงทั่วไป (ก่อนกลุ่ม), headerIndex: N = แสดงในหัวข้อกลุ่มที่ N
                     { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ใส่ข้อความเกี่ยวกับร้านของคุณ <br>ใส่ข้อความเกี่ยวกับร้านของคุณ', headerIndex: -1 },
                     { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 แท็กใหม่'], headerIndex: -1 },
                     { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ประเภท 1', amount: '10', unit: 'บาท', class: 'gold' }, { type: 'ประเภท 2', amount: '10', unit: 'บาท', class: 'silver' }], bulkNote: 'หมายเหตุ 1 <strong>หมายเหตุ 2</strong> หมายเหตุ 3' },
@@ -1791,9 +1921,26 @@
                 groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'หัวข้อใหม่', sub: 'คำอธิบาย', deco2: 'ข้อความท้าย' }],
                 groupSections: [{ headerIndex: 0, title: 'กลุ่มย่อยใหม่', groups: [{ name: 'ชื่อกลุ่ม', price: '10', tags: ['แท็ก'], note: 'หมายเหตุ', links: [{ text: '🔗 ลิงค์', url: '###' }] }] }],
                 allGroupsSections: [{ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: 'รายละเอียดเพิ่มเติมถ้ามี', buttonLink: '###' }],
-                contact: { fbLink: '###', fbText: 'Facebook', lineLink: '###', lineText: 'Line', note: 'รายละเอียดเพิ่มเติมถ้ามี' },
+                contact: {
+                    // NEW: buttons array
+                    buttons: [
+                        { icon: '📘', text: 'Facebook', link: '###', style: 'fb' },
+                        { icon: '💬', text: 'Line', link: '###', style: 'line' }
+                    ],
+                    note: 'รายละเอียดเพิ่มเติมถ้ามี'
+                },
                 footer: { name: 'NEXO ✦', text: 'รายละเอียดเพิ่มเติม 1<br>รายละเอียดเพิ่มเติม 2' }
             };
+        }
+
+        function migrateContactData(contact) {
+            // Migrate old format (fbLink, fbText, lineLink, lineText) → new buttons array
+            if (!contact) return getDefaultData().contact;
+            if (contact.buttons) return contact; // already new format
+            const buttons = [];
+            if (contact.fbLink || contact.fbText) buttons.push({ icon: '📘', text: contact.fbText || 'Facebook', link: contact.fbLink || '###', style: 'fb' });
+            if (contact.lineLink || contact.lineText) buttons.push({ icon: '💬', text: contact.lineText || 'Line', link: contact.lineLink || '###', style: 'line' });
+            return { buttons: buttons.length ? buttons : getDefaultData().contact.buttons, note: contact.note || '' };
         }
 
         function loadData() {
@@ -1802,15 +1949,12 @@
                 if (!raw) return getDefaultData();
                 const parsed = JSON.parse(raw);
                 const def = getDefaultData();
-                // Migrate old sections that don't have headerIndex yet
                 if (parsed.sections) {
-                    parsed.sections = parsed.sections.map(s => ({
-                        ...s,
-                        headerIndex: (s.headerIndex !== undefined) ? s.headerIndex : -1
-                    }));
+                    parsed.sections = parsed.sections.map(s => ({ ...s, headerIndex: (s.headerIndex !== undefined) ? s.headerIndex : -1 }));
                 }
+                parsed.contact = migrateContactData(parsed.contact);
                 return { ...def, ...parsed };
-            } catch (e) { return getDefaultData(); }
+            } catch { return getDefaultData(); }
         }
 
         async function saveData(data, notify, addHist) {
@@ -1823,7 +1967,7 @@
                 if (notify) showToast('✅ บันทึกเรียบร้อย');
                 renderSite();
                 return true;
-            } catch (e) { return false; }
+            } catch { return false; }
         }
 
         function addToHistory(data) {
@@ -1832,19 +1976,19 @@
                 h.unshift({ timestamp: new Date().toISOString(), data: JSON.parse(JSON.stringify(data)) });
                 if (h.length > 20) h.pop();
                 localStorage.setItem(HISTORY_KEY, JSON.stringify(h));
-            } catch (e) { }
+            } catch { }
         }
 
         function showHistory() {
             const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
-            if (history.length === 0) { showModal({ icon: 'info', title: 'ไม่มีประวัติ', html: 'ยังไม่มีประวัติการบันทึก', confirmText: 'ตกลง' }); return; }
+            if (!history.length) { showModal({ icon: 'info', title: 'ไม่มีประวัติ', html: 'ยังไม่มีประวัติการบันทึก', confirmText: 'ตกลง' }); return; }
             let html = '<div style="max-height:300px;overflow-y:auto;">';
             history.forEach((item, i) => {
                 const date = new Date(item.timestamp).toLocaleString('th-TH');
                 html += `<div class="history-item" onclick="restoreHistory(${i});closeModal()"><div><i class="fas fa-clock"></i> ${date}</div><i class="fas fa-undo"></i></div>`;
             });
             html += '</div>';
-            showModal({ icon: '', title: '📜 ประวัติการบันทึก', html: html, confirmText: 'ปิด' });
+            showModal({ icon: '', title: '📜 ประวัติการบันทึก', html, confirmText: 'ปิด' });
         }
 
         function restoreHistory(index) {
@@ -1858,45 +2002,34 @@
             const container = document.getElementById('main-content');
 
             let html = `
-                <div class="header">
-                    <div class="logo-circle-wrap">
-                        <div class="logo-ring"></div>
-                        <div class="logo-ring-inner"></div>
-                        <img class="logo-img" src="${data.header.logoImg}" alt="${data.header.shopName}">
-                        <span class="logo-star s1">${data.header.stars[0]}</span>
-                        <span class="logo-star s2">${data.header.stars[1]}</span>
-                        <span class="logo-star s3">${data.header.stars[2]}</span>
-                        <span class="logo-star s4">${data.header.stars[3]}</span>
-                    </div>
-                    <div class="shop-name">${data.header.shopName}</div>
-                    <div class="shop-sub">${data.header.shopSub}</div>
-                    <span class="status-badge"><span class="status-dot"></span>${data.header.statusText}</span>
+            <div class="header">
+                <div class="logo-circle-wrap">
+                    <div class="logo-ring"></div>
+                    <div class="logo-ring-inner"></div>
+                    <img class="logo-img" src="${data.header.logoImg}" alt="${data.header.shopName}">
+                    <span class="logo-star s1">${data.header.stars[0]}</span>
+                    <span class="logo-star s2">${data.header.stars[1]}</span>
+                    <span class="logo-star s3">${data.header.stars[2]}</span>
+                    <span class="logo-star s4">${data.header.stars[3]}</span>
                 </div>
-            `;
+                <div class="shop-name">${data.header.shopName}</div>
+                <div class="shop-sub">${data.header.shopSub}</div>
+                <span class="status-badge"><span class="status-dot"></span>${data.header.statusText}</span>
+            </div>
+        `;
 
-            // 1) Render "global" sections (headerIndex === -1 or undefined) — shown before group headers
-            data.sections.forEach(s => {
-                const hi = (s.headerIndex !== undefined) ? s.headerIndex : -1;
-                if (hi === -1) html += renderSection(s);
-            });
+            data.sections.forEach(s => { if ((s.headerIndex !== undefined ? s.headerIndex : -1) === -1) html += renderSection(s); });
 
-            // 2) For each group header: render sections assigned to it, then group sub-sections
             data.groupsHeaders.forEach((header, hi) => {
                 html += `
-                    <div class="groups-header">
-                        <div class="groups-header-deco">${header.deco}</div>
-                        <div class="groups-header-title">${header.title}</div>
-                        <div class="groups-header-sub">${header.sub}</div>
-                        <div class="groups-header-deco2">${header.deco2}</div>
-                    </div>
-                `;
-
-                // Sections assigned to this header
-                data.sections.forEach(s => {
-                    if (s.headerIndex === hi) html += renderSection(s);
-                });
-
-                // Group sub-sections assigned to this header
+                <div class="groups-header">
+                    <div class="groups-header-deco">${header.deco}</div>
+                    <div class="groups-header-title">${header.title}</div>
+                    <div class="groups-header-sub">${header.sub}</div>
+                    <div class="groups-header-deco2">${header.deco2}</div>
+                </div>
+            `;
+                data.sections.forEach(s => { if (s.headerIndex === hi) html += renderSection(s); });
                 data.groupSections.filter(gs => gs.headerIndex === hi).forEach(gs => {
                     html += `<div class="section-card"><div class="section-title">${gs.title}</div><div class="group-list">`;
                     gs.groups.forEach(g => { html += renderGroupItem(g); });
@@ -1904,35 +2037,33 @@
                 });
             });
 
-            // 3) "See all" buttons
             data.allGroupsSections.forEach(s => {
-                html += `
-                    <div class="section-card">
-                        <div class="section-title">${s.title}</div>
-                        <a href="${s.buttonLink}" target="_blank" class="see-all-btn">${s.buttonText}</a>
-                    </div>
-                `;
+                html += `<div class="section-card"><div class="section-title">${s.title}</div><a href="${s.buttonLink}" target="_blank" class="see-all-btn">${s.buttonText}</a></div>`;
             });
 
-            // 4) Contact & footer
+            // Dynamic contact buttons
+            const btns = data.contact.buttons || [];
+            const colsClass = btns.length === 1 ? 'cols-1' : btns.length >= 3 ? 'cols-3' : 'cols-2';
+            const btnsHtml = btns.map(btn => {
+                const st = getStyleById(btn.style);
+                return `<a href="${btn.link}" target="_blank" class="contact-btn ${st.cssClass}">${btn.icon} ${btn.text}</a>`;
+            }).join('');
+
             html += `
-                <div class="section-card">
-                    <div class="section-title">💌 ติดต่อสั่งงาน</div>
-                    <div class="contact-btns">
-                        <a href="${data.contact.fbLink}" target="_blank" class="contact-btn btn-fb"><span>📘</span> ${data.contact.fbText}</a>
-                        <a href="${data.contact.lineLink}" target="_blank" class="contact-btn btn-line"><span>💬</span> ${data.contact.lineText}</a>
-                    </div>
-                    <div style="text-align:center;margin-top:13px;font-size:0.81rem;color:var(--text-light);">${data.contact.note}</div>
-                </div>
-                <div class="footer">
-                    <div class="footer-name">${data.footer.name}</div>
-                    ${data.footer.text}
-                </div>
-            `;
+            <div class="section-card">
+                <div class="section-title">💌 ติดต่อสั่งงาน</div>
+                <div class="contact-btns ${colsClass}">${btnsHtml}</div>
+                ${data.contact.note ? `<div style="text-align:center;margin-top:13px;font-size:0.81rem;color:var(--text-light);">${data.contact.note}</div>` : ''}
+            </div>
+            <div class="footer">
+                <div class="footer-name">${data.footer.name}</div>
+                ${data.footer.text}
+            </div>
+        `;
 
             container.innerHTML = html;
 
-            const obs = new IntersectionObserver((entries) => {
+            const obs = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) { entry.target.style.animation = 'slideUp 0.55s ease both'; obs.unobserve(entry.target); }
                 });
@@ -1952,42 +2083,125 @@
                     return `<div class="section-card"><div class="section-title">${section.title}</div><div class="do-dont-grid"><div class="do-box"><div class="do-title">✅ รับทำ</div><ul>${section.doList.map(i => `<li>${i}</li>`).join('')}</ul></div><div class="dont-box"><div class="dont-title">❌ ไม่รับ</div><ul>${section.dontList.map(i => `<li>${i}</li>`).join('')}</ul></div></div></div>`;
                 case 'steps':
                     return `
-                        <div class="section-card">
-                            <div class="section-title">${section.title}</div>
-                            <div class="steps-list">${section.steps.map((s, i) => `<div class="step-item"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join('')}</div>
-                            <div style="margin-top:18px;">
-                                <div style="font-size:0.76rem;color:var(--text-light);margin-bottom:10px;font-weight:500;">⏱ ระยะเวลาทำงาน</div>
-                                <div class="timeline-wrap">
-                                    <div class="tl-item fast"><div class="tl-day">${section.timeline.fast.day}</div><div class="tl-label">${section.timeline.fast.label}</div></div>
-                                    <div class="tl-item mid"><div class="tl-day">${section.timeline.mid.day}</div><div class="tl-label">${section.timeline.mid.label}</div></div>
-                                    <div class="tl-item slow"><div class="tl-day">${section.timeline.slow.day}</div><div class="tl-label">${section.timeline.slow.label}</div></div>
-                                </div>
-                            </div>
-                            <div style="margin-top:18px;">
-                                <div style="font-size:0.76rem;color:var(--text-light);margin-bottom:9px;font-weight:500;">💳 ช่องทางชำระเงิน</div>
-                                <div class="payment-chips">${section.payments.map(p => `<div class="pay-chip">${p}</div>`).join('')}</div>
+                    <div class="section-card">
+                        <div class="section-title">${section.title}</div>
+                        <div class="steps-list">${section.steps.map((s, i) => `<div class="step-item"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join('')}</div>
+                        <div style="margin-top:18px;">
+                            <div style="font-size:0.76rem;color:var(--text-light);margin-bottom:10px;font-weight:500;">⏱ ระยะเวลาทำงาน</div>
+                            <div class="timeline-wrap">
+                                <div class="tl-item fast"><div class="tl-day">${section.timeline.fast.day}</div><div class="tl-label">${section.timeline.fast.label}</div></div>
+                                <div class="tl-item mid"><div class="tl-day">${section.timeline.mid.day}</div><div class="tl-label">${section.timeline.mid.label}</div></div>
+                                <div class="tl-item slow"><div class="tl-day">${section.timeline.slow.day}</div><div class="tl-label">${section.timeline.slow.label}</div></div>
                             </div>
                         </div>
-                    `;
+                        <div style="margin-top:18px;">
+                            <div style="font-size:0.76rem;color:var(--text-light);margin-bottom:9px;font-weight:500;">💳 ช่องทางชำระเงิน</div>
+                            <div class="payment-chips">${section.payments.map(p => `<div class="pay-chip">${p}</div>`).join('')}</div>
+                        </div>
+                    </div>`;
                 default: return '';
             }
         }
 
         function renderGroupItem(group) {
             return `
-                <div class="group-item">
-                    <div class="gi-top">
-                        <div class="gi-name">${group.name}</div>
-                        ${group.price ? `<div class="gi-price">${group.price}<span>฿</span></div>` : ''}
-                    </div>
-                    <div class="gi-tags">${(group.tags || []).map(t => `<span class="gi-tag">${t}</span>`).join('')}</div>
-                    ${group.note ? `<div class="gi-note">${group.note}</div>` : ''}
-                    <div class="gi-links">${(group.links || []).map(l => `<a href="${l.url}" target="_blank" class="gi-link">${l.text}</a>`).join('')}</div>
+            <div class="group-item">
+                <div class="gi-top">
+                    <div class="gi-name">${group.name}</div>
+                    ${group.price ? `<div class="gi-price">${group.price}<span>฿</span></div>` : ''}
                 </div>
-            `;
+                <div class="gi-tags">${(group.tags || []).map(t => `<span class="gi-tag">${t}</span>`).join('')}</div>
+                ${group.note ? `<div class="gi-note">${group.note}</div>` : ''}
+                <div class="gi-links">${(group.links || []).map(l => `<a href="${l.url}" target="_blank" class="gi-link">${l.text}</a>`).join('')}</div>
+            </div>`;
         }
 
-        // ===================== HELPER: build header options for selector =====================
+        // ===================== CONTACT ADMIN RENDER =====================
+        function renderContactAdmin() {
+            const data = loadData();
+            const list = document.getElementById('contact-btns-list');
+            list.innerHTML = '';
+
+            (data.contact.buttons || []).forEach((btn, i) => {
+                const st = getStyleById(btn.style);
+                const div = document.createElement('div');
+                div.className = 'contact-btn-card';
+
+                const stylesChips = CONTACT_STYLES.map(s =>
+                    `<span class="style-chip chip-${s.id} ${btn.style === s.id ? 'selected' : ''}"
+                    onclick="updateContactBtnStyle(${i},'${s.id}')">${s.label}</span>`
+                ).join('');
+
+                div.innerHTML = `
+                <div class="contact-btn-card-header">
+                    <span class="contact-btn-card-title">ปุ่มที่ ${i + 1}</span>
+                    <button class="admin-btn-del" onclick="deleteContactBtn(${i})"><i class="fas fa-trash"></i> ลบ</button>
+                </div>
+                <div class="contact-btn-preview ${st.cssClass}" id="contact-preview-${i}">${btn.icon} ${btn.text}</div>
+                <p style="font-size:0.78rem;color:#999;margin-bottom:8px;">สีปุ่ม:</p>
+                <div class="style-picker">${stylesChips}</div>
+                <div class="item-row">
+                    <input type="text" class="admin-input" placeholder="ไอคอน (emoji)" value="${btn.icon}" style="max-width:80px;"
+                        oninput="updateContactBtn(${i},'icon',this.value)">
+                    <input type="text" class="admin-input" placeholder="ข้อความปุ่ม" value="${btn.text}"
+                        oninput="updateContactBtn(${i},'text',this.value)">
+                </div>
+                <input type="text" class="admin-input" placeholder="ลิงก์ (URL)" value="${btn.link}"
+                    oninput="updateContactBtn(${i},'link',this.value)">
+            `;
+                list.appendChild(div);
+            });
+
+            document.getElementById('a-contact-note').value = data.contact.note || '';
+        }
+
+        function updateContactBtn(i, field, value) {
+            const d = loadData();
+            d.contact.buttons[i][field] = value;
+            // Live preview update
+            const st = getStyleById(d.contact.buttons[i].style);
+            const preview = document.getElementById('contact-preview-' + i);
+            if (preview) {
+                preview.className = 'contact-btn-preview ' + st.cssClass;
+                preview.textContent = d.contact.buttons[i].icon + ' ' + d.contact.buttons[i].text;
+            }
+            saveData(d, false, false);
+        }
+
+        function updateContactBtnStyle(i, styleId) {
+            const d = loadData();
+            d.contact.buttons[i].style = styleId;
+            saveData(d, false, false);
+            renderContactAdmin();
+        }
+
+        function deleteContactBtn(i) {
+            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'ลบปุ่มนี้ออก?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => {
+                if (r.isConfirmed) {
+                    const d = loadData();
+                    d.contact.buttons.splice(i, 1);
+                    saveData(d, true, true);
+                    renderContactAdmin();
+                }
+            });
+        }
+
+        function addContactBtn() {
+            const d = loadData();
+            if (!d.contact.buttons) d.contact.buttons = [];
+            d.contact.buttons.push({ icon: '📌', text: 'ปุ่มใหม่', link: '###', style: 'custom' });
+            saveData(d, true, true);
+            renderContactAdmin();
+        }
+
+        function saveContact() {
+            const d = loadData();
+            d.contact.note = document.getElementById('a-contact-note').value;
+            saveData(d, true, true);
+            showToast('✅ บันทึกส่วนติดต่อเรียบร้อย');
+        }
+
+        // ===================== HELPER =====================
         function buildHeaderOptions(currentHeaderIndex) {
             const data = loadData();
             let opts = `<option value="-1" ${currentHeaderIndex === -1 ? 'selected' : ''}>📌 แสดงทั่วไป (ก่อนกลุ่ม)</option>`;
@@ -2008,25 +2222,19 @@
                 const hi = (section.headerIndex !== undefined) ? section.headerIndex : -1;
                 const badgeClass = hi === -1 ? 'global' : 'assigned';
                 const badgeLabel = hi === -1 ? '📌 ทั่วไป' : ('🔰 ' + (data.groupsHeaders[hi] ? data.groupsHeaders[hi].title : 'กลุ่ม ' + (hi + 1)));
-
                 const div = document.createElement('div');
                 div.className = 'admin-section';
                 div.innerHTML = `
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:8px;">
-                        <h3 style="margin-bottom:0;">
-                            <i class="fas fa-layer-group"></i> ${section.title || 'unnamed'}
-                            <span class="section-header-badge ${badgeClass}">${badgeLabel}</span>
-                        </h3>
-                        <button class="admin-btn-del" onclick="deleteSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                    </div>
-                    <div class="section-header-selector">
-                        <label><i class="fas fa-map-marker-alt"></i> แสดงใน:</label>
-                        <select onchange="updateSectionHeader(${i}, parseInt(this.value))">
-                            ${buildHeaderOptions(hi)}
-                        </select>
-                    </div>
-                    ${renderSectionEditForm(section, i)}
-                `;
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:8px;">
+                    <h3 style="margin-bottom:0;"><i class="fas fa-layer-group"></i> ${section.title || 'unnamed'} <span class="section-header-badge ${badgeClass}">${badgeLabel}</span></h3>
+                    <button class="admin-btn-del" onclick="deleteSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
+                </div>
+                <div class="section-header-selector">
+                    <label><i class="fas fa-map-marker-alt"></i> แสดงใน:</label>
+                    <select onchange="updateSectionHeader(${i}, parseInt(this.value))">${buildHeaderOptions(hi)}</select>
+                </div>
+                ${renderSectionEditForm(section, i)}
+            `;
                 sl.appendChild(div);
             });
 
@@ -2037,15 +2245,15 @@
                 const div = document.createElement('div');
                 div.className = 'admin-section';
                 div.innerHTML = `
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-                        <h3><i class="fas fa-heading"></i> หัวข้อกลุ่มที่ ${i + 1}</h3>
-                        <button class="admin-btn-del" onclick="deleteGroupsHeader(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                    </div>
-                    <input type="text" class="admin-input" placeholder="เครื่องหมายตกแต่ง" value="${header.deco}" onchange="updateGroupsHeader(${i},'deco',this.value)">
-                    <input type="text" class="admin-input" placeholder="หัวข้อ" value="${header.title}" onchange="updateGroupsHeader(${i},'title',this.value)">
-                    <input type="text" class="admin-input" placeholder="คำอธิบาย" value="${header.sub}" onchange="updateGroupsHeader(${i},'sub',this.value)">
-                    <input type="text" class="admin-input" placeholder="ข้อความท้าย" value="${header.deco2}" onchange="updateGroupsHeader(${i},'deco2',this.value)">
-                `;
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
+                    <h3><i class="fas fa-heading"></i> หัวข้อกลุ่มที่ ${i + 1}</h3>
+                    <button class="admin-btn-del" onclick="deleteGroupsHeader(${i})"><i class="fas fa-trash"></i> ลบ</button>
+                </div>
+                <input type="text" class="admin-input" placeholder="เครื่องหมายตกแต่ง" value="${header.deco}" onchange="updateGroupsHeader(${i},'deco',this.value)">
+                <input type="text" class="admin-input" placeholder="หัวข้อ" value="${header.title}" onchange="updateGroupsHeader(${i},'title',this.value)">
+                <input type="text" class="admin-input" placeholder="คำอธิบาย" value="${header.sub}" onchange="updateGroupsHeader(${i},'sub',this.value)">
+                <input type="text" class="admin-input" placeholder="ข้อความท้าย" value="${header.deco2}" onchange="updateGroupsHeader(${i},'deco2',this.value)">
+            `;
                 ghl.appendChild(div);
             });
 
@@ -2056,12 +2264,12 @@
                 const div = document.createElement('div');
                 div.className = 'admin-section';
                 div.innerHTML = `
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-                        <h3><i class="fas fa-layer-group"></i> ${gs.title}</h3>
-                        <button class="admin-btn-del" onclick="deleteGroupSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                    </div>
-                    ${renderGroupSectionEditForm(gs, i)}
-                `;
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
+                    <h3><i class="fas fa-layer-group"></i> ${gs.title}</h3>
+                    <button class="admin-btn-del" onclick="deleteGroupSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
+                </div>
+                ${renderGroupSectionEditForm(gs, i)}
+            `;
                 gsl.appendChild(div);
             });
 
@@ -2072,14 +2280,14 @@
                 const div = document.createElement('div');
                 div.className = 'admin-section';
                 div.innerHTML = `
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-                        <h3><i class="fas fa-link"></i> ปุ่มดูกลุ่มทั้งหมด ${i + 1}</h3>
-                        <button class="admin-btn-del" onclick="deleteAllGroupsSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
-                    </div>
-                    <input type="text" class="admin-input" placeholder="หัวข้อ" value="${s.title}" onchange="updateAllGroupsSection(${i},'title',this.value)">
-                    <input type="text" class="admin-input" placeholder="ข้อความปุ่ม" value="${s.buttonText}" onchange="updateAllGroupsSection(${i},'buttonText',this.value)">
-                    <input type="text" class="admin-input" placeholder="ลิงก์" value="${s.buttonLink}" onchange="updateAllGroupsSection(${i},'buttonLink',this.value)">
-                `;
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
+                    <h3><i class="fas fa-link"></i> ปุ่มดูกลุ่มทั้งหมด ${i + 1}</h3>
+                    <button class="admin-btn-del" onclick="deleteAllGroupsSection(${i})"><i class="fas fa-trash"></i> ลบ</button>
+                </div>
+                <input type="text" class="admin-input" placeholder="หัวข้อ" value="${s.title}" onchange="updateAllGroupsSection(${i},'title',this.value)">
+                <input type="text" class="admin-input" placeholder="ข้อความปุ่ม" value="${s.buttonText}" onchange="updateAllGroupsSection(${i},'buttonText',this.value)">
+                <input type="text" class="admin-input" placeholder="ลิงก์" value="${s.buttonLink}" onchange="updateAllGroupsSection(${i},'buttonLink',this.value)">
+            `;
                 agl.appendChild(div);
             });
         }
@@ -2087,56 +2295,15 @@
         function renderSectionEditForm(section, index) {
             switch (section.type) {
                 case 'about':
-                    return `
-                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)">
-                        <textarea class="admin-input" placeholder="ข้อความ" rows="4" onchange="updateSection(${index},'text',this.value)">${section.text}</textarea>
-                    `;
+                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><textarea class="admin-input" placeholder="ข้อความ" rows="4" onchange="updateSection(${index},'text',this.value)">${section.text}</textarea>`;
                 case 'tags':
-                    return `
-                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)">
-                        <div id="tags-${index}">${section.tags.map((tag, ti) => `<div class="item-row"><input type="text" class="admin-input" value="${tag}" onchange="updateTag(${index},${ti},this.value)"><button class="admin-btn-del" onclick="deleteTag(${index},${ti})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
-                        <button class="admin-btn-add" onclick="addTag(${index})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button>
-                    `;
+                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><div id="tags-${index}">${section.tags.map((tag, ti) => `<div class="item-row"><input type="text" class="admin-input" value="${tag}" onchange="updateTag(${index},${ti},this.value)"><button class="admin-btn-del" onclick="deleteTag(${index},${ti})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addTag(${index})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button>`;
                 case 'price':
-                    return `
-                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)">
-                        <div id="price-cards-${index}">${section.priceCards.map((card, ci) => `<div class="item-row"><input type="text" class="admin-input" placeholder="ประเภท" value="${card.type}" onchange="updatePriceCard(${index},${ci},'type',this.value)"><input type="text" class="admin-input" placeholder="ราคา" value="${card.amount}" onchange="updatePriceCard(${index},${ci},'amount',this.value)"><input type="text" class="admin-input" placeholder="หน่วย" value="${card.unit}" onchange="updatePriceCard(${index},${ci},'unit',this.value)"><select class="admin-input" onchange="updatePriceCard(${index},${ci},'class',this.value)" style="width:100px;"><option value="gold" ${card.class === 'gold' ? 'selected' : ''}>ทอง</option><option value="silver" ${card.class === 'silver' ? 'selected' : ''}>เงิน</option></select><button class="admin-btn-del" onclick="deletePriceCard(${index},${ci})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
-                        <button class="admin-btn-add" onclick="addPriceCard(${index})"><i class="fas fa-plus"></i> เพิ่มการ์ดราคา</button>
-                        <textarea class="admin-input" placeholder="หมายเหตุ" rows="2" onchange="updateSection(${index},'bulkNote',this.value)">${section.bulkNote}</textarea>
-                    `;
+                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><div id="price-cards-${index}">${section.priceCards.map((card, ci) => `<div class="item-row"><input type="text" class="admin-input" placeholder="ประเภท" value="${card.type}" onchange="updatePriceCard(${index},${ci},'type',this.value)"><input type="text" class="admin-input" placeholder="ราคา" value="${card.amount}" onchange="updatePriceCard(${index},${ci},'amount',this.value)"><input type="text" class="admin-input" placeholder="หน่วย" value="${card.unit}" onchange="updatePriceCard(${index},${ci},'unit',this.value)"><select class="admin-input" onchange="updatePriceCard(${index},${ci},'class',this.value)" style="width:100px;"><option value="gold" ${card.class === 'gold' ? 'selected' : ''}>ทอง</option><option value="silver" ${card.class === 'silver' ? 'selected' : ''}>เงิน</option></select><button class="admin-btn-del" onclick="deletePriceCard(${index},${ci})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addPriceCard(${index})"><i class="fas fa-plus"></i> เพิ่มการ์ดราคา</button><textarea class="admin-input" placeholder="หมายเหตุ" rows="2" onchange="updateSection(${index},'bulkNote',this.value)">${section.bulkNote}</textarea>`;
                 case 'dodont':
-                    return `
-                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)">
-                        <h4 style="margin:10px 0;color:#4CAF50;">✅ รับทำ</h4>
-                        <div id="do-list-${index}">${section.doList.map((item, ii) => `<div class="item-row"><input type="text" class="admin-input" value="${item}" onchange="updateDoItem(${index},${ii},this.value)"><button class="admin-btn-del" onclick="deleteDoItem(${index},${ii})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
-                        <button class="admin-btn-add" onclick="addDoItem(${index})"><i class="fas fa-plus"></i> เพิ่ม</button>
-                        <h4 style="margin:10px 0;color:#f44336;">❌ ไม่รับ</h4>
-                        <div id="dont-list-${index}">${section.dontList.map((item, ii) => `<div class="item-row"><input type="text" class="admin-input" value="${item}" onchange="updateDontItem(${index},${ii},this.value)"><button class="admin-btn-del" onclick="deleteDontItem(${index},${ii})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
-                        <button class="admin-btn-add" onclick="addDontItem(${index})"><i class="fas fa-plus"></i> เพิ่ม</button>
-                    `;
+                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><h4 style="margin:10px 0;color:#4CAF50;">✅ รับทำ</h4><div id="do-list-${index}">${section.doList.map((item, ii) => `<div class="item-row"><input type="text" class="admin-input" value="${item}" onchange="updateDoItem(${index},${ii},this.value)"><button class="admin-btn-del" onclick="deleteDoItem(${index},${ii})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addDoItem(${index})"><i class="fas fa-plus"></i> เพิ่ม</button><h4 style="margin:10px 0;color:#f44336;">❌ ไม่รับ</h4><div id="dont-list-${index}">${section.dontList.map((item, ii) => `<div class="item-row"><input type="text" class="admin-input" value="${item}" onchange="updateDontItem(${index},${ii},this.value)"><button class="admin-btn-del" onclick="deleteDontItem(${index},${ii})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addDontItem(${index})"><i class="fas fa-plus"></i> เพิ่ม</button>`;
                 case 'steps':
-                    return `
-                        <input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)">
-                        <h4 style="margin:10px 0;">📋 ขั้นตอน</h4>
-                        <div id="steps-${index}">${section.steps.map((s, si) => `<div class="item-row"><input type="text" class="admin-input" value="${s}" onchange="updateStep(${index},${si},this.value)"><button class="admin-btn-del" onclick="deleteStep(${index},${si})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
-                        <button class="admin-btn-add" onclick="addStep(${index})"><i class="fas fa-plus"></i> เพิ่มขั้นตอน</button>
-                        <h4 style="margin:10px 0;">⏱ ระยะเวลา</h4>
-                        <div class="item-row">
-                            <input type="text" class="admin-input" placeholder="จำนวนวันเร็วสุด" value="${section.timeline.fast.day}" onchange="updateTimeline(${index},'fast','day',this.value)">
-                            <input type="text" class="admin-input" placeholder="ป้ายกำกับเร็วสุด" value="${section.timeline.fast.label}" onchange="updateTimeline(${index},'fast','label',this.value)">
-                        </div>
-                        <div class="item-row">
-                            <input type="text" class="admin-input" placeholder="จำนวนวันปกติ" value="${section.timeline.mid.day}" onchange="updateTimeline(${index},'mid','day',this.value)">
-                            <input type="text" class="admin-input" placeholder="ป้ายกำกับปกติ" value="${section.timeline.mid.label}" onchange="updateTimeline(${index},'mid','label',this.value)">
-                        </div>
-                        <div class="item-row">
-                            <input type="text" class="admin-input" placeholder="จำนวนวันช้าสุด" value="${section.timeline.slow.day}" onchange="updateTimeline(${index},'slow','day',this.value)">
-                            <input type="text" class="admin-input" placeholder="ป้ายกำกับช้าสุด" value="${section.timeline.slow.label}" onchange="updateTimeline(${index},'slow','label',this.value)">
-                        </div>
-                        <h4 style="margin:10px 0;">💳 ช่องทางชำระเงิน</h4>
-                        <div id="payments-${index}">${section.payments.map((p, pi) => `<div class="item-row"><input type="text" class="admin-input" value="${p}" onchange="updatePayment(${index},${pi},this.value)"><button class="admin-btn-del" onclick="deletePayment(${index},${pi})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
-                        <button class="admin-btn-add" onclick="addPayment(${index})"><i class="fas fa-plus"></i> เพิ่มช่องทาง</button>
-                    `;
+                    return `<input type="text" class="admin-input" placeholder="หัวข้อ" value="${section.title}" onchange="updateSection(${index},'title',this.value)"><h4 style="margin:10px 0;">📋 ขั้นตอน</h4><div id="steps-${index}">${section.steps.map((s, si) => `<div class="item-row"><input type="text" class="admin-input" value="${s}" onchange="updateStep(${index},${si},this.value)"><button class="admin-btn-del" onclick="deleteStep(${index},${si})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addStep(${index})"><i class="fas fa-plus"></i> เพิ่มขั้นตอน</button><h4 style="margin:10px 0;">⏱ ระยะเวลา</h4><div class="item-row"><input type="text" class="admin-input" placeholder="วันเร็วสุด" value="${section.timeline.fast.day}" onchange="updateTimeline(${index},'fast','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.fast.label}" onchange="updateTimeline(${index},'fast','label',this.value)"></div><div class="item-row"><input type="text" class="admin-input" placeholder="วันปกติ" value="${section.timeline.mid.day}" onchange="updateTimeline(${index},'mid','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.mid.label}" onchange="updateTimeline(${index},'mid','label',this.value)"></div><div class="item-row"><input type="text" class="admin-input" placeholder="วันช้าสุด" value="${section.timeline.slow.day}" onchange="updateTimeline(${index},'slow','day',this.value)"><input type="text" class="admin-input" placeholder="ป้ายกำกับ" value="${section.timeline.slow.label}" onchange="updateTimeline(${index},'slow','label',this.value)"></div><h4 style="margin:10px 0;">💳 ช่องทางชำระเงิน</h4><div id="payments-${index}">${section.payments.map((p, pi) => `<div class="item-row"><input type="text" class="admin-input" value="${p}" onchange="updatePayment(${index},${pi},this.value)"><button class="admin-btn-del" onclick="deletePayment(${index},${pi})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addPayment(${index})"><i class="fas fa-plus"></i> เพิ่มช่องทาง</button>`;
                 default: return '';
             }
         }
@@ -2147,43 +2314,16 @@
             data.groupsHeaders.forEach((h, i) => {
                 headerOptions += `<option value="${i}" ${groupSection.headerIndex === i ? 'selected' : ''}>${h.title}</option>`;
             });
-
-            let html = `
-                <select class="group-header-select" onchange="updateGroupSectionHeader(${index},this.value)">${headerOptions}</select>
-                <input type="text" class="admin-input" placeholder="ชื่อกลุ่มย่อย" value="${groupSection.title}" onchange="updateGroupSection(${index},'title',this.value)">
-            `;
-
+            let html = `<select class="group-header-select" onchange="updateGroupSectionHeader(${index},this.value)">${headerOptions}</select><input type="text" class="admin-input" placeholder="ชื่อกลุ่มย่อย" value="${groupSection.title}" onchange="updateGroupSection(${index},'title',this.value)">`;
             groupSection.groups.forEach((group, gi) => {
-                html += `
-                    <div style="border:1px solid #ddd;border-radius:12px;padding:15px;margin-bottom:15px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-                            <h4>กลุ่มที่ ${gi + 1}</h4>
-                            <button class="admin-btn-del" onclick="deleteGroup(${index},${gi})"><i class="fas fa-trash"></i> ลบกลุ่ม</button>
-                        </div>
-                        <input type="text" class="admin-input" placeholder="ชื่อกลุ่ม" value="${group.name}" onchange="updateGroup(${index},${gi},'name',this.value)">
-                        <input type="text" class="admin-input" placeholder="ราคา" value="${group.price || ''}" onchange="updateGroup(${index},${gi},'price',this.value)">
-                        <div id="group-tags-${index}-${gi}">${(group.tags || []).map((tag, ti) => `<div class="item-row"><input type="text" class="admin-input" value="${tag}" onchange="updateGroupTag(${index},${gi},${ti},this.value)"><button class="admin-btn-del" onclick="deleteGroupTag(${index},${gi},${ti})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
-                        <button class="admin-btn-add" onclick="addGroupTag(${index},${gi})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button>
-                        <input type="text" class="admin-input" placeholder="หมายเหตุ" value="${group.note || ''}" onchange="updateGroup(${index},${gi},'note',this.value)">
-                        <div id="group-links-${index}-${gi}">${(group.links || []).map((link, li) => `<div class="item-row"><input type="text" class="admin-input" placeholder="ข้อความลิงก์" value="${link.text}" onchange="updateGroupLink(${index},${gi},${li},'text',this.value)"><input type="text" class="admin-input" placeholder="URL" value="${link.url}" onchange="updateGroupLink(${index},${gi},${li},'url',this.value)"><button class="admin-btn-del" onclick="deleteGroupLink(${index},${gi},${li})"><i class="fas fa-trash"></i></button></div>`).join('')}</div>
-                        <button class="admin-btn-add" onclick="addGroupLink(${index},${gi})"><i class="fas fa-plus"></i> เพิ่มลิงก์</button>
-                    </div>
-                `;
+                html += `<div style="border:1px solid #ddd;border-radius:12px;padding:15px;margin-bottom:15px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><h4>กลุ่มที่ ${gi + 1}</h4><button class="admin-btn-del" onclick="deleteGroup(${index},${gi})"><i class="fas fa-trash"></i> ลบกลุ่ม</button></div><input type="text" class="admin-input" placeholder="ชื่อกลุ่ม" value="${group.name}" onchange="updateGroup(${index},${gi},'name',this.value)"><input type="text" class="admin-input" placeholder="ราคา" value="${group.price || ''}" onchange="updateGroup(${index},${gi},'price',this.value)"><div id="group-tags-${index}-${gi}">${(group.tags || []).map((tag, ti) => `<div class="item-row"><input type="text" class="admin-input" value="${tag}" onchange="updateGroupTag(${index},${gi},${ti},this.value)"><button class="admin-btn-del" onclick="deleteGroupTag(${index},${gi},${ti})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addGroupTag(${index},${gi})"><i class="fas fa-plus"></i> เพิ่มแท็ก</button><input type="text" class="admin-input" placeholder="หมายเหตุ" value="${group.note || ''}" onchange="updateGroup(${index},${gi},'note',this.value)"><div id="group-links-${index}-${gi}">${(group.links || []).map((link, li) => `<div class="item-row"><input type="text" class="admin-input" placeholder="ข้อความลิงก์" value="${link.text}" onchange="updateGroupLink(${index},${gi},${li},'text',this.value)"><input type="text" class="admin-input" placeholder="URL" value="${link.url}" onchange="updateGroupLink(${index},${gi},${li},'url',this.value)"><button class="admin-btn-del" onclick="deleteGroupLink(${index},${gi},${li})"><i class="fas fa-trash"></i></button></div>`).join('')}</div><button class="admin-btn-add" onclick="addGroupLink(${index},${gi})"><i class="fas fa-plus"></i> เพิ่มลิงก์</button></div>`;
             });
-
             html += `<button class="admin-btn-add" onclick="addGroup(${index})"><i class="fas fa-plus"></i> เพิ่มกลุ่ม</button>`;
             return html;
         }
 
         // ===================== UPDATE FUNCTIONS =====================
-        // *** NEW: update which header a section belongs to ***
-        function updateSectionHeader(sectionIndex, headerIndex) {
-            const d = loadData();
-            d.sections[sectionIndex].headerIndex = headerIndex;
-            saveData(d, true, true);
-            renderAdminSections();
-        }
-
+        function updateSectionHeader(sectionIndex, headerIndex) { const d = loadData(); d.sections[sectionIndex].headerIndex = headerIndex; saveData(d, true, true); renderAdminSections(); }
         function updateSection(i, f, v) { const d = loadData(); d.sections[i][f] = v; saveData(d, true, true); renderAdminSections(); }
         function updateTag(si, ti, v) { const d = loadData(); d.sections[si].tags[ti] = v; saveData(d, true, true); }
         function deleteTag(si, ti) { const d = loadData(); d.sections[si].tags.splice(ti, 1); saveData(d, true, true); renderAdminSections(); }
@@ -2242,58 +2382,21 @@
                     const d = loadData();
                     d.groupsHeaders.splice(index, 1);
                     d.groupSections = d.groupSections.filter(gs => gs.headerIndex !== index).map(gs => { if (gs.headerIndex > index) gs.headerIndex--; return gs; });
-                    // Also reset sections assigned to this header back to global
-                    d.sections = d.sections.map(s => {
-                        if (s.headerIndex === index) s.headerIndex = -1;
-                        else if (s.headerIndex > index) s.headerIndex--;
-                        return s;
-                    });
+                    d.sections = d.sections.map(s => { if (s.headerIndex === index) s.headerIndex = -1; else if (s.headerIndex > index) s.headerIndex--; return s; });
                     saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย');
                 }
             });
         }
 
-        function addGroupsHeader() {
-            const d = loadData();
-            d.groupsHeaders.push({ deco: '✦ ✦ ✦', title: 'หัวข้อใหม่', sub: 'คำอธิบาย', deco2: 'ข้อความท้าย' });
-            saveData(d, true, true); renderAdminSections();
-        }
+        function addGroupsHeader() { const d = loadData(); d.groupsHeaders.push({ deco: '✦ ✦ ✦', title: 'หัวข้อใหม่', sub: 'คำอธิบาย', deco2: 'ข้อความท้าย' }); saveData(d, true, true); renderAdminSections(); }
+        function deleteGroupSection(index) { showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'คุณแน่ใจหรือไม่?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => { if (r.isConfirmed) { const d = loadData(); d.groupSections.splice(index, 1); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); } }); }
+        function addGroupSection() { const d = loadData(); d.groupSections.push({ headerIndex: 0, title: 'กลุ่มย่อยใหม่', groups: [{ name: 'ชื่อกลุ่ม', tags: ['แท็ก'], links: [{ text: '🔗 ลิงก์', url: '#' }] }] }); saveData(d, true, true); renderAdminSections(); }
+        function deleteGroup(si, gi) { const d = loadData(); d.groupSections[si].groups.splice(gi, 1); saveData(d, true, true); renderAdminSections(); }
+        function addGroup(si) { const d = loadData(); d.groupSections[si].groups.push({ name: 'ชื่อกลุ่มใหม่', tags: ['แท็กใหม่'], links: [{ text: '🔗 ลิงก์', url: '#' }] }); saveData(d, true, true); renderAdminSections(); }
+        function deleteAllGroupsSection(index) { showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'คุณแน่ใจหรือไม่?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => { if (r.isConfirmed) { const d = loadData(); d.allGroupsSections.splice(index, 1); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); } }); }
+        function addAllGroupsSection() { const d = loadData(); d.allGroupsSections.push({ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: '📋 กดดูกลุ่มทั้งหมด', buttonLink: '#' }); saveData(d, true, true); renderAdminSections(); }
 
-        function deleteGroupSection(index) {
-            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'คุณแน่ใจหรือไม่?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => {
-                if (r.isConfirmed) { const d = loadData(); d.groupSections.splice(index, 1); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); }
-            });
-        }
-
-        function addGroupSection() {
-            const d = loadData();
-            d.groupSections.push({ headerIndex: 0, title: 'กลุ่มย่อยใหม่', groups: [{ name: 'ชื่อกลุ่ม', tags: ['แท็ก'], links: [{ text: '🔗 ลิงก์', url: '#' }] }] });
-            saveData(d, true, true); renderAdminSections();
-        }
-
-        function deleteGroup(si, gi) {
-            const d = loadData(); d.groupSections[si].groups.splice(gi, 1); saveData(d, true, true); renderAdminSections();
-        }
-
-        function addGroup(si) {
-            const d = loadData();
-            d.groupSections[si].groups.push({ name: 'ชื่อกลุ่มใหม่', tags: ['แท็กใหม่'], links: [{ text: '🔗 ลิงก์', url: '#' }] });
-            saveData(d, true, true); renderAdminSections();
-        }
-
-        function deleteAllGroupsSection(index) {
-            showModal({ icon: 'warning', title: 'ยืนยันการลบ', html: 'คุณแน่ใจหรือไม่?', confirmText: 'ใช่, ลบเลย', cancelText: 'ยกเลิก', dangerConfirm: true }).then(r => {
-                if (r.isConfirmed) { const d = loadData(); d.allGroupsSections.splice(index, 1); saveData(d, true, true); renderAdminSections(); showToast('🗑️ ลบเรียบร้อย'); }
-            });
-        }
-
-        function addAllGroupsSection() {
-            const d = loadData();
-            d.allGroupsSections.push({ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: '📋 กดดูกลุ่มทั้งหมด', buttonLink: '#' });
-            saveData(d, true, true); renderAdminSections();
-        }
-
-        // ===================== SAVE FUNCTIONS =====================
+        // ===================== SAVE HEADER / FOOTER =====================
         function saveHeader() {
             const d = loadData();
             d.header = {
@@ -2307,34 +2410,15 @@
             showToast('✅ บันทึกส่วนหัวเรียบร้อย');
         }
 
-        function saveContact() {
-            const d = loadData();
-            d.contact = {
-                fbLink: document.getElementById('a-contact-fb-link').value,
-                fbText: document.getElementById('a-contact-fb-text').value,
-                lineLink: document.getElementById('a-contact-line-link').value,
-                lineText: document.getElementById('a-contact-line-text').value,
-                note: document.getElementById('a-contact-note').value
-            };
-            saveData(d, true, true);
-            showToast('✅ บันทึกส่วนติดต่อเรียบร้อย');
-        }
-
         function saveFooter() {
             const d = loadData();
-            d.footer = {
-                name: document.getElementById('a-footer-name').value,
-                text: document.getElementById('a-footer-text').value
-            };
+            d.footer = { name: document.getElementById('a-footer-name').value, text: document.getElementById('a-footer-text').value };
             saveData(d, true, true);
             showToast('✅ บันทึกส่วนท้ายเรียบร้อย');
         }
 
-        // ===================== ADMIN FUNCTIONS =====================
-        function getCreds() {
-            try { return JSON.parse(localStorage.getItem(ADMIN_CREDS_KEY)) || { user: 'admin', pass: 'admin123' }; }
-            catch { return { user: 'admin', pass: 'admin123' }; }
-        }
+        // ===================== ADMIN OPEN/CLOSE =====================
+        function getCreds() { try { return JSON.parse(localStorage.getItem(ADMIN_CREDS_KEY)) || { user: 'admin', pass: 'admin123' }; } catch { return { user: 'admin', pass: 'admin123' }; } }
 
         function openAdmin() {
             if (!isAdminLoggedIn) {
@@ -2351,11 +2435,6 @@
             document.getElementById('a-shop-name').value = data.header.shopName || '';
             document.getElementById('a-shop-sub').value = data.header.shopSub || '';
             document.getElementById('a-status-text').value = data.header.statusText || '';
-            document.getElementById('a-contact-fb-link').value = data.contact.fbLink || '';
-            document.getElementById('a-contact-fb-text').value = data.contact.fbText || 'Facebook';
-            document.getElementById('a-contact-line-link').value = data.contact.lineLink || '';
-            document.getElementById('a-contact-line-text').value = data.contact.lineText || 'Line';
-            document.getElementById('a-contact-note').value = data.contact.note || '';
             document.getElementById('a-footer-name').value = data.footer.name || '';
             document.getElementById('a-footer-text').value = data.footer.text || '';
             const gs = getGsConfig();
@@ -2363,6 +2442,7 @@
             document.getElementById('gs-sheet-id').value = gs.sheetId || '';
             document.getElementById('gs-api-key').value = gs.apiKey || '';
             renderAdminSections();
+            renderContactAdmin();
             renderFontGrid();
             document.getElementById('admin-overlay').classList.add('show');
             startAutoSave();
@@ -2399,6 +2479,7 @@
             document.getElementById(tabId).classList.add('active');
             if (event && event.target) event.target.classList.add('active');
             if (tabId === 'tab-font') renderFontGrid();
+            if (tabId === 'tab-contact') renderContactAdmin();
         }
 
         function startAutoSave() {
@@ -2428,9 +2509,7 @@
                     saveData(data, true, true);
                     showToast('✅ นำเข้าข้อมูลสำเร็จ');
                     openAdmin();
-                } catch {
-                    showModal({ icon: 'error', title: 'ไฟล์ไม่ถูกต้อง', html: 'กรุณาเลือกไฟล์ JSON ที่ถูกต้อง', confirmText: 'ตกลง' });
-                }
+                } catch { showModal({ icon: 'error', title: 'ไฟล์ไม่ถูกต้อง', html: 'กรุณาเลือกไฟล์ JSON ที่ถูกต้อง', confirmText: 'ตกลง' }); }
             };
             reader.readAsText(file);
             event.target.value = '';
@@ -2446,17 +2525,12 @@
         // ===================== INIT =====================
         async function initApp() {
             applyFont(selectedFont);
-
-            const gsUrl = GS_WEBAPP_URL || (function () {
-                try { return JSON.parse(localStorage.getItem(GS_CONFIG_KEY) || '{}').webAppUrl || ''; } catch { return ''; }
-            })();
-
+            const gsUrl = GS_WEBAPP_URL || (function () { try { return JSON.parse(localStorage.getItem(GS_CONFIG_KEY) || '{}').webAppUrl || ''; } catch { return ''; } })();
             if (gsUrl) {
                 const success = await loadFromGoogleSheets(false);
                 if (success) console.log('✅ Loaded from Google Sheets');
                 else console.warn('⚠️ Using cached/default data');
             }
-
             renderSite();
             document.getElementById('loading-overlay').classList.add('hidden');
         }
