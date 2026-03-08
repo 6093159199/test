@@ -1495,12 +1495,12 @@
 
     <script>
         // ===================== CONFIG =====================
-        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxMLGiGEPS4yWgNy1_Ubmh5jR7YiBrZvs9kDl7MD40R1aLwZsO7EOG56UwM_pUEH31w/exec';
+        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzA_YBJ9B6JGy-6xCKhMtMghmXsof78gc4KJDqS8yG7YJ3nwdfkzupD4czm8Q3_uQvH/exec';
 
-        const ADMIN_CREDS_KEY = 'nexo_admin_creds';
-        const DATA_KEY = 'nexo_data';
-        const GS_CONFIG_KEY = 'nexo_gs_config';
-        const HISTORY_KEY = 'nexo_history';
+        const ADMIN_CREDS_KEY = 'bibimint_admin_creds';
+        const DATA_KEY = 'bibimint_data';
+        const GS_CONFIG_KEY = 'bibimint_gs_config';
+        const HISTORY_KEY = 'bibimint_history';
         let autoSaveTimer = null;
         let isAdminLoggedIn = false;
 
@@ -1528,7 +1528,7 @@
             { name: 'K2D', label: 'K2D', preview: 'สวัสดีครับ' },
         ];
 
-        let selectedFont = localStorage.getItem('nexo_font') || 'Mitr';
+        let selectedFont = localStorage.getItem('bibimint_font') || 'Mitr';
 
         function applyFont(fontName) {
             document.documentElement.style.setProperty('--font-main', `'${fontName}', 'Mitr', sans-serif`);
@@ -1556,7 +1556,7 @@
         }
 
         function saveFont() {
-            localStorage.setItem('nexo_font', selectedFont);
+            localStorage.setItem('bibimint_font', selectedFont);
             applyFont(selectedFont);
             showToast('✅ บันทึกฟอนต์เรียบร้อย');
         }
@@ -1772,23 +1772,23 @@
             return {
                 header: {
                     logoImg: 'https://img2.pic.in.th/pic/NEXO-SHOP-2-Photoroom.png',
-                    stars: ['⭐', '✨', '🌟', '✨'],
-                    shopName: 'ชื่อร้านของคุณ',
+                    stars: ['⭐', '✨', '🌟'],
+                    shopName: 'Bibimint Shop',
                     shopSub: 'งานป้าย · ลายน้ำ · กราฟฟิก',
-                    statusText: 'สถานะของร้าน'
+                    statusText: 'เปิดรับคิวอยู่นะคะ~'
                 },
                 sections: [
-                    { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ข้อความแนะนำร้านของคุณ <br>ย่อหน้าใหม่ตรงนี้' },
-                    { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 เพิ่มแนวป้ายที่รับทำตรงนี้'] },
-                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ราคาป้ายแต่ละแนว 1', amount: '20', unit: 'บาท / ป้าย', class: 'gold' }, { type: 'ราคาป้ายแต่ละแนว 2', amount: '30', unit: 'บาท / ป้าย', class: 'silver' }], bulkNote: 'ใส่รายละเอียดเพิ่มเติมตรงนี้ <strong>ถ้าต้องการให้ตัวหนาใส่ตรงนี้</strong> ใส่รายละเอียดเพิ่มเติมตรงนี้' },
-                    { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['ใส่ประเภทป้ายที่รับทำตรงนี้'], dontList: ['ใส่ประเภทป้ายที่ไม่รับทำตรงนี้'] },
-                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['ใส่วิธีการสั่งงานของคุณตรงนี้ <strong>ใส่ตรงนี้ถ้าต้องการให้ตัวหนาขึ้น</strong> ใส่วิธีการสั่งงานของคุณตรงนี้'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3–5', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['ใส่ช่องทางชำระเงินของคุณเช่นรับ ธนาคาร', 'ใส่ช่องทางชำระเงินของคุณเช่นรับ TrueMoney Wallet'] }
+                    { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ยินดีต้อนรับเข้าสู่ Bibimint Shop นะคะ~ ✨<br>รับออกแบบป้าย ลายน้ำ และงานกราฟฟิกหลากหลายแนว มีกลุ่มป้ายให้เลือกเยอะมากเลยค่า ทำตามบรีฟที่ลูกค้าให้แต่ปรับเป็นสไตล์ของร้านนะคะ 💛' },
+                    { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 แนว Ads / รก', '🐰 สายไหมบันนี่มิ้น', '🌸 แนวเซนเซิฟ', '💥 แนวความโกลาหล', '🃏 แนวไพ่เวทมนตร์', '👑 แนวเฮด', '✨ แนวเรียบน่ารัก'] },
+                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'แนว Ads / รก', amount: '89', unit: 'บาท / ป้าย', class: 'gold' }, { type: 'แนวเฮด / เรียบ', amount: '45', unit: 'บาท / ป้าย', class: 'silver' }], bulkNote: '✨ มีราคาเหมาสำหรับ <strong>3, 5, 10 ป้าย</strong> หรือมากกว่านี้ด้วยนะคะ~ ทักถามราคาเหมาได้เลยค่า!' },
+                    { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['ทำตามที่บรีฟ ปรับเป็นสไตล์ร้าน', 'แนวงานที่ร้านเช่ามาอย่างถูกต้อง'], dontList: ['แนวนอกจากที่ร้านมี', 'บรีฟเหมือนแนวของร้านอื่น'] },
+                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['เลือก <strong>บล็อก / ตูน / แนวหัวป้าย</strong> ที่ชอบ หรือบอกให้ร้านเลือกให้ก็ได้นะคะ~', 'กรอก <strong>ฟอร์มสั่งงาน</strong> ที่ร้านเตรียมไว้ให้ค่า', '<strong>ชำระเงิน</strong> ผ่านธนาคารกสิกร หรือ TrueMoney Wallet (บวกค่าธรรมเนียม 2฿)', 'รอรับงานภายใน <strong>1 – 7 วัน</strong> นะคะ~'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3–5', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['🏦 ธนาคารกสิกร', '💚 TrueMoney Wallet (+2฿)'] }
                 ],
-                groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'ตัวอย่างกลุ่ม', sub: 'คำอธิบายเพิ่มเติมถ้ามี', deco2: 'คำอธิบายเพิ่มเติมถ้ามี' }],
-                groupSections: [{ headerIndex: 0, title: '📚 กลุ่มคอร์สสอน', groups: [{ name: 'กลุ่มคอร์สสอนต่างๆถ้ามี', price: '10', tags: ['ประเภทที่สอนถ้ามี'], note: 'ข้อความโน๊ตถ้ามี', links: [{ text: '🔗 ดูตัวอย่าง', url: '#' }] }] }],
-                allGroupsSections: [{ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: 'ข้อความของปุ่ม', buttonLink: '####' }],
-                contact: { fbLink: '####', fbText: 'Facebook', lineLink: '####', lineText: 'Line', note: 'รายละเอียดเพิ่มเติมถ้ามี' },
-                footer: { name: 'ชื่อร้านของคุณ', text: 'ข้อความ | ####<br>ย่อหน้าใหม่ตรงนี้' }
+                groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'ตัวอย่างกลุ่ม', sub: 'ที่เค้ามี สามารถเข้ากับเค้าได้เลยนะคะ~ 💛', deco2: 'เลือกกลุ่มที่ชอบแล้วทักมาได้เลยนะ 🌟' }],
+                groupSections: [{ headerIndex: 0, title: '📚 กลุ่มคอร์สสอน', groups: [{ name: '🍎🧘🏻‍♀️💧✿ กลุ่มสอนทำสติ๊กเกอร์ message', price: '39', tags: ['ทำสติ๊กเกอร์แชทได้ทุกแบบ', 'มีคลิปสอน+เสียงพากย์', 'อัพครบ 5 คลิป', 'มือใหม่ทำได้ ✅'], note: '⚠️ สงสัยอะไรสามารถสอบถามได้', links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/1lMtkKpfDu-fFHxIl2856HYAkbGIYjmSJ' }] }] }],
+                allGroupsSections: [{ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: '📋 กดดูกลุ่มทั้งหมดที่มีได้เลยค่า~', buttonLink: 'https://www.facebook.com/share/p/1DZBqmapQT/?mibextid=wwXIfr' }],
+                contact: { fbLink: 'https://www.facebook.com/share/1CcAsKAEoG/?mibextid=wwXIfr', fbText: 'Facebook', lineLink: 'https://line.me/ti/p/jw6UMcatuR', lineText: 'Line', note: 'ทักผ่าน Facebook หรือ Line ได้เลยนะคะ~ 🌸' },
+                footer: { name: 'Bibimint Shop ✦', text: 'Fb | Bibimint Lulusia<br>ขอบคุณที่แวะมานะคะ~ 💛' }
             };
         }
 
@@ -1858,7 +1858,6 @@
                         <span class="logo-star s1">${data.header.stars[0]}</span>
                         <span class="logo-star s2">${data.header.stars[1]}</span>
                         <span class="logo-star s3">${data.header.stars[2]}</span>
-                        <span class="logo-star s4">${data.header.stars[3]}</span>
                     </div>
                     <div class="shop-name">${data.header.shopName}</div>
                     <div class="shop-sub">${data.header.shopSub}</div>
@@ -2239,7 +2238,7 @@
             const d = loadData();
             d.header = {
                 logoImg: document.getElementById('a-logo-img').value,
-                stars: [document.getElementById('a-star1').value, document.getElementById('a-star2').value, document.getElementById('a-star3').value, document.getElementById('a-star4').value],
+                stars: [document.getElementById('a-star1').value, document.getElementById('a-star2').value, document.getElementById('a-star3').value],
                 shopName: document.getElementById('a-shop-name').value,
                 shopSub: document.getElementById('a-shop-sub').value,
                 statusText: document.getElementById('a-status-text').value
@@ -2288,7 +2287,6 @@
             document.getElementById('a-star1').value = data.header.stars[0] || '⭐';
             document.getElementById('a-star2').value = data.header.stars[1] || '✨';
             document.getElementById('a-star3').value = data.header.stars[2] || '🌟';
-            document.getElementById('a-star4').value = data.header.stars[3] || '✨';
             document.getElementById('a-shop-name').value = data.header.shopName || '';
             document.getElementById('a-shop-sub').value = data.header.shopSub || '';
             document.getElementById('a-status-text').value = data.header.statusText || '';
@@ -2360,7 +2358,7 @@
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = url; a.download = `nexo-backup-${new Date().toISOString().slice(0, 10)}.json`;
+            a.href = url; a.download = `bibimint-backup-${new Date().toISOString().slice(0, 10)}.json`;
             document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
         }
 
@@ -2424,4 +2422,3 @@
 </body>
 
 </html>
-
