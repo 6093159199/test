@@ -1495,7 +1495,7 @@
 
     <script>
         // ===================== CONFIG =====================
-        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzfBd7m9NtjrZrraYv12l8kPEA6MynGNJpykVCmfWcir4iaVWBa_2KIqWSSrqGsAK4b/exec';
+        const GS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyB7ocvpZL-kTxW_uU-LdWJrsYWQEVcscLzsmYMKjLIl_cjbZiu8ie9dQezy-WgtHM/exec';
 
         const ADMIN_CREDS_KEY = 'nexo_admin_creds';
         const DATA_KEY = 'nexo_data';
@@ -1774,21 +1774,21 @@
                     logoImg: 'https://img2.pic.in.th/pic/NEXO-SHOP-2-Photoroom.png',
                     stars: ['⭐', '✨', '🌟'],
                     shopName: 'NEXO',
-                    shopSub: 'งานป้าย · ลายน้ำ · กราฟฟิก',
-                    statusText: 'เปิดรับคิวอยู่นะคะ~'
+                    shopSub: '###',
+                    statusText: 'สถานะของร้าน'
                 },
                 sections: [
-                    { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ยินดีต้อนรับเข้าสู่ NEXO นะคะ~ ✨<br>รับออกแบบป้าย ลายน้ำ และงานกราฟฟิกหลากหลายแนว มีกลุ่มป้ายให้เลือกเยอะมากเลยค่า ทำตามบรีฟที่ลูกค้าให้แต่ปรับเป็นสไตล์ของร้านนะคะ 💛' },
-                    { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 แนว Ads / รก', '🐰 สายไหมบันนี่มิ้น', '🌸 แนวเซนเซิฟ', '💥 แนวความโกลาหล', '🃏 แนวไพ่เวทมนตร์', '👑 แนวเฮด', '✨ แนวเรียบน่ารัก'] },
-                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'แนว Ads / รก', amount: '89', unit: 'บาท / ป้าย', class: 'gold' }, { type: 'แนวเฮด / เรียบ', amount: '45', unit: 'บาท / ป้าย', class: 'silver' }], bulkNote: '✨ มีราคาเหมาสำหรับ <strong>3, 5, 10 ป้าย</strong> หรือมากกว่านี้ด้วยนะคะ~ ทักถามราคาเหมาได้เลยค่า!' },
-                    { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['ทำตามที่บรีฟ ปรับเป็นสไตล์ร้าน', 'แนวงานที่ร้านเช่ามาอย่างถูกต้อง'], dontList: ['แนวนอกจากที่ร้านมี', 'บรีฟเหมือนแนวของร้านอื่น'] },
-                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['เลือก <strong>บล็อก / ตูน / แนวหัวป้าย</strong> ที่ชอบ หรือบอกให้ร้านเลือกให้ก็ได้นะคะ~', 'กรอก <strong>ฟอร์มสั่งงาน</strong> ที่ร้านเตรียมไว้ให้ค่า', '<strong>ชำระเงิน</strong> ผ่านธนาคารกสิกร หรือ TrueMoney Wallet (บวกค่าธรรมเนียม 2฿)', 'รอรับงานภายใน <strong>1 – 7 วัน</strong> นะคะ~'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3–5', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['🏦 ธนาคารกสิกร', '💚 TrueMoney Wallet (+2฿)'] }
+                    { type: 'about', title: '🐻 เกี่ยวกับร้าน', text: 'ใส่ข้อความแนะนำร้านของคุณ <br>ใส่ข้อความแนะนำร้านของคุณ' },
+                    { type: 'tags', title: '🎨 แนวงานที่รับทำ', tags: ['📢 ใส่แนวงานที่รับทำ'] },
+                    { type: 'price', title: '💰 ราคา', priceCards: [{ type: 'ตัวอย่างราคางาน 1', amount: '10', unit: 'บาท / ป้าย', class: 'gold' }, { type: 'ตัวอย่างราคางาน 2', amount: '10', unit: 'บาท / ป้าย', class: 'silver' }], bulkNote: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1 <strong>รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2</strong> รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 3' },
+                    { type: 'dodont', title: '📌 รับ / ไม่รับ', doList: ['รายละเอียดเพิ่มเติมถ้ามี'], dontList: ['รายละเอียดเพิ่มเติมถ้ามี'] },
+                    { type: 'steps', title: '📋 วิธีสั่ง & เงื่อนไข', steps: ['รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1 <strong>รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2</strong> รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 3'], timeline: { fast: { day: '1', label: 'วัน (เร็วสุด)' }, mid: { day: '3', label: 'วัน (ปกติ)' }, slow: { day: '7', label: 'วัน (สูงสุด)' } }, payments: ['รายละเอียดเพิ่มเติมถ้ามี', 'รายละเอียดเพิ่มเติมถ้ามี'] }
                 ],
-                groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'ตัวอย่างกลุ่ม', sub: 'ที่เค้ามี สามารถเข้ากับเค้าได้เลยนะคะ~ 💛', deco2: 'เลือกกลุ่มที่ชอบแล้วทักมาได้เลยนะ 🌟' }],
-                groupSections: [{ headerIndex: 0, title: '📚 กลุ่มคอร์สสอน', groups: [{ name: '🍎🧘🏻‍♀️💧✿ กลุ่มสอนทำสติ๊กเกอร์ message', price: '39', tags: ['ทำสติ๊กเกอร์แชทได้ทุกแบบ', 'มีคลิปสอน+เสียงพากย์', 'อัพครบ 5 คลิป', 'มือใหม่ทำได้ ✅'], note: '⚠️ สงสัยอะไรสามารถสอบถามได้', links: [{ text: '🔗 ดูตัวอย่าง', url: 'https://drive.google.com/drive/folders/1lMtkKpfDu-fFHxIl2856HYAkbGIYjmSJ' }] }] }],
-                allGroupsSections: [{ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: '📋 กดดูกลุ่มทั้งหมดที่มีได้เลยค่า~', buttonLink: 'https://www.facebook.com/share/p/1DZBqmapQT/?mibextid=wwXIfr' }],
-                contact: { fbLink: 'https://www.facebook.com/share/1CcAsKAEoG/?mibextid=wwXIfr', fbText: 'Facebook', lineLink: 'https://line.me/ti/p/jw6UMcatuR', lineText: 'Line', note: 'ทักผ่าน Facebook หรือ Line ได้เลยนะคะ~ 🌸' },
-                footer: { name: 'NEXO ✦', text: 'Fb | Bibimint Lulusia<br>ขอบคุณที่แวะมานะคะ~ 💛' }
+                groupsHeaders: [{ deco: '✦ ✦ ✦', title: 'รายละเอียดเพิ่มเติมถ้ามี', sub: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 1', deco2: 'รายละเอียดเพิ่มเติมถ้ามีส่วนที่ 2' }],
+                groupSections: [{ headerIndex: 0, title: 'รายละเอียดเพิ่มเติมถ้ามี', groups: [{ name: 'รายละเอียดเพิ่มเติมถ้ามี', price: '10', tags: ['รายละเอียดเพิ่มเติมถ้ามี'], note: 'รายละเอียดเพิ่มเติมถ้ามี', links: [{ text: '🔗 ดูตัวอย่าง', url: '###' }] }] }],
+                allGroupsSections: [{ title: '🔍 ดูกลุ่มทั้งหมด', buttonText: 'รายละเอียดเพิ่มเติมถ้ามี', buttonLink: '###' }],
+                contact: { fbLink: '###', fbText: 'Facebook', lineLink: '###', lineText: 'Line', note: 'รายละเอียดเพิ่มเติมถ้ามี' },
+                footer: { name: 'NEXO ✦', text: 'รายละเอียดเพิ่มเติม 1<br>รายละเอียดเพิ่มเติม 2' }
             };
         }
 
@@ -2358,7 +2358,7 @@
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.href = url; a.download = `bibimint-backup-${new Date().toISOString().slice(0, 10)}.json`;
+            a.href = url; a.download = `nexo-backup-${new Date().toISOString().slice(0, 10)}.json`;
             document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
         }
 
